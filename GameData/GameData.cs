@@ -1,6 +1,4 @@
-﻿using ZorksRevenge.Managers;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge
 {
     /* Game Data holds all the managers classes. 
      * Right now there are only three. 
@@ -8,15 +6,16 @@ namespace ZorksRevenge
     internal class GameData
     {
         // Instantiate the Managers
-        public ItemManager item_manager{ get; private set; }
-        public RoomManager room_manager {  get; private set; }
-        public WiringManager wiring_manager{ get; private set; }
+        public ItemManager itemManager{ get; private set; }
+        public RoomManager roomManager {  get; private set; }
+        public WiringManager wiringManager{ get; private set; }
 
         public GameData()
         {
-            item_manager = new ItemManager();
-            room_manager = new RoomManager();
-            wiring_manager = new WiringManager(this);
+            itemManager = new ItemManager();
+            roomManager = new RoomManager();
+            wiringManager = new WiringManager(this);
+
         }   
     }
 }

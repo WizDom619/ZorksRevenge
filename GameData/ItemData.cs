@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge
 {
     // All data relevant to items is kept here. 
     // All item objects are instanciated here. 

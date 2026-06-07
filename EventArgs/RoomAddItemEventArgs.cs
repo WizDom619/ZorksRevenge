@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge
 {
     public class RoomAddItemEventArgs : EventArgs
     {

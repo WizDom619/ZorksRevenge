@@ -1,54 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge
 {
     internal class Room
     {
-        public string name {  get; private set; }
-        private string description;
-        private bool is_player_here;
+        private string _name;
+        private string _description;
+        private bool _isPlayerHere;
 
-        private Room northern_room;
-        private Room southern_room;
-        private Room eastern_room;
-        private Room western_room;
+        private Room _northern_room;
+        private Room _southern_room;
+        private Room _eastern_room;
+        private Room _western_room;
 
-        private List<Item> items;
+        private List<Item> _items;
 
         //public event EventHandler<RoomAddItemEventArgs> on_item_added;
 
         public Room(string name, string description)
         {
-            this.name = name;
-            this.description = description;
-            is_player_here = false;
+            _name = name;
+            _description = description;
+            _isPlayerHere = false;
 
-            items = new List<Item>();
+            _items = new List<Item>();
         }
 
-        public void Add_Item(Item item)
+        public void AddItem(Item item)
         {
-            items.Add(item);
+            _items.Add(item);
         } 
-        public void Set_Connected_Room(Room room, CompasDirection.Direction dir)
+        public void SetConnectedRoom(Room room, CompasDirection.Direction dir)
         {
             switch (dir)
             {
                 case CompasDirection.Direction.North:
-                    northern_room = room;
+                    _northern_room = room;
                     break;
 
                 case CompasDirection.Direction.South:
-                    southern_room = room;
+                    _southern_room = room;
                     break;
 
                 case CompasDirection.Direction.East:
-                    eastern_room = room;
+                    _eastern_room = room;
                     break;
 
                 case CompasDirection.Direction.West:
-                    western_room = room;
+                    _western_room = room;
                     break;
             }
         }
@@ -74,6 +71,10 @@ namespace ZorksRevenge
         {
             get { return is_player_here; }
             set { is_player_here = value; }
+        }
+        public string Name
+        {
+            get { return _name; }
         }
     }
 }

@@ -1,28 +1,26 @@
-﻿using System;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge
 {
     internal class Item
     {
-        private string name;
-        private string description;
+        private string _name;
+        private string _description;
 
         public Item(string name, string description)
         {
-            this.name = name;
-            this.description = description;
+            _name = name;
+            _description = description;
         }
-        public void Change_Name(string new_name)
+        public void ChangeName(string new_name)
         {
-            name = new_name;
+            _name = new_name;
         }
-        public string To_String()
+        public override string ToString()
         {
-            return $"{name}: {description}";
+            return $"{_name}: {_description}";
         }        
         public string Name
         {
-            get { return name; }
+            get { return _name; }
         }
     }
 }
