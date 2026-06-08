@@ -53,7 +53,8 @@ namespace ZorksRevenge
         }
         public void Print()
         {
-            ColourManager.WriteLine($"{_name}: {_description}", ConsoleColor.Yellow);
+            ColourManager.Write($"{_name}: ", ConsoleColor.Magenta);
+            ColourManager.WriteLine($"{_description}", ConsoleColor.DarkMagenta);
             foreach (Item item in _items)
             {
                 ColourManager.Write(" -", ConsoleColor.Cyan);

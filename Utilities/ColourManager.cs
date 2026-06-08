@@ -8,22 +8,15 @@ namespace ZorksRevenge.Utilities
         public static void TEST_PrintAllColours()
         {
             BackgroundColor = White;
-            WriteLine("Black", Black);
-            WriteLine("DarkBlue", DarkBlue);
-            WriteLine("DarkGreen", DarkGreen);
-            WriteLine("DarkCyan", DarkCyan);
-            WriteLine("DarkRed", DarkRed);
-            WriteLine("DarkMagenta", DarkMagenta);
-            WriteLine("DarkYellow", DarkYellow);
-            WriteLine("Gray", Gray);
-            WriteLine("DarkGray", DarkGray);
-            WriteLine("Blue", Blue);
-            WriteLine("Green", Green); // Success
-            WriteLine("Cyan", Cyan); // Item
-            WriteLine("Red", Red); // Enemy, Dies, Error
-            WriteLine("Magenta", Magenta);
-            WriteLine("Yellow", Yellow); // Warning. Room
-            WriteLine("White", White);
+            Write("Black", Black);      WriteLine(" White", White);
+            Write("Gray ", Gray);       WriteLine("DarkGray", DarkGray);
+            Write("Blue ", Blue);       WriteLine("DarkBlue", DarkBlue);
+            Write("Green ", Green);     WriteLine("DarkGreen", DarkGreen); // Success
+            Write("Cyan ", Cyan);       WriteLine("DarkCyan", DarkCyan); // Item
+            Write("Red ", Red);         WriteLine("DarkRed", DarkRed); // Enemy, Dies, Error
+            Write("Magenta ", Magenta); WriteLine("DarkMagenta", DarkMagenta);
+            Write("Yellow ", Yellow);   WriteLine("DarkYellow", DarkYellow); // Warning. Room
+            WriteLine("", Black);
         }
         
         public static void Write(string text, ConsoleColor color)
