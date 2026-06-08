@@ -21,7 +21,6 @@ namespace ZorksRevenge.Managers
                 ColourPrinter.WriteLine($"     --{_playerData.GetCurrentRoom.Name}: {_playerData.GetCurrentRoom.Desc}--", ColourPrinter.RoomColour);
                 Console.WriteLine("****************************************************************************");
 
-
                 string i = Console.ReadLine();
             }
         }

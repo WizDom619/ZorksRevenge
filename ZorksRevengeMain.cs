@@ -1,5 +1,8 @@
 ﻿namespace ZorksRevenge
 {
+    /// <summary>
+    /// Zork's Revenge Main
+    /// </summary>
     /* I am unsure is having a my second custom main is neccessary. 
      * It just feels cooler though, this is where the real program begins.  
      */

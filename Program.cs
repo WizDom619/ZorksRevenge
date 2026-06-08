@@ -1,26 +1,24 @@
 ﻿using System.Drawing;
+using ZorksRevenge.Test;
 using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge
 {
-    /* The Main Program.
-     * Everything starts here. 
-     * It's only purpose is to begin the my game. 
-     */
+    /// <summary>
+    /// This is the Main of the Program. 
+    /// To keep things clean I just created the game's main.
+    /// So all the program has to do it 'Start'
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
         {
-            ZorksRevengeMain _zrMain = new ZorksRevengeMain();
+            //ZorksRevengeMain _zrMain = new ZorksRevengeMain();
 
-            /*TESTING
-            ColourPrinter.TEST_PrintAllColours();
+            //TESTING
+            ASCIIArt aa = new ASCIIArt();
 
-            GameData _gameData = new GameData();
-
-            _gameData.RoomManager.Print();
-            _gameData.ItemManager.Print();
-            */
+            Console.ReadLine();
         }
     }
 }

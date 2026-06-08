@@ -87,10 +87,15 @@ namespace ZorksRevenge
             _roomManager.FindRoom(room2).SetConnectedRoom(_roomManager.FindRoom(room1), dir.Opposite());            
         }
 
+        /// <summary>
+        /// Events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnStartNewGame(object sender, EventArgs e)
         {
-            Console.WriteLine(_roomManager.FindRoom("Entry").Name);
             _playerData.SetPlayerRoom(_roomManager.FindRoom("Entry"));
+
         }
     }
 }
