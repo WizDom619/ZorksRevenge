@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge.Managers
+﻿namespace ZorksRevenge.Test
 {
     internal class Manager
     {

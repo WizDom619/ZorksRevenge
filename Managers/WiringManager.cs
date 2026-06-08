@@ -1,4 +1,5 @@
-﻿using ZorksRevenge.Utilities;
+﻿using ZorksRevenge.Managers;
+using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge
 {
@@ -13,16 +14,26 @@ namespace ZorksRevenge
     {
         private ItemManager _itemManager;
         private RoomManager _roomManager;
-
+        private MainMenu _mainMenu;
+        private PlayerData _playerData;
         public WiringManager(GameData gameData) 
         {
             _itemManager = gameData.ItemManager;
             _roomManager = gameData.RoomManager;
+            _mainMenu = gameData.MainMenu;
+            _playerData = new PlayerData();          
+
 
             // Put the objects locations
             PutAllItemsInAllRooms();
             // Set which rooms know about each other. 
             ConnectAllRooms();
+
+
+            // Start New Game
+            Console.WriteLine("LOLOLO");
+            // Set Subscriptions. 
+            _mainMenu.OnNewGame += OnStartNewGame;
         }
         //Could remove the slipt of the two methods and just have the one. 
         private void PutAllItemsInAllRooms()
@@ -71,6 +82,12 @@ namespace ZorksRevenge
 
             _roomManager.FindRoom(room1).SetConnectedRoom(_roomManager.FindRoom(room2), dir.Direction);
             _roomManager.FindRoom(room2).SetConnectedRoom(_roomManager.FindRoom(room1), dir.Opposite());            
+        }
+
+        private void OnStartNewGame(object sender, EventArgs e)
+        {
+            Console.WriteLine(_roomManager.FindRoom("Entry").Name);
+            _playerData.SetPlayerRoom(_roomManager.FindRoom("Entry"));
         }
     }
 }

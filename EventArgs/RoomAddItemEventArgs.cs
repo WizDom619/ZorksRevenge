@@ -1,6 +1,6 @@
-﻿namespace ZorksRevenge
+﻿/*namespace ZorksRevenge
 {
-    public class RoomAddItemEventArgs : EventArgs
+    public class RoomAddItemEventArgs : RenamedEventArgs
     {
         public string item_name;
         public string room_name;
@@ -12,3 +12,4 @@
         }
     }
 }
+*/

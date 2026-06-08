@@ -1,4 +1,5 @@
-﻿using static System.Console;
+﻿using ZorksRevenge.Managers;
+using static System.Console;
 
 /* When the game begins there should be an opening menu. 
  * Player can choose a variety of options before beginning a game.  
@@ -17,13 +18,16 @@ namespace ZorksRevenge
             Invalid
         }
 
-        GameManager _gameManager;
+        private bool isMainMenuActive = true;
+        
         // Holds the players response to prompts. 
         PlayerResponse _playerResponse  = PlayerResponse.MainMenu;
 
+        public event EventHandler OnNewGame;
+
         public MainMenu()
         {
-            while (true)
+            while (isMainMenuActive)
             {
                 PrintTitle();
 
@@ -34,7 +38,8 @@ namespace ZorksRevenge
                         break;
 
                     case PlayerResponse.NewGame: // Begin a new game;
-                        _gameManager = new GameManager();
+                        OnNewGame?.Invoke(this, EventArgs.Empty);
+                        isMainMenuActive = false;
                         break;
 
                     case PlayerResponse.LoadGame: // Load a save

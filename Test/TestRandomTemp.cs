@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZorksRevenge
 {
-    class Test
+    class TestRandomTemp
     {
     }
 }

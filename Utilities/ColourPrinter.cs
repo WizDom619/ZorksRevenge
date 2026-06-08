@@ -3,7 +3,7 @@ using static System.ConsoleColor;
 
 namespace ZorksRevenge.Utilities
 {
-    internal static class ColourManager
+    internal static class ColourPrinter
     {
         public static void TEST_PrintAllColours()
         {

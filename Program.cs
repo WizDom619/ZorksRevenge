@@ -11,20 +11,16 @@ namespace ZorksRevenge
     {
         static void Main(string[] args)
         {
-            //Colour.TEST_PrintAllColours();
-            //ZorksRevengeMain _zrMain = new ZorksRevengeMain();
+            ZorksRevengeMain _zrMain = new ZorksRevengeMain();
 
-            //TESTING 2
-            ColourManager.TEST_PrintAllColours();
-            //ColourManager.Flicker("A torch flickers on the wall...");
-
-            //GameManager _game_manager = new GameManager();
+            /*TESTING
+            ColourPrinter.TEST_PrintAllColours();
 
             GameData _gameData = new GameData();
 
             _gameData.RoomManager.Print();
             _gameData.ItemManager.Print();
-
+            */
         }
     }
 }

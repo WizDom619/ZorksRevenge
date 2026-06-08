@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Test.Random.Temp.cs" />
+    <None Include="Test\TestRandomTemp.cs" />
   </ItemGroup>
 
 </Project>

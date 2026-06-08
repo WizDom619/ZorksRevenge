@@ -53,17 +53,17 @@ namespace ZorksRevenge
         }
         public void Print()
         {
-            ColourManager.Write($"{_name}: ", ConsoleColor.Yellow);
+            ColourPrinter.Write($"{_name}: ", ConsoleColor.DarkYellow);
             Console.WriteLine($"{_description}");
             foreach (Item item in _items)
             {
-                ColourManager.Write(" -", ConsoleColor.Cyan);
+                ColourPrinter.Write(" -", ConsoleColor.DarkCyan);
                 item.Print();
             }
-            if (_northernRoom != null) { Console.Write($"\n\tNorth of me is"); ColourManager.Write($" {_northernRoom.Name}", ConsoleColor.Yellow); }
-            if (_southernRoom != null) { Console.Write($"\n\tSouth of me is"); ColourManager.Write($" {_southernRoom.Name}", ConsoleColor.Yellow); }
-            if (_easternRoom != null) { Console.Write($"\n\tEast of me is"); ColourManager.Write($" {_easternRoom.Name}", ConsoleColor.Yellow); }
-            if (_westernRoom != null) { Console.Write($"\n\tWest of me is"); ColourManager.Write($" {_westernRoom.Name}", ConsoleColor.Yellow); }
+            if (_northernRoom != null) { Console.Write($"\n\tNorth of me is"); ColourPrinter.Write($" {_northernRoom.Name}", ConsoleColor.DarkYellow); }
+            if (_southernRoom != null) { Console.Write($"\n\tSouth of me is"); ColourPrinter.Write($" {_southernRoom.Name}", ConsoleColor.DarkYellow); }
+            if (_easternRoom != null) { Console.Write($"\n\tEast of me is"); ColourPrinter.Write($" {_easternRoom.Name}", ConsoleColor.DarkYellow); }
+            if (_westernRoom != null) { Console.Write($"\n\tWest of me is"); ColourPrinter.Write($" {_westernRoom.Name}", ConsoleColor.DarkYellow); }
 
             Console.WriteLine("\n ");
         }

@@ -5,7 +5,7 @@
      */
     internal class ZorksRevengeMain
     {
-        MainMenu _mainMenu;
+        GameManager _gameManager;
 
         //First thing all good games should begin with is the Main Menu. 
         public ZorksRevengeMain()
@@ -19,7 +19,7 @@
             Console.Clear();
 
             //Open with the game's Main Menu.
-            _mainMenu = new MainMenu();
+            _gameManager = new GameManager();
         }
     }
 }
