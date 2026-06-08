@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.Utilities;
+
+namespace ZorksRevenge
 {
     internal class Item
     {
@@ -14,9 +16,9 @@
         {
             _name = _new_name;
         }
-        public override string ToString()
+        public void Print()
         {
-            return $"{_name}: {_description}";
+            ColourManager.WriteLine($"{_name}: {_description}", ConsoleColor.Cyan);
         }        
         public string Name
         {

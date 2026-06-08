@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.Utilities;
+
+namespace ZorksRevenge
 {
     /* I;ve struggled with finding a way to have the managers to reference each other without being tightly coupled. 
      * The Wiring Manager is the soultion. 

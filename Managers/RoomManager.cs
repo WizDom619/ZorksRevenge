@@ -28,16 +28,12 @@ namespace ZorksRevenge
             }
             return return_room;
         }        
-        public override string ToString()
+        public void Print()
         {
-            string result = ""; 
-
             foreach(Room room in _rooms)
             {
-                result += room.ToString();
+                room.Print();
             }
-
-            return result;
         }        
     }
 }

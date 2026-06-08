@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge
 {
     /* I am unsure is having a my second custom main is neccessary. 
      * It just feels cooler though, this is where the real program begins.  
@@ -17,6 +15,8 @@ namespace ZorksRevenge
 
             //Usesure if I want this....
             Console.CursorVisible = false;
+
+            Console.Clear();
 
             //Open with the game's Main Menu.
             _mainMenu = new MainMenu();

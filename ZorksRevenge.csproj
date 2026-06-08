@@ -7,4 +7,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Test.Random.Temp.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Test.Random.Temp.cs" />
+  </ItemGroup>
+
 </Project>

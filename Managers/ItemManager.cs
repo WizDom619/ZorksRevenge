@@ -45,16 +45,12 @@
                 }
             }
         }
-        public override string ToString()
+        public void Print()
         {
-            string result = "";
-
             foreach (Item item in _items)
             {
-                result += item.ToString();
+                item.Print();
             }
-
-            return result; 
         }
     }    
 }

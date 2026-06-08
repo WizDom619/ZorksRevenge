@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.Utilities;
+
+namespace ZorksRevenge
 {
     internal class Room
     {
@@ -49,23 +51,20 @@
                     break;
             }
         }
-        public override string ToString()
+        public void Print()
         {
-            string result = "";
-
-            result += $"{_name}: {_description}\n";
+            ColourManager.WriteLine($"{_name}: {_description}", ConsoleColor.Yellow);
             foreach (Item item in _items)
             {
-                result += $"\t{item.ToString()} \n";
+                ColourManager.Write(" -", ConsoleColor.Cyan);
+                item.Print();
             }
-            if (_northernRoom != null) { result += $"\n\tNorth of me is {_northernRoom.Name}"; }
+            /*if (_northernRoom != null) { result += $"\n\tNorth of me is {_northernRoom.Name}"; }
             if (_southernRoom != null) { result += $"\n\tSouth of me is {_southernRoom.Name}"; }
             if (_easternRoom != null) { result += $"\n\tEast of me is {_easternRoom.Name}"; }
-            if (_westernRoom != null) { result += $"\n\tWest of me is {_westernRoom.Name}"; }
+            if (_westernRoom != null) { result += $"\n\tWest of me is {_westernRoom.Name}"; }*/
 
-            result += $"\n ";
-
-            return result;
+            Console.WriteLine("\n ");
         }
         public string Name { get { return _name; } }
         public bool IsPlayerHere

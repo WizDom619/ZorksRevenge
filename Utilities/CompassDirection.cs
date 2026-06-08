@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.Utilities
 {
     public enum Direction
     {
