@@ -10,9 +10,9 @@
             _name = name;
             _description = description;
         }
-        public void ChangeName(string new_name)
+        public void ChangeName(string _new_name)
         {
-            _name = new_name;
+            _name = _new_name;
         }
         public override string ToString()
         {

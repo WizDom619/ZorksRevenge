@@ -9,32 +9,32 @@ namespace ZorksRevenge
     // Rooms are instantiated in another class and returned, keeps things cleaner. 
     internal class RoomManager
     {
-        private List<Room> rooms;
+        private List<Room> _rooms;
 
         public RoomManager()
         {
-            rooms = new RoomData().InstantiateRoomData();
+            _rooms = new RoomData().InstantiateRoomData();
         }
-        public Room Find_Room(string name)
+        public Room FindRoom(string name)
         {
             Room return_room = new Room("Unkown Room", "Unknown Desc");
 
-            foreach (Room room in rooms)
+            foreach (Room room in _rooms)
             {
-                if (room.name == name)
+                if (room.Name == name)
                 {
                     return_room = room;
                 }
             }
             return return_room;
         }        
-        public string To_String()
+        public override string ToString()
         {
             string result = ""; 
 
-            foreach(Room room in rooms)
+            foreach(Room room in _rooms)
             {
-                result += room.To_String();
+                result += room.ToString();
             }
 
             return result;

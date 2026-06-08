@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge
 {
     // Access anything relevant to items is managed here. 
     // Item data is in a separate class. 
@@ -9,25 +6,25 @@ namespace ZorksRevenge
 
     internal class ItemManager
     {
-        private List<Item> items; //{ get; }
+        private List<Item> _items;
 
         public ItemManager()
         {
-            items = new ItemData().InstantiateItemData(); 
+            _items = new ItemData().InstantiateItemData(); 
         }
-        public void Add_Item(Item item)
+        public void AddItem(Item item)
         {
-            items.Add(item);
+            _items.Add(item);
         }
-        public void Remove_Item(Item item)
+        public void RemoveItem(Item item)
         {
-            items.Remove(item);
+            _items.Remove(item);
         }
-        public Item Find_Item(string name)
+        public Item FindItem(string name)
         {
             Item return_item = new Item("Unknown Item", "Unknown Desc");
 
-            foreach (Item item in items)
+            foreach (Item item in _items)
             {
                 if (item.Name == name)
                 {
@@ -37,24 +34,24 @@ namespace ZorksRevenge
             return return_item;
         }
 
-        public void Change_Item_Name(string old_name, string new_name)
+        public void ChangeItemName(string old_name, string new_name)
         {
 
-            foreach (Item item in items)
+            foreach (Item item in _items)
             {
                 if (item.Name == old_name)
                 {
-                    item.Change_Name(new_name);
+                    item.ChangeName(new_name);
                 }
             }
         }
-        public string To_String()
+        public override string ToString()
         {
             string result = "";
 
-            foreach (Item item in items)
+            foreach (Item item in _items)
             {
-                result += item.To_String();
+                result += item.ToString();
             }
 
             return result; 

@@ -6,16 +6,19 @@
     internal class GameData
     {
         // Instantiate the Managers
-        public ItemManager itemManager{ get; private set; }
-        public RoomManager roomManager {  get; private set; }
-        public WiringManager wiringManager{ get; private set; }
+        public ItemManager _itemManager;
+        public RoomManager _roomManager;
+        public WiringManager _wiringManager;
 
         public GameData()
         {
-            itemManager = new ItemManager();
-            roomManager = new RoomManager();
-            wiringManager = new WiringManager(this);
-
-        }   
+            _itemManager = new ItemManager();
+            _roomManager = new RoomManager();
+            _wiringManager = new WiringManager(this);
+        }  
+        
+        public ItemManager ItemManager { get { return _itemManager; } }
+        public RoomManager RoomManager { get { return _roomManager; } }
+        public WiringManager WiringManager { get { return _wiringManager; } }
     }
 }

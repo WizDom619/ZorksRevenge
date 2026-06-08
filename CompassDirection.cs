@@ -33,5 +33,7 @@ namespace ZorksRevenge
 
             return dir;
         }
+
+        public Direction Direction { get { return _direction; } }
     }
 }

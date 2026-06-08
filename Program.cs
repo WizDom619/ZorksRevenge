@@ -8,11 +8,11 @@
     {
         static void Main(string[] args)
         {
-            //Zorks_Revenge_Main _zrMain = new Zorks_Revenge_Main();
+            ZorksRevengeMain _zrMain = new ZorksRevengeMain();
 
             //TESTING 2
 
-            GameManager _game_manager = new GameManager();
+            //GameManager _game_manager = new GameManager();
         }
     }
 }

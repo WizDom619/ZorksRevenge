@@ -1,8 +1,4 @@
-﻿using System;
-using static ZorksRevenge.CompasDirection;
-using static ZorksRevenge.Room;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge
 {
     /* I;ve struggled with finding a way to have the managers to reference each other without being tightly coupled. 
      * The Wiring Manager is the soultion. 
@@ -13,66 +9,66 @@ namespace ZorksRevenge
      */
     internal class WiringManager
     {
-        private ItemManager item_manager;
-        private RoomManager room_manager;
+        private ItemManager _itemManager;
+        private RoomManager _roomManager;
 
-        public WiringManager(GameData game_data) 
+        public WiringManager(GameData gameData) 
         {
-            item_manager = game_data.item_manager;
-            room_manager = game_data.room_manager;
+            _itemManager = gameData.ItemManager;
+            _roomManager = gameData.RoomManager;
 
             // Put the objects locations
-            Put_All_Items_In_All_Rooms();
+            PutAllItemsInAllRooms();
             // Set which rooms know about each other. 
-            Connect_All_Rooms();
+            ConnectAllRooms();
         }
         //Could remove the slipt of the two methods and just have the one. 
-        private void Put_All_Items_In_All_Rooms()
+        private void PutAllItemsInAllRooms()
         {
-            Put_Item_In_Room("Rock", "Entry");
-            Put_Item_In_Room("Skull", "Entry");
-            Put_Item_In_Room("Pile of Dust", "Hallway");
-            Put_Item_In_Room("Ruby", "Bedroom");
-            Put_Item_In_Room("Pen", "Bedroom");
+            PutItemInRoom("Rock", "Entry");
+            PutItemInRoom("Skull", "Entry");
+            PutItemInRoom("Pile of Dust", "Hallway");
+            PutItemInRoom("Ruby", "Bedroom");
+            PutItemInRoom("Pen", "Bedroom");
         }
         // Not mergeed with Put_All_Items_In_All_Rooms()
         // This allows for easy parameter safety checks. 
-        private void Put_Item_In_Room(string item_name, string room_name)
+        private void PutItemInRoom(string item_name, string room_name)
         {
-            if (room_manager.Find_Room(room_name).name == "Unknown Room")
+            if (_roomManager.FindRoom(room_name).Name == "Unknown Room")
             {
                 Console.WriteLine($"ERROR: Invalid Room Name {room_name}");
                 return;
             }
-            else if (item_manager.Find_Item(item_name).Name == "Unknown Item")
+            else if (_itemManager.FindItem(item_name).Name == "Unknown Item")
             {
                 Console.WriteLine($"ERROR: Invalid Item Name {item_name}");
                 return;
             }
 
             // Assign an item to sit inside a room. 
-            room_manager.Find_Room(room_name).Add_Item(item_manager.Find_Item(item_name));
+            _roomManager.FindRoom(room_name).AddItem(_itemManager.FindItem(item_name));
         }
-        private void Connect_All_Rooms()
+        private void ConnectAllRooms()
         {
-            Connect_Room("Entry", new CompasDirection(Direction.North), "Hallway");
-            Connect_Room("Hallway", new CompasDirection(Direction.East), "Bedroom");
+            ConnectRoom("Entry", new CompassDirection(Direction.North), "Hallway");
+            ConnectRoom("Hallway", new CompassDirection(Direction.East), "Bedroom");
         }
-        private void Connect_Room(string room1, CompasDirection dir, string room2) 
+        private void ConnectRoom(string room1, CompassDirection dir, string room2) 
         {
-            if (room_manager.Find_Room(room1).name == "Unknown Room")
+            if (_roomManager.FindRoom(room1).Name == "Unknown Room")
             {
                 Console.WriteLine($"ERROR: Invalid Room Name {room1}");
                 return;
             }
-            else if (room_manager.Find_Room(room2).name == "Unknown Item")
+            else if (_roomManager.FindRoom(room2).Name == "Unknown Item")
             {
                 Console.WriteLine($"ERROR: Invalid Item Name {room2}");
                 return;
             }
 
-            room_manager.Find_Room(room1).Set_Connected_Room(room_manager.Find_Room(room2), dir.direction);
-            room_manager.Find_Room(room2).Set_Connected_Room(room_manager.Find_Room(room1), dir.Opposite());            
+            _roomManager.FindRoom(room1).SetConnectedRoom(_roomManager.FindRoom(room2), dir.Direction);
+            _roomManager.FindRoom(room2).SetConnectedRoom(_roomManager.FindRoom(room1), dir.Opposite());            
         }
     }
 }

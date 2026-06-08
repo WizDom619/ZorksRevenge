@@ -7,7 +7,7 @@ namespace ZorksRevenge
      */
     internal class ZorksRevengeMain
     {
-        Main_Menu _mainMenu;
+        MainMenu _mainMenu;
 
         //First thing all good games should begin with is the Main Menu. 
         public ZorksRevengeMain()
@@ -19,7 +19,7 @@ namespace ZorksRevenge
             Console.CursorVisible = false;
 
             //Open with the game's Main Menu.
-            _mainMenu = new Main_Menu();
+            _mainMenu = new MainMenu();
         }
     }
 }

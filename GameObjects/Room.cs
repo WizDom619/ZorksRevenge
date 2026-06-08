@@ -6,10 +6,10 @@
         private string _description;
         private bool _isPlayerHere;
 
-        private Room _northern_room;
-        private Room _southern_room;
-        private Room _eastern_room;
-        private Room _western_room;
+        private Room? _northernRoom;
+        private Room? _southernRoom;
+        private Room? _easternRoom;
+        private Room? _westernRoom;
 
         private List<Item> _items;
 
@@ -28,53 +28,50 @@
         {
             _items.Add(item);
         } 
-        public void SetConnectedRoom(Room room, CompasDirection.Direction dir)
+        public void SetConnectedRoom(Room room, Direction dir)
         {
             switch (dir)
             {
-                case CompasDirection.Direction.North:
-                    _northern_room = room;
+                case Direction.North:
+                    _northernRoom = room;
                     break;
 
-                case CompasDirection.Direction.South:
-                    _southern_room = room;
+                case Direction.South:
+                    _southernRoom = room;
                     break;
 
-                case CompasDirection.Direction.East:
-                    _eastern_room = room;
+                case Direction.East:
+                    _easternRoom = room;
                     break;
 
-                case CompasDirection.Direction.West:
-                    _western_room = room;
+                case Direction.West:
+                    _westernRoom = room;
                     break;
             }
         }
-        public string To_String()
+        public override string ToString()
         {
             string result = "";
 
-            result += $"{name}: {description}\n";
-            foreach (Item item in items)
+            result += $"{_name}: {_description}\n";
+            foreach (Item item in _items)
             {
-                result += $"\t{item.To_String()} \n";
+                result += $"\t{item.ToString()} \n";
             }
-            if (northern_room != null) { result += $"\n\tNorth of me is {northern_room.name}"; }
-            if (southern_room != null) { result += $"\n\tSouth of me is {southern_room.name}"; }
-            if (eastern_room != null) { result += $"\n\tEast of me is {eastern_room.name}"; }
-            if (western_room != null) { result += $"\n\tWest of me is {western_room.name}"; }
+            if (_northernRoom != null) { result += $"\n\tNorth of me is {_northernRoom.Name}"; }
+            if (_southernRoom != null) { result += $"\n\tSouth of me is {_southernRoom.Name}"; }
+            if (_easternRoom != null) { result += $"\n\tEast of me is {_easternRoom.Name}"; }
+            if (_westernRoom != null) { result += $"\n\tWest of me is {_westernRoom.Name}"; }
 
             result += $"\n ";
 
             return result;
         }
-        public bool Is_Player_Here
+        public string Name { get { return _name; } }
+        public bool IsPlayerHere
         {
-            get { return is_player_here; }
-            set { is_player_here = value; }
-        }
-        public string Name
-        {
-            get { return _name; }
+            get { return _isPlayerHere; }
+            set { _isPlayerHere = value; }
         }
     }
 }
