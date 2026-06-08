@@ -53,17 +53,17 @@ namespace ZorksRevenge
         }
         public void Print()
         {
-            ColourManager.Write($"{_name}: ", ConsoleColor.Magenta);
-            ColourManager.WriteLine($"{_description}", ConsoleColor.DarkMagenta);
+            ColourManager.Write($"{_name}: ", ConsoleColor.Yellow);
+            Console.WriteLine($"{_description}");
             foreach (Item item in _items)
             {
                 ColourManager.Write(" -", ConsoleColor.Cyan);
                 item.Print();
             }
-            /*if (_northernRoom != null) { result += $"\n\tNorth of me is {_northernRoom.Name}"; }
-            if (_southernRoom != null) { result += $"\n\tSouth of me is {_southernRoom.Name}"; }
-            if (_easternRoom != null) { result += $"\n\tEast of me is {_easternRoom.Name}"; }
-            if (_westernRoom != null) { result += $"\n\tWest of me is {_westernRoom.Name}"; }*/
+            if (_northernRoom != null) { Console.Write($"\n\tNorth of me is"); ColourManager.Write($" {_northernRoom.Name}", ConsoleColor.Yellow); }
+            if (_southernRoom != null) { Console.Write($"\n\tSouth of me is"); ColourManager.Write($" {_southernRoom.Name}", ConsoleColor.Yellow); }
+            if (_easternRoom != null) { Console.Write($"\n\tEast of me is"); ColourManager.Write($" {_easternRoom.Name}", ConsoleColor.Yellow); }
+            if (_westernRoom != null) { Console.Write($"\n\tWest of me is"); ColourManager.Write($" {_westernRoom.Name}", ConsoleColor.Yellow); }
 
             Console.WriteLine("\n ");
         }
