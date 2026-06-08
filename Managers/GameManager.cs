@@ -9,12 +9,17 @@ namespace ZorksRevenge
         private GameData _gameData;
         private WiringManager _wiringManager;
         private PlayerInputManager _playerInputManager;
+        private MainMenu _mainMenu;
 
         public GameManager()
         {
             _gameData = new GameData();
-            _wiringManager = new WiringManager(_gameData);
+            _mainMenu = new MainMenu();
+            _wiringManager = new WiringManager(_gameData, _mainMenu);
             _playerInputManager = new PlayerInputManager(_gameData.PlayerData);
+
+            _mainMenu.ActivateMainMenuLoop();
+            _playerInputManager.ActivatePlayerInputLoop();
         }
     }    
 }

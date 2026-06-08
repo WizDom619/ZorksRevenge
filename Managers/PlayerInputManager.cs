@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge.Managers
+﻿using ZorksRevenge.Utilities;
+
+namespace ZorksRevenge.Managers
 {
     internal class PlayerInputManager
     {
@@ -6,15 +8,18 @@
 
         public PlayerInputManager(PlayerData playerData)
         {
-            _playerData = playerData;
+            _playerData = playerData;            
+        }
 
+        public void ActivatePlayerInputLoop()
+        {
             Console.Clear();
 
             while (_playerData.IsPlaying)
             {
-                Console.WriteLine("***********************************************");
-                Console.WriteLine($" {_playerData.CurrentRoom.Name}");
-                Console.WriteLine("***********************************************");
+                Console.WriteLine("****************************************************************************");
+                ColourPrinter.WriteLine($"     --{_playerData.GetCurrentRoom.Name}: {_playerData.GetCurrentRoom.Desc}--", ColourPrinter.RoomColour);
+                Console.WriteLine("****************************************************************************");
 
 
                 string i = Console.ReadLine();

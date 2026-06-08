@@ -7,11 +7,11 @@ namespace ZorksRevenge
     internal class PlayerData
     {
         private bool isPlaying = true;
-        private Room _currentRoom;
+        private Room? _currentRoom;
 
         public PlayerData()
         {
-
+            _currentRoom = null;
         }
 
 
@@ -24,7 +24,7 @@ namespace ZorksRevenge
         {
             get { return isPlaying; }
         }
-        public Room CurrentRoom
+        public Room GetCurrentRoom
         {
             get { return _currentRoom; }
         }

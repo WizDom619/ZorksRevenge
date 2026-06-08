@@ -27,6 +27,11 @@ namespace ZorksRevenge
 
         public MainMenu()
         {
+            
+        }
+
+        public void ActivateMainMenuLoop()
+        {
             while (isMainMenuActive)
             {
                 PrintTitle();

@@ -8,9 +8,9 @@
         {
             return new List<Room>
             {
-                new Room("Entry", "This is where you start."),
-                new Room("Hallway", "You are in a long hallway."),
-                new Room("Bedroom", "A room where you sleep.")
+                new Room("Entry", "This is where you start"),
+                new Room("Hallway", "You are in a long hallway"),
+                new Room("Bedroom", "A room where you sleep")
             };
 
         }

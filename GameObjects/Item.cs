@@ -18,7 +18,7 @@ namespace ZorksRevenge
         }
         public void Print()
         {
-            ColourPrinter.Write($"{_name}: ", ConsoleColor.DarkCyan);
+            ColourPrinter.Write($"{_name}: ", ColourPrinter.ItemColour);
             ColourPrinter.WriteLine($"{_description}", ConsoleColor.Gray);
         }        
         public string Name

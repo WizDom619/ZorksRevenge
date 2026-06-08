@@ -5,6 +5,10 @@ namespace ZorksRevenge.Utilities
 {
     internal static class ColourPrinter
     {
+        public static ConsoleColor RoomColour = DarkYellow;
+        public static ConsoleColor ItemColour = DarkCyan;
+        public static ConsoleColor PlayerColour = DarkGreen;
+
         public static void TEST_PrintAllColours()
         {
             BackgroundColor = White;

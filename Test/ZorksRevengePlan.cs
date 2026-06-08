@@ -1,4 +1,4 @@
-//Improve
+/* Improve
 	// !Fix Comments
 	// !MainMenu hold GameManager
 	// !Questions structure, create input handling loop to get a better sense of everything. 
@@ -8,9 +8,9 @@
 	//-Game Menu
 
 
-//TODO
-	Items.Locks
-	Items.Keys
+//TODO 
+	Items.Locks 
+    Items.Keys
 	Items.Consumables (Kit-Kats, Raw Chicken Breast, Half-Eaten Chicken Parma, Pesto Pasta)
 	Item Containers (chests)
 	Inventory
@@ -48,4 +48,4 @@
 	-Items
 	-Text Colour Util
 	
-	
+*/
