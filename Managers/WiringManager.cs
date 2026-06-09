@@ -14,17 +14,17 @@ namespace ZorksRevenge
     {
         private ItemManager _itemManager;
         private RoomManager _roomManager;
-        private MainMenu _mainMenu;
+        private MainMenuManager _mainMenu;
         private PlayerData _playerData;
-        public WiringManager(GameData gameData, MainMenu mainMenu) 
+        public WiringManager(GameManager gameManager) 
         {
             // Start New Game
             
 
-            _itemManager = gameData.ItemManager;
-            _roomManager = gameData.RoomManager;
-            _mainMenu = mainMenu;
-            _playerData = gameData.PlayerData;
+            _itemManager = gameManager.GameData.ItemManager;
+            _roomManager = gameManager.GameData.RoomManager;
+            _mainMenu = gameManager.MainMenuManager;
+            _playerData = gameManager.GameData.PlayerData;
 
             //_playerData.SetPlayerRoom(_roomManager.FindRoom("Entry"));
 

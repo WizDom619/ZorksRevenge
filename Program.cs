@@ -13,12 +13,8 @@ namespace ZorksRevenge
     {
         static void Main(string[] args)
         {
-            //ZorksRevengeMain _zrMain = new ZorksRevengeMain();
+            ZorksRevengeMain _zrMain = new ZorksRevengeMain();
 
-            //TESTING
-            ASCIIArt aa = new ASCIIArt();
-
-            Console.ReadLine();
         }
     }
 }

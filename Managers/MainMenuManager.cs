@@ -1,12 +1,11 @@
-﻿using ZorksRevenge.Managers;
-using static System.Console;
+﻿using static System.Console;
 
 /* When the game begins there should be an opening menu. 
  * Player can choose a variety of options before beginning a game.  
  */
-namespace ZorksRevenge
+namespace ZorksRevenge.Managers
 {
-    internal class MainMenu
+    internal class MainMenuManager
     {
         enum PlayerResponse
         {
@@ -25,12 +24,12 @@ namespace ZorksRevenge
 
         public event EventHandler OnNewGame;
 
-        public MainMenu()
+        public MainMenuManager()
         {
             
         }
 
-        public void ActivateMainMenuLoop()
+        public void Update()
         {
             while (isMainMenuActive)
             {

@@ -7,20 +7,32 @@ namespace ZorksRevenge
     internal class GameManager
     {
         private GameData _gameData;
-        private WiringManager _wiringManager;
+        private MainMenuManager _mainMenuManager;
         private PlayerInputManager _playerInputManager;
-        private MainMenu _mainMenu;
+
+        private WiringManager _wiringManager;
+
+        private bool isGameLooping = true;
 
         public GameManager()
         {
+            // Instiate All Managers
             _gameData = new GameData();
-            _mainMenu = new MainMenu();
-            _wiringManager = new WiringManager(_gameData, _mainMenu);
+            _mainMenuManager = new MainMenuManager();
             _playerInputManager = new PlayerInputManager(_gameData.PlayerData);
 
-            _mainMenu.ActivateMainMenuLoop();
-            _playerInputManager.ActivatePlayerInputLoop();
+            _wiringManager = new WiringManager(this);
+
+            // Main Game Loop
+            while(isGameLooping)
+            {
+                _mainMenuManager.Update();
+                _playerInputManager.Update();
+            }
         }
+
+        public GameData GameData { get { return _gameData; } }
+        public MainMenuManager MainMenuManager { get { return _mainMenuManager; } }
     }    
 }
 

@@ -1,5 +1,5 @@
 /* Improve
-	// !Fix Comments
+	// !Fix Comments https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments
 	// !MainMenu hold GameManager
 	// !Questions structure, create input handling loop to get a better sense of everything. 
 	// !ItemData could be static. 

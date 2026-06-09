@@ -11,7 +11,7 @@ namespace ZorksRevenge.Managers
             _playerData = playerData;            
         }
 
-        public void ActivatePlayerInputLoop()
+        public void Update()
         {
             Console.Clear();
 
