@@ -20,14 +20,9 @@ namespace ZorksRevenge.Managers
         private bool isMainMenuActive = true;
         
         // Holds the players response to prompts. 
-        PlayerResponse _playerResponse  = PlayerResponse.MainMenu;
+        PlayerResponse _playerResponse = PlayerResponse.MainMenu;
 
         public event EventHandler OnNewGame;
-
-        public MainMenuManager()
-        {
-            
-        }
 
         public void Update()
         {

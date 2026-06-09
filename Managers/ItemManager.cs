@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.Managers.GameData;
+
+namespace ZorksRevenge
 {
     // Access anything relevant to items is managed here. 
     // Item data is in a separate class. 

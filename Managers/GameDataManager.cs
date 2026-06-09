@@ -1,16 +1,18 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.Managers.GameData;
+
+namespace ZorksRevenge.Managers
 {
     /* Game Data holds all the managers classes. 
      * Right now there are only three. 
      * */
-    internal class GameData
+    internal class GameDataManager
     {
         // Instantiate the Managers
         private ItemManager _itemManager;
         private RoomManager _roomManager;
         private PlayerData _playerData;
 
-        public GameData()
+        public GameDataManager()
         {
             _itemManager = new ItemManager();
             _roomManager = new RoomManager();

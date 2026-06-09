@@ -23,6 +23,7 @@
 
             //Open with the game's Main Menu.
             _gameManager = new GameManager();
+            _gameManager.Update();
         }
     }
 }

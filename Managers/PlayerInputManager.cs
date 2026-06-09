@@ -1,4 +1,5 @@
-﻿using ZorksRevenge.Utilities;
+﻿using ZorksRevenge.Managers.GameData;
+using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge.Managers
 {
@@ -18,7 +19,8 @@ namespace ZorksRevenge.Managers
             while (_playerData.IsPlaying)
             {
                 Console.WriteLine("****************************************************************************");
-                ColourPrinter.WriteLine($"     --{_playerData.GetCurrentRoom.Name}: {_playerData.GetCurrentRoom.Desc}--", ColourPrinter.RoomColour);
+                ColourPrinter.Write($"     {_playerData.GetCurrentRoom.Name}: ", ColourPrinter.RoomColour); 
+                Console.WriteLine(       $"{_playerData.GetCurrentRoom.Desc}");
                 Console.WriteLine("****************************************************************************");
 
                 string i = Console.ReadLine();

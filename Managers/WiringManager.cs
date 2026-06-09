@@ -1,4 +1,5 @@
 ﻿using ZorksRevenge.Managers;
+using ZorksRevenge.Managers.GameData;
 using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge

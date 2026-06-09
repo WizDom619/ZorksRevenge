@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using static ZorksRevenge.Room;
+﻿using ZorksRevenge.Managers.GameData;
 
 namespace ZorksRevenge
 {

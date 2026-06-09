@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge
+﻿namespace ZorksRevenge.Managers.GameData
 {
     // All data relevant to items is kept here. 
     // All item objects are instanciated here. 

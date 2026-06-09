@@ -6,7 +6,7 @@ namespace ZorksRevenge
     // Right now is just creating all the game data which is in a separate class. 
     internal class GameManager
     {
-        private GameData _gameData;
+        private GameDataManager _gameData;
         private MainMenuManager _mainMenuManager;
         private PlayerInputManager _playerInputManager;
 
@@ -17,21 +17,24 @@ namespace ZorksRevenge
         public GameManager()
         {
             // Instiate All Managers
-            _gameData = new GameData();
+            _gameData = new GameDataManager();
             _mainMenuManager = new MainMenuManager();
             _playerInputManager = new PlayerInputManager(_gameData.PlayerData);
 
             _wiringManager = new WiringManager(this);
+        }
 
+        public void Update()
+        {
             // Main Game Loop
-            while(isGameLooping)
+            while (isGameLooping)
             {
                 _mainMenuManager.Update();
                 _playerInputManager.Update();
             }
         }
 
-        public GameData GameData { get { return _gameData; } }
+        public GameDataManager GameData { get { return _gameData; } }
         public MainMenuManager MainMenuManager { get { return _mainMenuManager; } }
     }    
 }
