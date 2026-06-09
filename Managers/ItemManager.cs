@@ -8,11 +8,16 @@ namespace ZorksRevenge
 
     internal class ItemManager
     {
+        private WiringManager _wiringManager;
+
         private List<Item> _items;
 
-        public ItemManager()
+        public ItemManager(WiringManager wiringManager)
         {
-            _items = new ItemData().InstantiateItemData(); 
+            _wiringManager = wiringManager;
+            _wiringManager.OnActionSendItemsToItemManager += OnActionSendItemsToItemManager;
+
+            _items = new List<Item>();
         }
         public void AddItem(Item item)
         {
@@ -22,20 +27,6 @@ namespace ZorksRevenge
         {
             _items.Remove(item);
         }
-        public Item FindItem(string name)
-        {
-            Item return_item = new Item("Unknown Item", "Unknown Desc");
-
-            foreach (Item item in _items)
-            {
-                if (item.Name == name)
-                {
-                    return_item = item;
-                }
-            }
-            return return_item;
-        }
-
         public void ChangeItemName(string old_name, string new_name)
         {
 
@@ -47,12 +38,20 @@ namespace ZorksRevenge
                 }
             }
         }
+        private void OnActionSendItemsToItemManager(List<Item> items)
+        {
+            foreach (Item item in items)
+            {
+                AddItem(item);
+            }
+        }
         public void Print()
         {
             foreach (Item item in _items)
             {
                 item.Print();
             }
+            Console.WriteLine("");
         }
     }    
 }

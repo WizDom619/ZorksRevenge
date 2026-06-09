@@ -1,5 +1,4 @@
-﻿using ZorksRevenge.Managers;
-using ZorksRevenge.Managers.GameData;
+﻿using ZorksRevenge.Managers.GameData;
 using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge
@@ -13,33 +12,43 @@ namespace ZorksRevenge
      */
     internal class WiringManager
     {
-        private ItemManager _itemManager;
-        private RoomManager _roomManager;
-        private MainMenuManager _mainMenu;
-        private PlayerData _playerData;
-        public WiringManager(GameManager gameManager) 
-        {
-            // Start New Game
-            
 
-            _itemManager = gameManager.GameData.ItemManager;
-            _roomManager = gameManager.GameData.RoomManager;
-            _mainMenu = gameManager.MainMenuManager;
-            _playerData = gameManager.GameData.PlayerData;
+        private ItemData _itemData;
+        private RoomData _roomData;
+        //private PlayerData _playerData;
+
+        //private List<Item> _items;
+
+        public event Action<List<Item>>? OnActionSendItemsToItemManager;
+        public event Action<List<Room>>? OnActionSendRoomsToRoomManager;
+        public event Action<Item,Room>? OnActionPutItemInRoom;
+
+        public WiringManager() 
+        {
+            _itemData = new ItemData();
+            _roomData = new RoomData();
+
+            //Setup
+            // Put the objects locations
+            PutAllItemsInAllRooms();
 
             //_playerData.SetPlayerRoom(_roomManager.FindRoom("Entry"));
 
-            _mainMenu.OnNewGame += OnStartNewGame;
+            //_mainMenu.OnNewGame += OnStartNewGame;
 
-            // Put the objects locations
-            PutAllItemsInAllRooms();
+            
             // Set which rooms know about each other. 
             ConnectAllRooms();
 
-
             
+
         }
-        //Could remove the slipt of the two methods and just have the one. 
+        public void Update()
+        {
+            OnActionSendItemsToItemManager?.Invoke(_itemData.Items);
+            OnActionSendRoomsToRoomManager?.Invoke(_roomData.Rooms);
+            PutAllItemsInAllRooms();
+        }
         private void PutAllItemsInAllRooms()
         {
             PutItemInRoom("Rock", "Entry");
@@ -48,32 +57,30 @@ namespace ZorksRevenge
             PutItemInRoom("Ruby", "Bedroom");
             PutItemInRoom("Pen", "Bedroom");
         }
-        // Not mergeed with Put_All_Items_In_All_Rooms()
-        // This allows for easy parameter safety checks. 
         private void PutItemInRoom(string item_name, string room_name)
         {
-            if (_roomManager.FindRoom(room_name).Name == "Unknown Room")
+            if (_roomData.FindRoom(room_name).Name == "Unknown Room")
             {
                 Console.WriteLine($"ERROR: Invalid Room Name {room_name}");
                 return;
             }
-            else if (_itemManager.FindItem(item_name).Name == "Unknown Item")
+            else if (_itemData.FindItem(item_name).Name == "Unknown Item")
             {
                 Console.WriteLine($"ERROR: Invalid Item Name {item_name}");
                 return;
             }
 
             // Assign an item to sit inside a room. 
-            _roomManager.FindRoom(room_name).AddItem(_itemManager.FindItem(item_name));
+            OnActionPutItemInRoom?.Invoke(_itemData.FindItem(item_name), _roomData.FindRoom(room_name));
         }
         private void ConnectAllRooms()
         {
-            ConnectRoom("Entry", new CompassDirection(Direction.North), "Hallway");
-            ConnectRoom("Hallway", new CompassDirection(Direction.East), "Bedroom");
+            //ConnectRoom("Entry", new CompassDirection(Direction.North), "Hallway");
+            //ConnectRoom("Hallway", new CompassDirection(Direction.East), "Bedroom");
         }
         private void ConnectRoom(string room1, CompassDirection dir, string room2) 
         {
-            if (_roomManager.FindRoom(room1).Name == "Unknown Room")
+            /*if (_roomManager.FindRoom(room1).Name == "Unknown Room")
             {
                 Console.WriteLine($"ERROR: Invalid Room Name {room1}");
                 return;
@@ -82,10 +89,10 @@ namespace ZorksRevenge
             {
                 Console.WriteLine($"ERROR: Invalid Item Name {room2}");
                 return;
-            }
+            }*/
 
-            _roomManager.FindRoom(room1).SetConnectedRoom(_roomManager.FindRoom(room2), dir.Direction);
-            _roomManager.FindRoom(room2).SetConnectedRoom(_roomManager.FindRoom(room1), dir.Opposite());            
+            //_roomManager.FindRoom(room1).SetConnectedRoom(_roomManager.FindRoom(room2), dir.Direction);
+            //_roomManager.FindRoom(room2).SetConnectedRoom(_roomManager.FindRoom(room1), dir.Opposite());            
         }
 
         /// <summary>
@@ -95,7 +102,7 @@ namespace ZorksRevenge
         /// <param name="e"></param>
         private void OnStartNewGame(object sender, EventArgs e)
         {
-            _playerData.SetPlayerRoom(_roomManager.FindRoom("Entry"));
+            //_playerData.SetPlayerRoom(_roomManager.FindRoom("Entry"));
 
         }
     }

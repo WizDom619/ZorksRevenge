@@ -65,7 +65,7 @@ namespace ZorksRevenge
             if (_easternRoom != null) { Console.Write($"\n\tEast of me is"); ColourPrinter.Write($" {_easternRoom.Name}", ColourPrinter.RoomColour); }
             if (_westernRoom != null) { Console.Write($"\n\tWest of me is"); ColourPrinter.Write($" {_westernRoom.Name}", ColourPrinter.RoomColour); }
 
-            Console.WriteLine("\n ");
+            Console.WriteLine("");
         }
         public string Name { get { return _name; } }
         public string Desc { get { return _description; } }
