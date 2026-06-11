@@ -10,44 +10,34 @@ namespace ZorksRevenge
      * ... What rooms connect to each other. 
      * ... What manager subscribe to other managers events. ect...
      */
-    internal class WiringManager
+    internal class EventManager
     {
 
         private ItemData _itemData;
         private RoomData _roomData;
-        //private PlayerData _playerData;
+        private PlayerData _playerData;
 
         //private List<Item> _items;
 
         public event Action<List<Item>>? OnActionSendItemsToItemManager;
         public event Action<List<Room>>? OnActionSendRoomsToRoomManager;
         public event Action<Item,Room>? OnActionPutItemInRoom;
+        public event Action<Room, Direction, Room>? OnActionConnectRoom;
 
-        public WiringManager() 
+        public EventManager() 
         {
             _itemData = new ItemData();
             _roomData = new RoomData();
-
-            //Setup
-            // Put the objects locations
-            PutAllItemsInAllRooms();
-
-            //_playerData.SetPlayerRoom(_roomManager.FindRoom("Entry"));
-
-            //_mainMenu.OnNewGame += OnStartNewGame;
-
-            
-            // Set which rooms know about each other. 
-            ConnectAllRooms();
-
-            
-
+            _playerData = new PlayerData();            
         }
-        public void Update()
+        public void Setup()
         {
+            //
             OnActionSendItemsToItemManager?.Invoke(_itemData.Items);
             OnActionSendRoomsToRoomManager?.Invoke(_roomData.Rooms);
             PutAllItemsInAllRooms();
+            ConnectAllRooms();
+            _playerData.SetPlayerRoom(_roomData.FindRoom("Entry"));
         }
         private void PutAllItemsInAllRooms()
         {
@@ -75,24 +65,28 @@ namespace ZorksRevenge
         }
         private void ConnectAllRooms()
         {
-            //ConnectRoom("Entry", new CompassDirection(Direction.North), "Hallway");
-            //ConnectRoom("Hallway", new CompassDirection(Direction.East), "Bedroom");
+            ConnectRoom("Entry", new CompassDirection(Direction.North), "Hallway");
+            ConnectRoom("Hallway", new CompassDirection(Direction.East), "Bedroom");
         }
         private void ConnectRoom(string room1, CompassDirection dir, string room2) 
         {
-            /*if (_roomManager.FindRoom(room1).Name == "Unknown Room")
+            if (_roomData.FindRoom(room1).Name == "Unknown Room")
             {
                 Console.WriteLine($"ERROR: Invalid Room Name {room1}");
                 return;
             }
-            else if (_roomManager.FindRoom(room2).Name == "Unknown Item")
+            else if (_roomData.FindRoom(room2).Name == "Unknown Item")
             {
                 Console.WriteLine($"ERROR: Invalid Item Name {room2}");
                 return;
-            }*/
+            }
 
-            //_roomManager.FindRoom(room1).SetConnectedRoom(_roomManager.FindRoom(room2), dir.Direction);
-            //_roomManager.FindRoom(room2).SetConnectedRoom(_roomManager.FindRoom(room1), dir.Opposite());            
+            OnActionConnectRoom?.Invoke(_roomData.FindRoom(room1), 
+                                        dir.Direction,
+                                        _roomData.FindRoom(room2));
+            OnActionConnectRoom?.Invoke(_roomData.FindRoom(room2),
+                                        dir.Opposite(),
+                                        _roomData.FindRoom(room1));            
         }
 
         /// <summary>

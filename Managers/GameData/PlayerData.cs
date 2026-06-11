@@ -15,9 +15,9 @@ namespace ZorksRevenge.Managers.GameData
         }
 
 
-        public void SetPlayerRoom(Room currentroom)
+        public void SetPlayerRoom(Room currentRoom)
         {
-            _currentRoom = currentroom;
+            _currentRoom = currentRoom;
         }
 
         public bool IsPlaying

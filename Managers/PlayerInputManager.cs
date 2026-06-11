@@ -5,7 +5,7 @@ namespace ZorksRevenge.Managers
 {
     internal class PlayerInputManager
     {
-        //private PlayerData _playerData;
+        private bool _isPlaying = true;
 
         public PlayerInputManager( )
         {
@@ -14,17 +14,21 @@ namespace ZorksRevenge.Managers
 
         public void Update()
         {
-            Console.Clear();
+            
 
-            /*while (_playerData.IsPlaying)
+            while (_isPlaying)
             {
+                Console.Clear();
+
                 Console.WriteLine("****************************************************************************");
-                ColourPrinter.Write($"     {_playerData.GetCurrentRoom.Name}: ", ColourPrinter.RoomColour); 
-                Console.WriteLine(       $"{_playerData.GetCurrentRoom.Desc}");
+                //ColourPrinter.Write($"     {_playerData.GetCurrentRoom.Name}: ", ColourPrinter.RoomColour); 
+                //Console.WriteLine(       $"{_playerData.GetCurrentRoom.Desc}");
                 Console.WriteLine("****************************************************************************");
+
+
 
                 string i = Console.ReadLine();
-            }*/
+            }
         }
     }
 }

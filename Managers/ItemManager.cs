@@ -8,14 +8,14 @@ namespace ZorksRevenge
 
     internal class ItemManager
     {
-        private WiringManager _wiringManager;
+        private EventManager _eventManager;
 
         private List<Item> _items;
 
-        public ItemManager(WiringManager wiringManager)
+        public ItemManager(EventManager eventManager)
         {
-            _wiringManager = wiringManager;
-            _wiringManager.OnActionSendItemsToItemManager += OnActionSendItemsToItemManager;
+            _eventManager = eventManager;
+            _eventManager.OnActionSendItemsToItemManager += OnActionSendItemsToItemManager;
 
             _items = new List<Item>();
         }

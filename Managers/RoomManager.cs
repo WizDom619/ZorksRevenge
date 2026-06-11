@@ -1,4 +1,5 @@
 ﻿using ZorksRevenge.Managers.GameData;
+using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge
 {
@@ -7,15 +8,16 @@ namespace ZorksRevenge
     // Rooms are instantiated in another class and returned, keeps things cleaner. 
     internal class RoomManager
     {
-        private WiringManager _wiringManager;
+        private EventManager _eventManager;
 
         private List<Room> _rooms;
 
-        public RoomManager(WiringManager wiringManager)
+        public RoomManager(EventManager eventManager)
         {
-            _wiringManager = wiringManager;
-            _wiringManager.OnActionSendRoomsToRoomManager += OnActionSendRoomsToRoomManager;
-            _wiringManager.OnActionPutItemInRoom += OnActionPutItemInRoom;
+            _eventManager = eventManager;
+            _eventManager.OnActionSendRoomsToRoomManager += OnActionSendRoomsToRoomManager;
+            _eventManager.OnActionPutItemInRoom += OnActionPutItemInRoom;
+            _eventManager.OnActionConnectRoom += OnActionConnectRoom;
 
             _rooms = new List<Room>();
 
@@ -47,6 +49,10 @@ namespace ZorksRevenge
         private void OnActionPutItemInRoom(Item item, Room room)
         {
             room.AddItem(item);
+        }
+        private void OnActionConnectRoom(Room room1, Direction dir, Room room2)
+        {
+            room1.SetConnectedRoom(room2, dir);
         }
         public void Print()
         {

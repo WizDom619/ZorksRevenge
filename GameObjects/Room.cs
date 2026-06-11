@@ -60,11 +60,12 @@ namespace ZorksRevenge
                 ColourPrinter.Write(" -", ColourPrinter.ItemColour);
                 item.Print();
             }
-            if (_northernRoom != null) { Console.Write($"\n\tNorth of me is"); ColourPrinter.Write($" {_northernRoom.Name}", ColourPrinter.RoomColour); }
-            if (_southernRoom != null) { Console.Write($"\n\tSouth of me is"); ColourPrinter.Write($" {_southernRoom.Name}", ColourPrinter.RoomColour); }
-            if (_easternRoom != null) { Console.Write($"\n\tEast of me is"); ColourPrinter.Write($" {_easternRoom.Name}", ColourPrinter.RoomColour); }
-            if (_westernRoom != null) { Console.Write($"\n\tWest of me is"); ColourPrinter.Write($" {_westernRoom.Name}", ColourPrinter.RoomColour); }
+            if (_northernRoom != null) { Console.Write($"\n -North of me is"); ColourPrinter.Write($" {_northernRoom.Name}", ColourPrinter.RoomColour); }
+            if (_southernRoom != null) { Console.Write($"\n -South of me is"); ColourPrinter.Write($" {_southernRoom.Name}", ColourPrinter.RoomColour); }
+            if (_easternRoom != null) { Console.Write($"\n -East of me is"); ColourPrinter.Write($" {_easternRoom.Name}", ColourPrinter.RoomColour); }
+            if (_westernRoom != null) { Console.Write($"\n -West of me is"); ColourPrinter.Write($" {_westernRoom.Name}", ColourPrinter.RoomColour); }
 
+            Console.WriteLine("");
             Console.WriteLine("");
         }
         public string Name { get { return _name; } }
