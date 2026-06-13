@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge.Managers.GameData
+﻿using ZorksRevenge.GameObjects;
+
+namespace ZorksRevenge.ReAssess.Managers.GameData
 {
     // All data relevant to rooms is kept here. 
     // All room objects are instanciated here. 

@@ -3,7 +3,7 @@
 /* When the game begins there should be an opening menu. 
  * Player can choose a variety of options before beginning a game.  
  */
-namespace ZorksRevenge.Managers
+namespace ZorksRevenge.ReAssess.Managers
 {
     internal class MainMenuManager
     {
@@ -37,7 +37,7 @@ namespace ZorksRevenge.Managers
                         break;
 
                     case PlayerResponse.NewGame: // Begin a new game;
-                        OnNewGame?.Invoke(this, EventArgs.Empty);
+                        //OnNewGame?.Invoke(this, EventArgs.Empty);
                         isMainMenuActive = false;
                         break;
 

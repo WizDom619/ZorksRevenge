@@ -1,7 +1,6 @@
-﻿using ZorksRevenge.Managers.GameData;
-using ZorksRevenge.Utilities;
+﻿
 
-namespace ZorksRevenge.Managers
+namespace ZorksRevenge.ReAssess.Managers
 {
     internal class PlayerInputManager
     {

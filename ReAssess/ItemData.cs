@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge.Managers.GameData
+﻿using ZorksRevenge.GameObjects;
+
+namespace ZorksRevenge.ReAssess.Managers.GameData
 {
     // All data relevant to items is kept here. 
     // All item objects are instanciated here. 
@@ -28,6 +30,14 @@
                 }
             }
             return return_item;
+        }
+        public void AddItem(Item item)
+        {
+            _items.Add(item);
+        }
+        public void OnActionAddItem(string sentName, string sentDesc)
+        {
+            AddItem(new Item(sentName, sentDesc));            
         }
         public List<Item> Items
         {

@@ -1,7 +1,7 @@
-﻿using ZorksRevenge.Managers;
-using ZorksRevenge.Managers.GameData;
+﻿using ZorksRevenge.EventArgs;
+using ZorksRevenge.ReAssess.Utilities;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.ReAssess.Managers
 {
     // Here is where the game really begins. 
     // Right now is just creating all the game data which is in a separate class. 
@@ -20,24 +20,29 @@ namespace ZorksRevenge
         public GameManager()
         {
             // Instiate All Managers
+
             _eventManager = new EventManager();
+
             _itemManager = new ItemManager(_eventManager);
             _roomManager = new RoomManager(_eventManager);
             //_mainMenuManager = new MainMenuManager();
             _playerInputManager = new PlayerInputManager();
+
+            //_eventManager.OnActionSendItemsToItemManager += _itemManager.OnActionSendItemsToItemManager;
             
             _eventManager.Setup();
         }
 
         public void Update()
         {
-            _itemManager.Print();
-            _roomManager.Print();
+            //_itemManager.Print();
+            //_roomManager.Print();
+            ColourPrinter.TEST_PrintAllColours();
             // Main Game Loop
             while (isGameLooping)
             {
                 //_mainMenuManager.Update();
-                _playerInputManager.Update();
+                //_playerInputManager.Update();
             }
         }
     }    

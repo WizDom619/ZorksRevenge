@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ZorksRevenge.Utilities;
+using ZorksRevenge.ReAssess.Utilities;
 
 namespace ZorksRevenge.Test
 {

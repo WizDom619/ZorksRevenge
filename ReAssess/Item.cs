@@ -1,6 +1,6 @@
-﻿using ZorksRevenge.Utilities;
+﻿using ZorksRevenge.ReAssess.Utilities;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.GameObjects
 {
     internal class Item
     {

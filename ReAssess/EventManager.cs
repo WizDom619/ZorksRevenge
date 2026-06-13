@@ -1,7 +1,9 @@
-﻿using ZorksRevenge.Managers.GameData;
-using ZorksRevenge.Utilities;
+﻿using ZorksRevenge.EventArgs;
+using ZorksRevenge.GameObjects;
+using ZorksRevenge.ReAssess.Managers.GameData;
+using ZorksRevenge.ReAssess.Utilities;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.ReAssess.Managers
 {
     /* I;ve struggled with finding a way to have the managers to reference each other without being tightly coupled. 
      * The Wiring Manager is the soultion. 
@@ -28,11 +30,15 @@ namespace ZorksRevenge
         {
             _itemData = new ItemData();
             _roomData = new RoomData();
-            _playerData = new PlayerData();            
+            _playerData = new PlayerData();
+            EventBus.Publish(new OnActionAddItem("Pizza", "lolololo"));
+            _itemData.Print();
         }
         public void Setup()
         {
-            //
+
+
+
             OnActionSendItemsToItemManager?.Invoke(_itemData.Items);
             OnActionSendRoomsToRoomManager?.Invoke(_roomData.Rooms);
             PutAllItemsInAllRooms();
@@ -94,10 +100,10 @@ namespace ZorksRevenge
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnStartNewGame(object sender, EventArgs e)
+        /*private void OnStartNewGame(object sender, EventArgs e)
         {
             //_playerData.SetPlayerRoom(_roomManager.FindRoom("Entry"));
 
-        }
+        }*/
     }
 }

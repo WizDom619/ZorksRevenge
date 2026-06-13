@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.ReAssess.Managers;
+
+namespace ZorksRevenge
 {
     /// <summary>
     /// Zork's Revenge Main
@@ -6,12 +8,12 @@
     /* I am unsure is having a my second custom main is neccessary. 
      * It just feels cooler though, this is where the real program begins.  
      */
-    internal class ZorksRevengeMain
+    internal class ZorksRevengeGame
     {
         GameManager _gameManager;
 
         //First thing all good games should begin with is the Main Menu. 
-        public ZorksRevengeMain()
+        public ZorksRevengeGame()
         {
             //Putup the console window configurations. 
             Console.Title = "Zork's Revenge";

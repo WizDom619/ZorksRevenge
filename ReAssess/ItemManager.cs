@@ -1,6 +1,6 @@
-﻿using ZorksRevenge.Managers.GameData;
+﻿using ZorksRevenge.GameObjects;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.ReAssess.Managers
 {
     // Access anything relevant to items is managed here. 
     // Item data is in a separate class. 
@@ -15,14 +15,11 @@ namespace ZorksRevenge
         public ItemManager(EventManager eventManager)
         {
             _eventManager = eventManager;
-            _eventManager.OnActionSendItemsToItemManager += OnActionSendItemsToItemManager;
+            //_eventManager.OnActionSendItemsToItemManager += OnActionSendItemsToItemManager;
 
             _items = new List<Item>();
         }
-        public void AddItem(Item item)
-        {
-            _items.Add(item);
-        }
+        
         public void RemoveItem(Item item)
         {
             _items.Remove(item);
@@ -36,13 +33,6 @@ namespace ZorksRevenge
                 {
                     item.ChangeName(new_name);
                 }
-            }
-        }
-        private void OnActionSendItemsToItemManager(List<Item> items)
-        {
-            foreach (Item item in items)
-            {
-                AddItem(item);
             }
         }
         public void Print()

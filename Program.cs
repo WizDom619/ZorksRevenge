@@ -9,7 +9,7 @@
     {
         static void Main(string[] args)
         {
-            ZorksRevengeMain _zrMain = new ZorksRevengeMain();
+            ZorksRevengeGame _zrMain = new ZorksRevengeGame();
         }
     }
 }

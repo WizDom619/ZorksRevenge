@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ZorksRevenge.GameObjects;
 
-namespace ZorksRevenge.Managers.GameData
+namespace ZorksRevenge.ReAssess.Managers.GameData
 {
     internal class PlayerData
     {

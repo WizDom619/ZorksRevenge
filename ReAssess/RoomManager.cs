@@ -1,7 +1,7 @@
-﻿using ZorksRevenge.Managers.GameData;
-using ZorksRevenge.Utilities;
+﻿using ZorksRevenge.GameObjects;
+using ZorksRevenge.ReAssess.Utilities;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.ReAssess.Managers
 {
     // Access anything relevant to rooms is managed here. 
     // Room data is in a separate class. 
