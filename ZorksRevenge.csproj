@@ -19,8 +19,6 @@
     <Folder Include="EventArgs\" />
     <Folder Include="GameData\" />
     <Folder Include="GameObjects\" />
-    <Folder Include="Managers\" />
-    <Folder Include="Utilities\" />
   </ItemGroup>
 
 </Project>

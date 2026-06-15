@@ -1,5 +1,5 @@
 ﻿using static System.Console;
-
+using ZorksRevenge.Utilities;
 /* When the game begins there should be an opening menu. 
  * Player can choose a variety of options before beginning a game.  
  */
@@ -7,20 +7,11 @@ namespace ZorksRevenge.ReAssess.Managers
 {
     internal class MainMenuManager
     {
-        enum PlayerResponse
-        {
-            MainMenu,
-            NewGame,
-            LoadGame,
-            Instructions,
-            Quit,
-            Invalid
-        }
-
-        private bool isMainMenuActive = true;
         
+        private bool isMainMenuActive = true;
+
         // Holds the players response to prompts. 
-        PlayerResponse _playerResponse = PlayerResponse.MainMenu;
+        MenuState _playerResponse = MenuState.MainMenu;
 
         public event EventHandler OnNewGame;
 
@@ -32,27 +23,27 @@ namespace ZorksRevenge.ReAssess.Managers
 
                 switch (_playerResponse)
                 {
-                    case PlayerResponse.MainMenu: // Default, lists options
+                    case MenuState.MainMenu: // Default, lists options
                         DisplayOptions();
                         break;
 
-                    case PlayerResponse.NewGame: // Begin a new game;
+                    case MenuState.NewGame: // Begin a new game;
                         //OnNewGame?.Invoke(this, EventArgs.Empty);
                         isMainMenuActive = false;
                         break;
 
-                    case PlayerResponse.LoadGame: // Load a save
+                    case MenuState.LoadGame: // Load a save
                         break;
 
-                    case PlayerResponse.Instructions: // Print Instructions
+                    case MenuState.Instructions: // Print Instructions
                         DisplayInstructions();
                         break;
 
-                    case PlayerResponse.Quit: // Quit Game
+                    case MenuState.Quit: // Quit Game
                         DisplayQuitGame();
                         break;
 
-                    case PlayerResponse.Invalid:
+                    case MenuState.Invalid:
                         DisplayInvalidResponse();
                         break;
                 }
@@ -90,27 +81,27 @@ namespace ZorksRevenge.ReAssess.Managers
             switch (response)
             {
                 case 0:
-                    _playerResponse = PlayerResponse.MainMenu;
+                    _playerResponse = MenuState.MainMenu;
                     break;
 
                 case 1:
-                    _playerResponse = PlayerResponse.NewGame;
+                    _playerResponse = MenuState.NewGame;
                     break;
 
                 case 2:
-                    _playerResponse = PlayerResponse.LoadGame;
+                    _playerResponse = MenuState.LoadGame;
                     break;
 
                 case 3:
-                    _playerResponse = PlayerResponse.Instructions;
+                    _playerResponse = MenuState.Instructions;
                     break;
 
                 case 4:
-                    _playerResponse = PlayerResponse.Quit;
+                    _playerResponse = MenuState.Quit;
                     break;
 
                 case -1:
-                    _playerResponse = PlayerResponse.Invalid;
+                    _playerResponse = MenuState.Invalid;
                     break;
             }
         }
@@ -119,7 +110,7 @@ namespace ZorksRevenge.ReAssess.Managers
         {
             Write("\n*Press Enter Key* ");
             ReadLine();
-            _playerResponse = PlayerResponse.MainMenu;
+            _playerResponse = MenuState.MainMenu;
         }
         //Players options to navigate the main menu
         void DisplayOptions()
@@ -154,7 +145,8 @@ namespace ZorksRevenge.ReAssess.Managers
         {
             WriteLine("Please enter a valid response");
             ReadAnyKey();
-            _playerResponse = PlayerResponse.MainMenu;
+            _playerResponse = MenuState.MainMenu;
         }
+    
     }
 }

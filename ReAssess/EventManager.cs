@@ -2,6 +2,7 @@
 using ZorksRevenge.GameObjects;
 using ZorksRevenge.ReAssess.Managers.GameData;
 using ZorksRevenge.ReAssess.Utilities;
+using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge.ReAssess.Managers
 {
@@ -71,8 +72,8 @@ namespace ZorksRevenge.ReAssess.Managers
         }
         private void ConnectAllRooms()
         {
-            ConnectRoom("Entry", new CompassDirection(Direction.North), "Hallway");
-            ConnectRoom("Hallway", new CompassDirection(Direction.East), "Bedroom");
+            //ConnectRoom("Entry", new CompassDirection(Direction.North), "Hallway");
+            //ConnectRoom("Hallway", new CompassDirection(Direction.East), "Bedroom");
         }
         private void ConnectRoom(string room1, CompassDirection dir, string room2) 
         {

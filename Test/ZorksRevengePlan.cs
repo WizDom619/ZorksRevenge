@@ -1,12 +1,6 @@
 /* Improve
-	// !Fix Comments https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments
-	// !MainMenu hold GameManager
-	// !Questions structure, create input handling loop to get a better sense of everything. 
 	// !ItemData could be static. 
 	// !GameData classes into JSON file. 
-	
-	//-Game Menu
-
 
 //TODO 
 	Room (name, description, list of items, list of directions). 
@@ -42,11 +36,11 @@
 			Such as Pesto pasta is a combo os (pasta, pesto sauce, chicken and cherry tomato). 
 		
 		-White		Diamond 	Guess the number game 		
-		-Blue 		Sapphire 	Dice Roll Game. 
+		-Blue 		Sapphire 	Dice Roll Game. (Liers Dice)
 		-Green 		Emerald 	Rock, Paper Scissors game. 
-		-Cyan 		Aquamarine 	Circumference of a Circle
-		-Red 		Ruby 		Area of a Circle
-		-Magenta 	Amethyst 	Hypotenuse Calculator
+		-Cyan 		Aquamarine 	Math: Circumference, Area of a Circle, Hypotenuse Calculator
+		-Red 		Ruby 		Word Search
+		-Magenta 	Amethyst 	Quiz 
 		-Yellow 	Topaz		Hangman Game 
 		
 	PlayerInput( go move, take grab pick up , drop, look at examine, use, inventory); 
@@ -54,18 +48,18 @@
 	
 	Pokemon Battle (Bono and Zilla)
 
-	Game Loop...	
-	while (player.IsAlive)
-	{
-		Console.Write("> ");
-		string input = Console.ReadLine();
-		string output = parser.Process(input, gameState);
-		Console.WriteLine(output);
-	}
+	
 	
 	 
 	
-//Done
+//DONE
+
+-Main
+-Zork's Revenge Main
+-Parser
+-Command Object
+
+
 
 	
 */

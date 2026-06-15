@@ -1,29 +1,29 @@
-﻿using ZorksRevenge.ReAssess.Managers;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge
 {
     /// <summary>
-    /// Zork's Revenge Main
+    /// The begginning of the Zork's Revenge Game
+    /// Before the game actually starts, this is a good place to set all the console window configurations.  
+    /// Such as... Title, Cursor Visibility, Screen Size or Margin Size. 
+    /// Afterwards, instantiate a GameManager and the game actually begins. 
     /// </summary>
-    /* I am unsure is having a my second custom main is neccessary. 
-     * It just feels cooler though, this is where the real program begins.  
-     */
     internal class ZorksRevengeGame
     {
-        GameManager _gameManager;
+        private GameManager _gameManager;
 
-        //First thing all good games should begin with is the Main Menu. 
         public ZorksRevengeGame()
         {
-            //Putup the console window configurations. 
+            //Set the window title. 
             Console.Title = "Zork's Revenge";
 
-            //Usesure if I want this....
+            //Set cursor visibility
+            //TODO Unsure if I want this true of false... 
             Console.CursorVisible = false;
 
+            //Clears to screen incase of any initial loading output. 
+            //Guarantee a clean slate to begin the game. 
             Console.Clear();
 
-            //Open with the game's Main Menu.
+            //Begin the game with the Game Manager
             _gameManager = new GameManager();
             _gameManager.Update();
         }

@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge.ReAssess.Utilities
 {
-    public enum Direction
-    {
-        North,
-        South,
-        East,
-        West,
-        NULL
-    };
+    
 
     internal class CompassDirection
     {

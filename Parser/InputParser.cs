@@ -1,0 +1,111 @@
+﻿using ZorksRevenge.Utilities;
+
+namespace ZorksRevenge.Parser
+{
+    /// <summary>
+    /// This class will take in the Player's Input as a string. 
+    /// The input will then be converted and returned into a Command object to be passed on and actioned.  
+    /// </summary>
+    internal class InputParser
+    {
+        /// <summary>
+        /// The String will be broken apart into it's Verb and Noun.
+        /// The Verb will be what kind of action this command is. 
+        /// The Noun will be the subject of said action. 
+        /// The method will be flexible to process of few different words for the single Verb. 
+        ///     <example>
+        ///     Move or Go 
+        ///     Take or Grab or Pick or Pick Up
+        ///     Look, Look At, Examine
+        ///     </example>
+        /// Once input is broken apart the Verb and Noun will be encapsulated into a Command and returned. 
+        /// </summary>
+
+        // An array of useless words
+        // These words will be removed from input as to not to confuse the process. 
+        private string[] _uselessWords =
+        {
+            "AT",
+            "FOR",
+            "UP",
+            "TOWARDS",
+            "DOWN",
+            "TO",
+            "WITH",
+            "THE"
+        };
+
+        public Command Process(string input)
+        {
+            // Set the variables to be correctly assigned.
+            // By default data is NULL unless changed.
+            Verb newVerb = Verb.NULL;
+            string newNoun = "NULL";
+
+            //Input will be set ToUpper for easy reading. 
+            //input = input.ToUpper();
+
+            // Split the input into individual words.  
+            string[] splitInput = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            // Remove useless words.
+            foreach (string word in splitInput)
+            {
+                foreach (string uselessWord in _uselessWords)
+                {
+                    splitInput = splitInput.Where(word => !_uselessWords.Contains(word.ToUpperInvariant())).ToArray();                                 
+                }
+            }
+
+            // Identify the verb. 
+            // Each verb can have multiple identifiers (for flexible input).
+            switch (splitInput[0].ToUpperInvariant())
+            {
+                case "TAKE":
+                case "GRAB":
+                case "NICK":
+                case "PICK":
+                    newVerb = Verb.Take;
+                    break;
+
+                case "MOVE":
+                case "GO":
+                    newVerb = Verb.Move;
+                    break;
+
+                case "LOOK": 
+                case "Examine":
+                    newVerb = Verb.Look;
+                    break;
+
+                case "DROP": 
+                case "PUT":
+                    newVerb = Verb.Drop;
+                    break;
+
+                case "INVENTORY": 
+                case "I":
+                    newVerb = Verb.Inventory;
+                    break;
+
+                case "TALK":
+                case "CHAT":
+                case "SPEAK":
+                    newVerb = Verb.Talk;
+                    break;
+
+            }
+
+            // Identify the Noun. 
+            // Remove the first index, that 'should' be the VERB which is no longer needed. 
+            splitInput = splitInput.Skip(1).ToArray();
+
+            // Join the array back into a string.             
+            // What's left 'should' be the noun to action. 
+            newNoun = String.Join(" ", splitInput);
+
+            // Return the processed Command. 
+            return new Command(newVerb, newNoun);
+        }
+    }
+}
