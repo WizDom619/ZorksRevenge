@@ -12,7 +12,7 @@ namespace ZorksRevenge.Utilities
         Look,
         Drop,
         Inventory,
-        Talk,
+        Speak,
         NULL
     };
     // This enum will be used by the CompassDirection class to know direction it is pointitng. 
@@ -33,5 +33,16 @@ namespace ZorksRevenge.Utilities
         Instructions,
         Quit,
         Invalid
-    }
+    };
+    // This enum will be used by the Zork printer to ditermine what text effects to apply on a print. 
+    // FYI Bold is an option for ASCII Escape characters but it doesn't affect anything, atleast not in Windows Console. 
+    public enum PrintEffect
+    {
+        // Reset [0m
+        Italic, // [3m
+        Underline, // [4m
+        Blinking, // [5m
+        Strike, // [9m
+        NULL
+    };
 }

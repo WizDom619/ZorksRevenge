@@ -58,6 +58,10 @@
 -Zork's Revenge Main
 -Parser
 -Command Object
+-Zork Printer
+	-Colours
+	-Effects
+	-Slow printing effect. 
 
 
 

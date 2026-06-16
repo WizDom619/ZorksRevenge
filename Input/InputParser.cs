@@ -9,7 +9,7 @@ namespace ZorksRevenge.Parser
     internal class InputParser
     {
         /// <summary>
-        /// The String will be broken apart into it's Verb and Noun.
+        /// The String will be broken apart into it's Verb and Noun. A
         /// The Verb will be what kind of action this command is. 
         /// The Noun will be the subject of said action. 
         /// The method will be flexible to process of few different words for the single Verb. 
@@ -42,9 +42,6 @@ namespace ZorksRevenge.Parser
             Verb newVerb = Verb.NULL;
             string newNoun = "NULL";
 
-            //Input will be set ToUpper for easy reading. 
-            //input = input.ToUpper();
-
             // Split the input into individual words.  
             string[] splitInput = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
@@ -58,50 +55,68 @@ namespace ZorksRevenge.Parser
             }
 
             // Identify the verb. 
-            // Each verb can have multiple identifiers (for flexible input).
-            switch (splitInput[0].ToUpperInvariant())
+
+            // Each verb can have multiple versions (for flexible input).
+            // The first Verb detected will be the one selected.  
+            foreach (string word in splitInput)
             {
-                case "TAKE":
-                case "GRAB":
-                case "NICK":
-                case "PICK":
-                    newVerb = Verb.Take;
-                    break;
+                switch (word.ToUpperInvariant())
+                {
+                    case "TAKE":
+                    case "GRAB":
+                    case "NICK":
+                    case "PICK":
+                    case "T":
+                        newVerb = Verb.Take;
+                        break;
 
-                case "MOVE":
-                case "GO":
-                    newVerb = Verb.Move;
-                    break;
+                    case "MOVE":
+                    case "GO":
+                    case "M":
+                        newVerb = Verb.Move;
+                        break;
 
-                case "LOOK": 
-                case "Examine":
-                    newVerb = Verb.Look;
-                    break;
+                    case "LOOK":
+                    case "Examine":
+                    case "L":
+                        newVerb = Verb.Look;
+                        break;
 
-                case "DROP": 
-                case "PUT":
-                    newVerb = Verb.Drop;
-                    break;
+                    case "DROP":
+                    case "PUT":
+                    case "D":
+                        newVerb = Verb.Drop;
+                        break;
 
-                case "INVENTORY": 
-                case "I":
-                    newVerb = Verb.Inventory;
-                    break;
+                    case "INVENTORY":
+                    case "I":
+                        newVerb = Verb.Inventory;
+                        break;
 
-                case "TALK":
-                case "CHAT":
-                case "SPEAK":
-                    newVerb = Verb.Talk;
-                    break;
+                    case "SPEAK":
+                    case "TALK":
+                    case "CHAT":
+                    case "S":
+                        newVerb = Verb.Speak;
+                        break;
+                }
 
+                //if Verb != Null, that means an actionable Verb has been detected and the loop can end. 
+                if (newVerb != Verb.NULL)
+                {
+                    break;
+                }
             }
+            
 
             // Identify the Noun. 
-            // Remove the first index, that 'should' be the VERB which is no longer needed. 
+
+            // Remove the first index,
+            // It 'should' be the VERB as assumed earlier, which is no longer needed. 
             splitInput = splitInput.Skip(1).ToArray();
 
             // Join the array back into a string.             
-            // What's left 'should' be the noun to action. 
+            // What's left 'should' be the Noun to action. 
             newNoun = String.Join(" ", splitInput);
 
             // Return the processed Command. 

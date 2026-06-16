@@ -1,5 +1,4 @@
-﻿using ZorksRevenge.ReAssess.Utilities;
-using ZorksRevenge.Utilities;
+﻿using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge.GameObjects
 {
@@ -54,17 +53,17 @@ namespace ZorksRevenge.GameObjects
         }
         public void Print()
         {
-            ColourPrinter.Write($"{_name}: ", ConsoleColor.DarkYellow);
+            ZorkPrinter.Print($"{_name}: ", ConsoleColor.DarkYellow);
             Console.WriteLine($"{_description}");
             foreach (Item item in _items)
             {
-                ColourPrinter.Write(" -", ColourPrinter.ItemColour);
+                ZorkPrinter.Print(" -", ZorkPrinter.ItemColour);
                 item.Print();
             }
-            if (_northernRoom != null) { Console.Write($"\n -North of me is"); ColourPrinter.Write($" {_northernRoom.Name}", ColourPrinter.RoomColour); }
-            if (_southernRoom != null) { Console.Write($"\n -South of me is"); ColourPrinter.Write($" {_southernRoom.Name}", ColourPrinter.RoomColour); }
-            if (_easternRoom != null) { Console.Write($"\n -East of me is"); ColourPrinter.Write($" {_easternRoom.Name}", ColourPrinter.RoomColour); }
-            if (_westernRoom != null) { Console.Write($"\n -West of me is"); ColourPrinter.Write($" {_westernRoom.Name}", ColourPrinter.RoomColour); }
+            if (_northernRoom != null) { Console.Write($"\n -North of me is"); ZorkPrinter.Print($" {_northernRoom.Name}", ZorkPrinter.RoomColour); }
+            if (_southernRoom != null) { Console.Write($"\n -South of me is"); ZorkPrinter.Print($" {_southernRoom.Name}", ZorkPrinter.RoomColour); }
+            if (_easternRoom != null) { Console.Write($"\n -East of me is"); ZorkPrinter.Print($" {_easternRoom.Name}", ZorkPrinter.RoomColour); }
+            if (_westernRoom != null) { Console.Write($"\n -West of me is"); ZorkPrinter.Print($" {_westernRoom.Name}", ZorkPrinter.RoomColour); }
 
             Console.WriteLine("");
             Console.WriteLine("");

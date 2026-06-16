@@ -1,4 +1,4 @@
-﻿using ZorksRevenge.ReAssess.Utilities;
+﻿using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge.GameObjects
 {
@@ -18,8 +18,8 @@ namespace ZorksRevenge.GameObjects
         }
         public void Print()
         {
-            ColourPrinter.Write($"{_name}: ", ColourPrinter.ItemColour);
-            ColourPrinter.WriteLine($"{_description}", ConsoleColor.Gray);
+            ZorkPrinter.Print($"{_name}: ", ZorkPrinter.ItemColour);
+            ZorkPrinter.PrintLine($"{_description}", ConsoleColor.Gray);
         }        
         public string Name
         {
