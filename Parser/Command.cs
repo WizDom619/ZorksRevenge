@@ -1,6 +1,4 @@
-﻿using ZorksRevenge.ReAssess;
-
-namespace ZorksRevenge.Parser
+﻿namespace ZorksRevenge.Parser
 {
     /// <summary>
     /// A Command will contain a Vern and a Noun.

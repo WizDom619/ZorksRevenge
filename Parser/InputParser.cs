@@ -1,5 +1,4 @@
 ﻿using ZorksRevenge.Parser;
-using ZorksRevenge.ReAssess;
 
 namespace ZorksRevenge
 {
