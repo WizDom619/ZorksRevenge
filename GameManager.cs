@@ -11,7 +11,15 @@ namespace ZorksRevenge
         // Will process player's inputs
         private InputParser _inputParser;
 
+        private RoomManager _roomManager;
+
         private bool isGameLooping = true;
+
+        public GameManager()
+        {
+            _roomManager = new RoomManager();
+        }
+
 
         public void Update()
         {            
@@ -21,7 +29,7 @@ namespace ZorksRevenge
             // Convert Input into a Command object. 
             Command inputCommand = _inputParser.Process(input);
 
-            // Send Command to the Evetn Bus to Process. 
+            // Send Command to the Event Bus to Process. 
                         
         }
     }

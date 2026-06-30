@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge.Utility
+﻿namespace ZorksRevenge.Input
 {
     /// <summary>
     /// A Command will contain a Vern and a Noun.

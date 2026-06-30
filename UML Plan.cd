@@ -21,24 +21,45 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ZorksRevenge.GameManager">
-    <Position X="3" Y="3.5" Width="1.75" />
+    <Position X="3" Y="2.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAQABAAAAAAAAAAAAAAAAAAAAAAAAQAAgAAAAAAAAAA=</HashCode>
       <FileName>GameManager.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_inputParser" />
+      <Field Name="_roomManager" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ZorksRevenge.InputParser">
-    <Position X="3" Y="5.5" Width="1.5" />
+    <Position X="3" Y="4.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Input\InputParser.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ZorksRevenge.Utility.Command" Collapsed="true">
-    <Position X="10.5" Y="5.75" Width="1.5" />
+  <Class Name="ZorksRevenge.RoomManager">
+    <Position X="6.25" Y="2.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
-      <FileName>Input\Command.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAEAAI=</HashCode>
+      <FileName>RoomManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Room">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIIAAAAAAIAAAUAAABAAQCgBAAAAAAAAABQAAEAAA=</HashCode>
+      <FileName>Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Item">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

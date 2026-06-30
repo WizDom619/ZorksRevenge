@@ -15,8 +15,4 @@
     <None Include="Test\TestRandomTemp.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Utility\" />
-  </ItemGroup>
-
 </Project>
