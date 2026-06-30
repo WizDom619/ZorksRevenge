@@ -16,6 +16,18 @@ namespace ZorksRevenge
             //_rooms = new RoomData().Instanciate();
         }
 
+        // Add Item into a Room.
+        public void AddItem(Room room, Item item)
+        {
+            FindRoom(room.Name).AddItem(item);
+        }
+
+        // Connects various rooms together. 
+        public void AddPath(Room room, Direction dir)
+        {
+            FindRoom(room.Name).AddPath(room, dir);
+        }
+
         public Room FindRoom(string name)
         {
             Room return_room = new Room("Unkown Room", "Unknown Desc");

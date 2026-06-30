@@ -9,17 +9,17 @@
         private string _name;
         private string _description;
 
-        private Room? _northernRoom;
-        private Room? _southernRoom;
-        private Room? _easternRoom;
-        private Room? _westernRoom;
+        private Paths _paths;
 
         private List<Item> _items;
+        private List<NPC> _npcs;
 
         public Room(string name, string description)
         {
             _name = name;
             _description = description;
+
+            _paths = new Paths();
 
             _items = new List<Item>();
         }
@@ -29,26 +29,9 @@
             _items.Add(item);
         }
         // Connects various rooms together. 
-        public void SetConnectedRoom(Room room, Direction dir)
+        public void AddPath(Room room, Direction dir)
         {
-            switch (dir)
-            {
-                case Direction.North:
-                    _northernRoom = room;
-                    break;
-
-                case Direction.South:
-                    _southernRoom = room;
-                    break;
-
-                case Direction.East:
-                    _easternRoom = room;
-                    break;
-
-                case Direction.West:
-                    _westernRoom = room;
-                    break;
-            }
+            _paths.AddPath(room, dir);
         }
         public void Print()
         {
@@ -59,10 +42,9 @@
                 ZorkPrinter.Print(" -", ZorkPrinter.ItemColour);
                 item.Print();
             }
-            if (_northernRoom != null) { ZorkPrinter.Print($"\n -North of me is"); ZorkPrinter.Print($" {_northernRoom.Name}", ZorkPrinter.RoomColour); }
-            if (_southernRoom != null) { ZorkPrinter.Print($"\n -South of me is"); ZorkPrinter.Print($" {_southernRoom.Name}", ZorkPrinter.RoomColour); }
-            if (_easternRoom != null) { ZorkPrinter.Print($"\n -East of me is"); ZorkPrinter.Print($" {_easternRoom.Name}", ZorkPrinter.RoomColour); }
-            if (_westernRoom != null) { ZorkPrinter.Print($"\n -West of me is"); ZorkPrinter.Print($" {_westernRoom.Name}", ZorkPrinter.RoomColour); }
+            
+           _paths.Print();
+            
 
             //ZorkPrinter.Print("");
             //ZorkPrinter.Print("");

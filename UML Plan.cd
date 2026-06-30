@@ -39,36 +39,54 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ZorksRevenge.RoomManager">
-    <Position X="6.25" Y="2.5" Width="1.5" />
+    <Position X="8.25" Y="2.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAEAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACgAAQAgAAAAAAAAAEAAI=</HashCode>
       <FileName>RoomManager.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="ZorksRevenge.Room">
-    <Position X="9" Y="2.5" Width="1.75" />
-    <Compartments>
-      <Compartment Name="Properties" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAIAAAUAAABAAQCgBAAAAAAAAABQAAEAAA=</HashCode>
-      <FileName>Room.cs</FileName>
-    </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Field Name="_items" />
+      <Field Name="_rooms" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="ZorksRevenge.Item">
-    <Position X="11.75" Y="2.5" Width="1.5" />
+  <Class Name="ZorksRevenge.GameObjects.Room">
+    <Position X="11" Y="2.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
+      <HashCode>AAAAIAAAAAACAAAEAAAAAAQAgBAQAAAAAAAAQACEAAA=</HashCode>
+      <FileName>GameObjects\Room.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_paths" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_items" />
+      <Field Name="_npcs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ZorksRevenge.GameObjects.Item">
+    <Position X="10.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAEAEAAA=</HashCode>
-      <FileName>Item.cs</FileName>
+      <FileName>GameObjects\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.GameObjects.NPC">
+    <Position X="12" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\NPC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Paths">
+    <Position X="13.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAQAAgACAAAAAAEAAA=</HashCode>
+      <FileName>Paths.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
