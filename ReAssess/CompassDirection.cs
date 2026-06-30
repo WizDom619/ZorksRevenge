@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge.Utilities
+﻿using ZorksRevenge.ReAssess;
+
+namespace ZorksRevenge.Utilities
 {
     /// <summary>
     /// This Class is to define directions. 

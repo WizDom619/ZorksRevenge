@@ -1,7 +1,4 @@
-﻿using ZorksRevenge.Managers;
-using ZorksRevenge.Parser;
-using ZorksRevenge.Utilities;
-
+﻿
 namespace ZorksRevenge
 {
     /// <summary>
@@ -12,8 +9,8 @@ namespace ZorksRevenge
         // Will process player's inputs
         private InputParser _inputParser;
 
-        private ItemManager _itemManager;
-        private RoomManager _roomManager; 
+        //private ItemManager _itemManager;
+        //private RoomManager _roomManager; 
 
         private bool isGameLooping = true;
 
@@ -21,8 +18,8 @@ namespace ZorksRevenge
         {
             _inputParser = new InputParser();
 
-            _itemManager = new ItemManager();
-            _roomManager = new RoomManager();
+            //_itemManager = new ItemManager();
+            //_roomManager = new RoomManager();
         }
 
         public void Update()

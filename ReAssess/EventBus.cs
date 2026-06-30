@@ -14,7 +14,7 @@ namespace ZorksRevenge
 
             if (gameEvent == null)
             {
-                ZorkPrinter.PrintLine("I don't understand that."));
+                //ZorkPrinter.PrintLine("I don't understand that."));
                 return;
             }
 

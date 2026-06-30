@@ -7,9 +7,10 @@
     /// </summary>
     class Program
     {
+        private static ZorksRevengeGame game;
         static void Main(string[] args)
         {
-            ZorksRevengeGame zRMain = new ZorksRevengeGame();
+            game = new ZorksRevengeGame();
         }
     }
 }

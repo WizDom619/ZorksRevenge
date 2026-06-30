@@ -28,8 +28,4 @@
             _gameManager.Update();
         }
     }
-
-    public class Class3
-    {
-    }
 }

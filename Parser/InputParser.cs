@@ -1,6 +1,7 @@
 ﻿using ZorksRevenge.Parser;
+using ZorksRevenge.ReAssess;
 
-namespace ZorksRevenge.ReAssess
+namespace ZorksRevenge
 {
     /// <summary>
     /// This class will take in the Player's Input as a string. 
