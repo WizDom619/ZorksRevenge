@@ -24,8 +24,8 @@
             Console.Clear();
 
             //Begin the game with the Game Manager
-            _gameManager = new GameManager();
-            _gameManager.Update();
+            //_gameManager = new GameManager();
+            //_gameManager.Update();
         }
     }
 }

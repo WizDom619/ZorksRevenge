@@ -16,22 +16,29 @@
       <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ZorksRevengeGame.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="ZorksRevenge.GameManager">
-    <Position X="3" Y="3" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
-      <FileName>ReAssess\GameManager.cs</FileName>
-    </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_inputParser" />
+      <Field Name="_gameManager" />
     </ShowAsAssociation>
   </Class>
+  <Class Name="ZorksRevenge.GameManager">
+    <Position X="3" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="ZorksRevenge.InputParser">
-    <Position X="3" Y="5.75" Width="1.75" />
+    <Position X="3" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Parser\InputParser.cs</FileName>
+      <FileName>Input\InputParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Utility.Command" Collapsed="true">
+    <Position X="10.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Input\Command.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

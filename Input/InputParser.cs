@@ -1,4 +1,4 @@
-﻿using ZorksRevenge.Parser;
+﻿using ZorksRevenge.Utility;
 
 namespace ZorksRevenge
 {
@@ -100,8 +100,7 @@ namespace ZorksRevenge
                 {
                     break;
                 }
-            }
-            
+            }            
 
             // Identify the Noun. 
 
