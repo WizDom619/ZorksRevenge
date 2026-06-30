@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using ZorksRevenge.GameObjects;
 
 namespace ZorksRevenge
 {

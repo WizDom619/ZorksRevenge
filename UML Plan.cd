@@ -39,7 +39,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ZorksRevenge.RoomManager">
-    <Position X="6.25" Y="2.5" Width="1.75" />
+    <Position X="6.25" Y="2.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
@@ -49,16 +49,25 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ZorksRevenge.Room">
-    <Position X="8.5" Y="2.5" Width="1.5" />
+    <Position X="9" Y="2.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAIIAAAAAAIAAAUAAABAAQCgBAAAAAAAAABQAAEAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAIAAAUAAABAAQCgBAAAAAAAAABQAAEAAA=</HashCode>
       <FileName>Room.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_items" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ZorksRevenge.Item">
-    <Position X="10.5" Y="2.5" Width="1.5" />
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAEAEAAA=</HashCode>
       <FileName>Item.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -6,7 +6,7 @@ using static System.ConsoleColor;
 /// The additional features available over the Console.WriteLine() is...
 /// Coloured Text, Italic, Underline, Blinking, Strike.  
 /// </summary>
-namespace ZorksRevenge.ReAssess
+namespace ZorksRevenge
 {
     internal static class ZorkPrinter
     {

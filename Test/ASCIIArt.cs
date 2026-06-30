@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ZorksRevenge.ReAssess;
-
-namespace ZorksRevenge.Test
+﻿namespace ZorksRevenge.Test
 {
     internal class ASCIIArt
     {

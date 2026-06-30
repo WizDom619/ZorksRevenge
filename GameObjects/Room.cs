@@ -1,6 +1,4 @@
-﻿using ZorksRevenge.Utility; 
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge.GameObjects
 {
     /// <summary>
     /// Room is a GameObject that contains all the data relevant to an Room. 
@@ -71,10 +69,5 @@ namespace ZorksRevenge
         }
         public string Name { get { return _name; } }
         public string Desc { get { return _description; } }
-        public bool IsPlayerHere
-        {
-            get { return _isPlayerHere; }
-            set { _isPlayerHere = value; }
-        }
     }
 }
