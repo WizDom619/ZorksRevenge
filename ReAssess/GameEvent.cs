@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.Event
 {
-    class TestRandomTemp
+    internal class GameEvent
     {
     }
 }

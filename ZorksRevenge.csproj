@@ -15,10 +15,4 @@
     <None Include="Test\TestRandomTemp.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="EventArgs\" />
-    <Folder Include="GameData\" />
-    <Folder Include="GameObjects\" />
-  </ItemGroup>
-
 </Project>

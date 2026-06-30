@@ -6,39 +6,33 @@ using static System.ConsoleColor;
 /// The additional features available over the Console.WriteLine() is...
 /// Coloured Text, Italic, Underline, Blinking, Strike.  
 /// </summary>
-namespace ZorksRevenge.Utilities
+namespace ZorksRevenge.ReAssess
 {
     internal static class ZorkPrinter
     {
         //TODO Confirm Game Objects spefic colours. 
-        public static ConsoleColor RoomColour = DarkYellow;
         public static ConsoleColor ItemColour = DarkCyan;
+        public static ConsoleColor RoomColour = DarkMagenta;
         public static ConsoleColor PlayerColour = DarkGreen;
 
-        // The speed of the printing effect. 
-        private static int _printSpeed = 5;
-
-        // The default colour of all text, unless otherwise specified 
-        private static ConsoleColor _color = Gray;
-
-        // The default PrintEffects of all text, unless otherwise specified 
-        private static PrintEffect _effect = PrintEffect.NULL; 
-
+        // The speed of the printing effect. (25) 
+        private static int _printSpeed = 1;
+          
 
         // A testing method to show off all colours available to print. 
         public static void TEST_PrintAllColours()
         {
-            BackgroundColor = White;
-            WriteLine("Black", Black);
-            Write("Diamond ", White);   WriteLine("DarkGray", DarkGray);
-            Write("Sapphire ", Blue);   WriteLine("DarkBlue", DarkBlue);
-            Write("Emerald ", Green);   WriteLine("DarkGreen", DarkGreen); // Success
-            Write("Aquamarine ", Cyan); WriteLine("DarkCyan", DarkCyan); // Item
-            Write("Ruby ", Red);        WriteLine("DarkRed", DarkRed); // Enemy, Dies, Error
-            Write("Amethyst ", Magenta);WriteLine("DarkMagenta", DarkMagenta);
-            Write("Topaz ", Yellow);    WriteLine("DarkYellow", DarkYellow); // Warning. Room
-            Write("Gray ", Gray);
-            WriteLine("", Black);
+            BackgroundColor = Black;
+            PrintLine("Black", Black);
+            Print("Diamond", White);       PrintLine("   DarkGray", DarkGray);
+            Print("Sapphire", Blue);       PrintLine("  DarkBlue", DarkBlue);
+            Print("Emerald", Green);       PrintLine("   DarkGreen", DarkGreen); // Success
+            Print("Aquamarine", Cyan);     PrintLine("DarkCyan", DarkCyan); // Item
+            Print("Ruby", Red);            PrintLine("      DarkRed", DarkRed); // Enemy, Dies, Error
+            Print("Amethyst", Magenta);    PrintLine("  DarkMagenta", DarkMagenta);
+            Print("Topaz", Yellow);        PrintLine("     DarkYellow", DarkYellow); // Warning. Room
+            Print("Gray", Gray);
+            PrintLine("", Black);
         }
 
         // This Method is the main Print method. 
@@ -53,15 +47,19 @@ namespace ZorksRevenge.Utilities
             {
                 effect = $"\u001b" + SetEffect(parEffect);
             }
+
             // Turn the parameter string into an arrays of chars. 
             // This will print each char with a small delay. 
             // This give the ouput a typing effect, letter by letter.
             // Easier on the eyes than a wall of text instantly appearing. 
-            char[] textBrokenUP = text.ToCharArray();
-            Write("> ");
-            foreach (char c in textBrokenUP)
+            // Print by letter
+                //char[] textBrokenUP = text.ToCharArray();
+            // Print by word. 
+            string[] textBrokenUP = text.Split(" ");
+            Write("");
+            foreach (string c in textBrokenUP)
             {
-                Write($"{effect}{c}");
+                Write($"{effect}{c} ");
                 Thread.Sleep(_printSpeed);
             }
             Write("\u001b[0m");
@@ -70,7 +68,8 @@ namespace ZorksRevenge.Utilities
             if (isNewLine)
             {
                 Console.Write('\n');
-            }            
+            }
+            ResetColor();
         }
 
         // All Write() / WriteLine() methods call the same Print(),
@@ -78,11 +77,11 @@ namespace ZorksRevenge.Utilities
         // If the parameter is not provided the corosponding field will substitue instead. 
         public static void Print(string text)
         {
-            Print(text, _color, _effect, false);
+            Print(text, Gray, PrintEffect.NULL, false);
         }
         public static void Print(string text, ConsoleColor color)
         {
-            Print(text, color, _effect, false);
+            Print(text, color, PrintEffect.NULL, false);
         }
         public static void Print(string text, ConsoleColor color, PrintEffect parEffect)
         {
@@ -90,11 +89,11 @@ namespace ZorksRevenge.Utilities
         }
         public static void PrintLine(string text)
         {
-            Print(text, _color, _effect, true);
+            Print(text, Gray, PrintEffect.NULL, true);
         }
         public static void PrintLine(string text, ConsoleColor color)
         {
-            Print(text, color, _effect, true);
+            Print(text, color, PrintEffect.NULL, true);
         }
         public static void PrintLine(string text, ConsoleColor color, PrintEffect parEffect)
         {

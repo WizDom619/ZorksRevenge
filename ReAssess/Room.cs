@@ -1,7 +1,11 @@
-﻿using ZorksRevenge.Utilities;
+﻿using ZorksRevenge.ReAssess;
+using ZorksRevenge.Utilities;
 
 namespace ZorksRevenge.GameObjects
 {
+    /// <summary>
+    /// Room is a GameObject that contains all the data relevant to an Room. 
+    /// </summary>
     internal class Room
     {
         private string _name;
@@ -15,8 +19,6 @@ namespace ZorksRevenge.GameObjects
 
         private List<Item> _items;
 
-        //public event EventHandler<RoomAddItemEventArgs> on_item_added;
-
         public Room(string name, string description)
         {
             _name = name;
@@ -25,11 +27,12 @@ namespace ZorksRevenge.GameObjects
 
             _items = new List<Item>();
         }
-
+        // Adds and Item within the room. 
         public void AddItem(Item item)
         {
             _items.Add(item);
         } 
+        // Connects various rooms together. 
         public void SetConnectedRoom(Room room, Direction dir)
         {
             switch (dir)
@@ -53,20 +56,20 @@ namespace ZorksRevenge.GameObjects
         }
         public void Print()
         {
-            ZorkPrinter.Print($"{_name}: ", ConsoleColor.DarkYellow);
-            Console.WriteLine($"{_description}");
+            ZorkPrinter.Print($"{_name}:", ZorkPrinter.RoomColour);
+            ZorkPrinter.PrintLine($"{_description}");
             foreach (Item item in _items)
             {
                 ZorkPrinter.Print(" -", ZorkPrinter.ItemColour);
                 item.Print();
             }
-            if (_northernRoom != null) { Console.Write($"\n -North of me is"); ZorkPrinter.Print($" {_northernRoom.Name}", ZorkPrinter.RoomColour); }
-            if (_southernRoom != null) { Console.Write($"\n -South of me is"); ZorkPrinter.Print($" {_southernRoom.Name}", ZorkPrinter.RoomColour); }
-            if (_easternRoom != null) { Console.Write($"\n -East of me is"); ZorkPrinter.Print($" {_easternRoom.Name}", ZorkPrinter.RoomColour); }
-            if (_westernRoom != null) { Console.Write($"\n -West of me is"); ZorkPrinter.Print($" {_westernRoom.Name}", ZorkPrinter.RoomColour); }
+            if (_northernRoom != null) { ZorkPrinter.Print($"\n -North of me is"); ZorkPrinter.Print($" {_northernRoom.Name}", ZorkPrinter.RoomColour); }
+            if (_southernRoom != null) { ZorkPrinter.Print($"\n -South of me is"); ZorkPrinter.Print($" {_southernRoom.Name}", ZorkPrinter.RoomColour); }
+            if (_easternRoom != null) { ZorkPrinter.Print($"\n -East of me is"); ZorkPrinter.Print($" {_easternRoom.Name}", ZorkPrinter.RoomColour); }
+            if (_westernRoom != null) { ZorkPrinter.Print($"\n -West of me is"); ZorkPrinter.Print($" {_westernRoom.Name}", ZorkPrinter.RoomColour); }
 
-            Console.WriteLine("");
-            Console.WriteLine("");
+            //ZorkPrinter.Print("");
+            //ZorkPrinter.Print("");
         }
         public string Name { get { return _name; } }
         public string Desc { get { return _description; } }

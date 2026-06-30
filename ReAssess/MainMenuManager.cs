@@ -1,5 +1,4 @@
 ﻿using static System.Console;
-using ZorksRevenge.Utilities;
 /* When the game begins there should be an opening menu. 
  * Player can choose a variety of options before beginning a game.  
  */

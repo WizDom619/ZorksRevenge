@@ -1,32 +1,31 @@
-﻿using ZorksRevenge.GameObjects;
+﻿using ZorksRevenge.GameData;
 
-namespace ZorksRevenge.ReAssess.Managers
+namespace ZorksRevenge.ReAssess
 {
-    // Access anything relevant to items is managed here. 
-    // Item data is in a separate class. 
-    // Items are instantiated in another class and returned, keeps things cleaner.  
-
+    /// <summary>
+    /// Access to Items is managed here.  
+    /// Here you can Add, Remove, Change Name, Search and Print. 
+    /// </summary>
     internal class ItemManager
     {
-        private EventManager _eventManager;
-
+        // Items are instantiated in another class and returned, keeps things cleaner.
         private List<Item> _items;
 
-        public ItemManager(EventManager eventManager)
+        public ItemManager()
         {
-            _eventManager = eventManager;
-            //_eventManager.OnActionSendItemsToItemManager += OnActionSendItemsToItemManager;
-
-            _items = new List<Item>();
+            // The Item List is filled here. 
+            _items = new ItemData().Instanciate();
         }
-        
+        public void AddItem(Item item)
+        {
+            _items.Add(item);
+        }
         public void RemoveItem(Item item)
         {
             _items.Remove(item);
         }
         public void ChangeItemName(string old_name, string new_name)
         {
-
             foreach (Item item in _items)
             {
                 if (item.Name == old_name)
@@ -35,6 +34,19 @@ namespace ZorksRevenge.ReAssess.Managers
                 }
             }
         }
+        public Item FindItem(string name)
+        {
+            Item return_item = new Item("Unknown Item", "Unknown Desc");
+
+            foreach (Item item in _items)
+            {
+                if (item.Name == name)
+                {
+                    return_item = item;
+                }
+            }
+            return return_item;
+        }
         public void Print()
         {
             foreach (Item item in _items)
@@ -42,6 +54,10 @@ namespace ZorksRevenge.ReAssess.Managers
                 item.Print();
             }
             Console.WriteLine("");
+        }
+        public List<Item> Items
+        {
+            get { return _items; }
         }
     }    
 }

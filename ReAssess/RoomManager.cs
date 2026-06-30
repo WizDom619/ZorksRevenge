@@ -1,27 +1,27 @@
-﻿using ZorksRevenge.GameObjects;
-using ZorksRevenge.ReAssess.Utilities;
-using ZorksRevenge.Utilities;
-
-namespace ZorksRevenge.ReAssess.Managers
+﻿namespace ZorksRevenge.ReAssess
 {
-    // Access anything relevant to rooms is managed here. 
-    // Room data is in a separate class. 
-    // Rooms are instantiated in another class and returned, keeps things cleaner. 
+    /// <summary>
+    /// Access to Rooms is managed here.  
+    /// Here you can Add, Search and Print. 
+    /// </summary> 
     internal class RoomManager
     {
-        private EventManager _eventManager;
-
         private List<Room> _rooms;
 
-        public RoomManager(EventManager eventManager)
+        private delegate void TestDelegate();
+        private TestDelegate testDelegateFunction;
+
+        public RoomManager()
         {
-            _eventManager = eventManager;
-            _eventManager.OnActionSendRoomsToRoomManager += OnActionSendRoomsToRoomManager;
-            _eventManager.OnActionPutItemInRoom += OnActionPutItemInRoom;
-            _eventManager.OnActionConnectRoom += OnActionConnectRoom;
+            _rooms = new RoomData().Instanciate();
 
-            _rooms = new List<Room>();
-
+            // Add Room Events
+            testDelegateFunction += Print;
+            EventBus.Subscribe(testDelegateFunction);
+        }
+        public void AddRoom(Room room)
+        {
+            _rooms.Add(room);
         }
         public Room FindRoom(string name)
         {
@@ -36,31 +36,16 @@ namespace ZorksRevenge.ReAssess.Managers
             }
             return return_room;
         }
-        public void AddRoom(Room room)
-        {
-            _rooms.Add(room);
-        }
-        private void OnActionSendRoomsToRoomManager(List<Room> rooms)
-        {
-            foreach(Room room in rooms)
-            {
-                AddRoom(room);
-            }
-        }
-        private void OnActionPutItemInRoom(Item item, Room room)
-        {
-            room.AddItem(item);
-        }
-        private void OnActionConnectRoom(Room room1, Direction dir, Room room2)
-        {
-            room1.SetConnectedRoom(room2, dir);
-        }
         public void Print()
         {
             foreach(Room room in _rooms)
             {
                 room.Print();
             }
-        }        
+        }
+        public List<Room> Rooms
+        {
+            get { return _rooms; }
+        }
     }
 }

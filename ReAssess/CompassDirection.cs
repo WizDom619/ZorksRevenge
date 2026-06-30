@@ -1,8 +1,14 @@
-﻿using ZorksRevenge.Utilities;
-
-namespace ZorksRevenge.ReAssess.Utilities
+﻿namespace ZorksRevenge.Utilities
 {
-    
+    /// <summary>
+    /// This Class is to define directions. 
+    /// The directions will be used to ditermine which way the player moves from room to room.
+    /// I could remove Opposite() to create impossible geometry...
+    ///    You are in RoomA, you go North. 
+    ///    You are in RoomB, you go South.
+    ///    You are in RoomC (not back to roomA like expected). 
+    /// TODO Clean this up, and in Rooms too. 
+    /// </summary>
 
     internal class CompassDirection
     {

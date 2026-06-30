@@ -1,6 +1,6 @@
-﻿using ZorksRevenge.Utilities;
+﻿using ZorksRevenge.Parser;
 
-namespace ZorksRevenge.Parser
+namespace ZorksRevenge.ReAssess
 {
     /// <summary>
     /// This class will take in the Player's Input as a string. 
@@ -23,8 +23,8 @@ namespace ZorksRevenge.Parser
 
         // An array of useless words
         // These words will be removed from input as to not to confuse the process. 
-        private string[] _uselessWords =
-        {
+        private static readonly string[] _uselessWords =
+        { 
             "AT",
             "FOR",
             "UP",
@@ -46,13 +46,7 @@ namespace ZorksRevenge.Parser
             string[] splitInput = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
             // Remove useless words.
-            foreach (string word in splitInput)
-            {
-                foreach (string uselessWord in _uselessWords)
-                {
-                    splitInput = splitInput.Where(word => !_uselessWords.Contains(word.ToUpperInvariant())).ToArray();                                 
-                }
-            }
+            splitInput = splitInput.Where(word => !_uselessWords.Contains(word.ToUpperInvariant())).ToArray();
 
             // Identify the verb. 
 

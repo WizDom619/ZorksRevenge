@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZorksRevenge.EventArgs
 {
-    internal class OnActionAddItem : IGameEvent
+    internal class OnActionAddItem
     {
         public string _itemName { get; }
         public string _itemDesc { get; }

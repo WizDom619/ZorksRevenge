@@ -1,49 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ZorksRevenge;
+using ZorksRevenge.Event;
+using ZorksRevenge.Parser;
+using ZorksRevenge.Utilities;
 
-namespace ZorksRevenge.ReAssess
+namespace ZorksRevenge
 {
     internal static class EventBus
     {
-        private static readonly Dictionary<Type, List<Delegate>> subs = new();
+        // EventBus.dispatch receives a Command, translates it, publishes
+        public static void Dispatch(Command command)
+        {
+            GameEvent gameEvent = Resolve(command);
 
-        public static void Subscribe<T>(Action<T> handler) where T :IGameEvent
-        {
-            Type t = typeof(T);
-            if(!subs.TryGetValue(t, out List<Delegate> list))
+            if (gameEvent == null)
             {
-                list = new();
-                subs[t] = list;
+                ZorkPrinter.PrintLine("I don't understand that."));
+                return;
             }
-            list.Add(handler);
-        }
-        public static void Unubscribe<T>(Action<T> handler) where T : IGameEvent
-        {
-            Type t = typeof(T);
-            if (subs.TryGetValue(t, out List<Delegate> list))
-            {
-                list.Remove(handler);
-                if(list.Count == 0) subs.Remove(t);
-            }
-            
-        }
-        public static void Publish<T>(T ev) where T : IGameEvent
-        {
-            Type t = typeof(T);
-            if (subs.TryGetValue(t, out List<Delegate> list))
-            {
-                Delegate[] copy = list.ToArray();
-                foreach(var d in copy)
-                {
-                    ((Action<T>)d)(ev);
-                }
-            }
+
+            Publish(gameEvent);
         }
 
+        public static void Publish(GameEvent gameEvent)
+        {
+            // notify all subscribers
+        }
+
+        public static GameEvent Resolve(Command command) 
+        {
+            switch (command.Verb)
+            {
+                case Verb.Look:
+                    return new LookEvent(command.Noun);
+
+                default:
+                    return null;
+            }
+            //"go" => new PlayerMovedEvent(command.Noun),
+            //"take" => new ItemTakenEvent(command.Noun),
+            //"drop" => new ItemDroppedEvent(command.Noun),
+            //_ => null
+        }
     }
 }
-public interface IGameEvent
-{
 
-}
+// Subscribers register themselves
+//WorldManager.subscribe(EventBus);  // listens for PlayerMovedEvent
+//Inventory.subscribe(EventBus);     // listens for ItemTakenEvent, ItemDroppedEvent
+//Narrator.subscribe(EventBus);      // listens for everything to print output
+//SaveSystem.subscribe(EventBus);    // listens for state-changing events
