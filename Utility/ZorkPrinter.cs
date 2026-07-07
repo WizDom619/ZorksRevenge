@@ -16,24 +16,7 @@ namespace ZorksRevenge
         public static ConsoleColor PlayerColour = DarkGreen;
 
         // The speed of the printing effect. (25) 
-        private static int _printSpeed = 1;
-          
-
-        // A testing method to show off all colours available to print. 
-        public static void TEST_PrintAllColours()
-        {
-            BackgroundColor = Black;
-            PrintLine("Black", Black);
-            Print("Diamond", White);       PrintLine("   DarkGray", DarkGray);
-            Print("Sapphire", Blue);       PrintLine("  DarkBlue", DarkBlue);
-            Print("Emerald", Green);       PrintLine("   DarkGreen", DarkGreen); // Success
-            Print("Aquamarine", Cyan);     PrintLine("DarkCyan", DarkCyan); // Item
-            Print("Ruby", Red);            PrintLine("      DarkRed", DarkRed); // Enemy, Dies, Error
-            Print("Amethyst", Magenta);    PrintLine("  DarkMagenta", DarkMagenta);
-            Print("Topaz", Yellow);        PrintLine("     DarkYellow", DarkYellow); // Warning. Room
-            Print("Gray", Gray);
-            PrintLine("", Black);
-        }
+        private static int _printSpeed = 1;        
 
         // This Method is the main Print method. 
         private static void Print(string text, ConsoleColor color, PrintEffect parEffect, bool isNewLine)
@@ -57,9 +40,21 @@ namespace ZorksRevenge
             // Print by word. 
             string[] textBrokenUP = text.Split(" ");
             Write("");
-            foreach (string c in textBrokenUP)
+            for (int i = 0; i < textBrokenUP.Length; i++)
             {
-                Write($"{effect}{c} ");
+                string c = textBrokenUP[i];
+                // This is so there isn't a space on the final word of a print. This messessup other formatting. 
+                bool isLast = i == textBrokenUP.Length - 1;
+
+                if (isLast)
+                {
+                    Write($"{effect}{c}");
+                }
+                else
+                {
+                    Write($"{effect}{c} ");
+                }
+                
                 Thread.Sleep(_printSpeed);
             }
             Write("\u001b[0m");
@@ -122,6 +117,19 @@ namespace ZorksRevenge
             // If the switch does not return an escape character,
             // This means no effect was applied. 
             return "";
+        }
+
+        // This method prints a cool title for the game. To be used in the game's menus. 
+        public static void PrintTitle()
+        {
+            PrintLine("Hello and welcome to...\n");
+            WriteLine("███████╗ ██████╗ ██████╗ ██╗  ██╗'███████╗    ██████╗ ███████╗██╗   ██╗███████╗███╗   ██╗ ██████╗ ███████╗");
+            WriteLine("╚══███╔╝██╔═══██╗██╔══██╗██║ ██╔╝ ██╔════╝    ██╔══██╗██╔════╝██║   ██║██╔════╝████╗  ██║██╔════╝ ██╔════╝");
+            WriteLine("  ███╔╝ ██║   ██║██████╔╝█████╔╝  ███████╗    ██████╔╝█████╗  ██║   ██║█████╗  ██╔██╗ ██║██║  ███╗█████╗");
+            WriteLine(" ███╔╝  ██║   ██║██╔══██╗██╔═██╗  ╚════██║    ██╔══██╗██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║██║   ██║██╔══╝");
+            WriteLine("███████╗╚██████╔╝██║  ██║██║  ██╗ ███████║    ██║  ██║███████╗ ╚████╔╝ ███████╗██║ ╚████║╚██████╔╝███████╗");
+            WriteLine("╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚══════╝    ╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝");
+            PrintLine($"{"A fan game by Dominic Towns. Version 1.3",106}\n");
         }
     }
 }

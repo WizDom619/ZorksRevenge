@@ -17,7 +17,7 @@ namespace ZorksRevenge
             _west = null;
         }
 
-        public void AddPath(Room room, Direction dir)
+        public void Add(Room room, Direction dir)
         {
             switch (dir)
             {
@@ -45,7 +45,7 @@ namespace ZorksRevenge
             if (_south != null) { ZorkPrinter.Print($"\n -South of me is"); ZorkPrinter.Print($" {_south.Name}", ZorkPrinter.RoomColour); }
             if (_east != null) { ZorkPrinter.Print($"\n -East of me is"); ZorkPrinter.Print($" {_east.Name}", ZorkPrinter.RoomColour); }
             if (_west != null) { ZorkPrinter.Print($"\n -West of me is"); ZorkPrinter.Print($" {_west.Name}", ZorkPrinter.RoomColour); }
-
+            ZorkPrinter.PrintLine("");
         }
     }
 }

@@ -23,19 +23,24 @@
 
             _items = new List<Item>();
         }
+
         // Adds and Item within the room. 
-        public void AddItem(Item item)
+        public Room AddItem(Item item)
         {
             _items.Add(item);
+            return this;
         }
+
         // Connects various rooms together. 
-        public void AddPath(Room room, Direction dir)
+        public Room AddPath(Room room, Direction dir)
         {
-            _paths.AddPath(room, dir);
+            _paths.Add(room, dir);
+            return this;
         }
+
         public void Print()
         {
-            ZorkPrinter.Print($"{_name}:", ZorkPrinter.RoomColour);
+            ZorkPrinter.Print($"{_name}: ", ZorkPrinter.RoomColour);
             ZorkPrinter.PrintLine($"{_description}");
             foreach (Item item in _items)
             {
@@ -46,7 +51,7 @@
            _paths.Print();
             
 
-            //ZorkPrinter.Print("");
+            ZorkPrinter.PrintLine("");
             //ZorkPrinter.Print("");
         }
         public string Name { get { return _name; } }

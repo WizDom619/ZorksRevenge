@@ -21,7 +21,6 @@ namespace ZorksRevenge
         South,
         East,
         West,
-        NULL
     };
     // This enum will be used by the Main Menu class to set the stae of the menu. 
     public enum MenuState
@@ -29,9 +28,9 @@ namespace ZorksRevenge
         MainMenu,
         NewGame,
         LoadGame,
-        Instructions,
+        HowToPlay,
         Quit,
-        Invalid
+        NULL
     };
     // This enum will be used by the Zork printer to ditermine what text effects to apply on a print. 
     // FYI Bold is an option for ASCII Escape characters but it doesn't affect anything, atleast not in Windows Console. 

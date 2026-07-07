@@ -16,13 +16,9 @@
             _name = name;
             _description = description;
         }
-        public void ChangeName(string _new_name)
-        {
-            _name = _new_name;
-        }
         public void Print()
         {
-            ZorkPrinter.Print($"{_name}:", ZorkPrinter.ItemColour);
+            ZorkPrinter.Print($"{_name}: ", ZorkPrinter.ItemColour);
             ZorkPrinter.PrintLine($"{_description}");
         }
         public string Name

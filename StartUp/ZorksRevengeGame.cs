@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.StartUp;
+
+namespace ZorksRevenge
 {
     /// <summary>
     /// The begginning of the Zork's Revenge Game
@@ -8,7 +10,7 @@
     /// </summary>
     internal class ZorksRevengeGame
     {
-        private GameManager _gameManager;
+        private GameManager _gameHandler;
 
         public ZorksRevengeGame()
         {
@@ -24,8 +26,7 @@
             Console.Clear();
 
             //Begin the game with the Game Manager
-            //_gameManager = new GameManager();
-            //_gameManager.Update();
+            _gameHandler = new GameManager();
         }
     }
 }

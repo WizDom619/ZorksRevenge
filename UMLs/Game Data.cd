@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ZorksRevenge.StartUp.GameHandler">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAACAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StartUp\GameHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ZorksRevenge.GameDataHandler">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>GameDataHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_gameWorld" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ZorksRevenge.GameObjects.Room">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAACAAAEAAAAAAQAgBAQAAAAAAAAQACEAAA=</HashCode>
+      <FileName>GameObjects\Room.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_paths" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_items" />
+      <Field Name="_npcs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ZorksRevenge.GameObjects.Item">
+    <Position X="9.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>GameObjects\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.GameObjects.NPC">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\NPC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Utility.Paths">
+    <Position X="10" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAIAAAAAAAAgACAAAAAAEAAA=</HashCode>
+      <FileName>Utility\Paths.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

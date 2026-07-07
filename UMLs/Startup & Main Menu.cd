@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ZorksRevenge.StartUp.Program">
+    <Position X="3.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAABAAAAAA=</HashCode>
+      <FileName>StartUp\Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="game" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ZorksRevenge.ZorksRevengeGame">
+    <Position X="3.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StartUp\ZorksRevengeGame.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameHandler" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ZorksRevenge.Menu.MenuBase">
+    <Position X="9" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAACAAAAAA=</HashCode>
+      <FileName>Menu System\MenuBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Menu.MainMenu" Collapsed="true">
+    <Position X="11.75" Y="4.25" Width="1.5" />
+    <InheritanceLine Type="ZorksRevenge.Menu.MenuBase" FixedFromPoint="true">
+      <Path>
+        <Point X="10.5" Y="4.562" />
+        <Point X="11.75" Y="4.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu System\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Menu.NewGame" Collapsed="true">
+    <Position X="11.75" Y="5.25" Width="1.5" />
+    <InheritanceLine Type="ZorksRevenge.Menu.MenuBase" FixedFromPoint="true">
+      <Path>
+        <Point X="10.5" Y="4.562" />
+        <Point X="10.875" Y="4.562" />
+        <Point X="10.875" Y="5.596" />
+        <Point X="11.75" Y="5.596" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu System\NewGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Menu.QuitGame" Collapsed="true">
+    <Position X="11.75" Y="8.25" Width="1.5" />
+    <InheritanceLine Type="ZorksRevenge.Menu.MenuBase" FixedFromPoint="true">
+      <Path>
+        <Point X="10.5" Y="4.562" />
+        <Point X="10.875" Y="4.562" />
+        <Point X="10.875" Y="8.596" />
+        <Point X="11.75" Y="8.596" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu System\QuitGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Menu.LoadGame" Collapsed="true">
+    <Position X="11.75" Y="6.25" Width="1.5" />
+    <InheritanceLine Type="ZorksRevenge.Menu.MenuBase" FixedFromPoint="true">
+      <Path>
+        <Point X="10.5" Y="4.562" />
+        <Point X="10.875" Y="4.562" />
+        <Point X="10.875" Y="6.596" />
+        <Point X="11.75" Y="6.596" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu System\LoadGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Menu.HowToPlayMenu" Collapsed="true">
+    <Position X="11.75" Y="7.25" Width="1.5" />
+    <InheritanceLine Type="ZorksRevenge.Menu.MenuBase" FixedFromPoint="true">
+      <Path>
+        <Point X="10.5" Y="4.562" />
+        <Point X="10.875" Y="4.562" />
+        <Point X="10.875" Y="7.596" />
+        <Point X="11.75" Y="7.596" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu System\HowToPlayMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZorksRevenge.Menu.MenuHandler">
+    <Position X="6.25" Y="4" Width="1.5" />
+    <AssociationLine Name="_menus" Type="ZorksRevenge.Menu.MenuBase" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="7.75" Y="4.812" />
+        <Point X="8.125" Y="4.812" />
+        <Point X="9" Y="4.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAAAAAABAAAAAAAAAAAAAAAAAAAACAAABA=</HashCode>
+      <FileName>Menu System\MenuHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_menus" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ZorksRevenge.StartUp.GameManager">
+    <Position X="3.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAACAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StartUp\GameManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_menuHandler" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
