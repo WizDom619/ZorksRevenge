@@ -93,6 +93,10 @@ namespace ZorksRevenge
                     case "S":
                         newVerb = Verb.Speak;
                         break;
+
+                    case "HELP":
+                        newVerb = Verb.Help;
+                        break;
                 }
 
                 //if Verb != Null, that means an actionable Verb has been detected and the loop can end. 

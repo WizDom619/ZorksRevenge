@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge.StartUp
+﻿namespace ZorksRevenge.GameStates
 {
     internal class GameState
     {
@@ -7,6 +7,8 @@
         public virtual void Display() { }  
         public virtual void ReadInput()
         {
+            _response = null;
+
             ZorkPrinter.Print(":> ");
             _response = Console.ReadLine();
 

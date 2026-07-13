@@ -12,6 +12,8 @@ namespace ZorksRevenge
         Drop,
         Inventory,
         Speak,
+        Blank,
+        Help,
         NULL
     };
     // This enum will be used by the CompassDirection class to know direction it is pointitng. 
@@ -21,6 +23,7 @@ namespace ZorksRevenge
         South,
         East,
         West,
+        NULL
     };
     // This enum will be used by the Main Menu class to set the stae of the menu. 
     public enum MenuState

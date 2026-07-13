@@ -39,13 +39,32 @@ namespace ZorksRevenge
             }
         }
 
+        public Room? GetRoom( Direction dir)
+        {
+            switch (dir)
+            {
+                case Direction.North:
+                    return _north;
+
+                case Direction.South:
+                    return _south;
+
+                case Direction.East:
+                    return _east;
+
+                case Direction.West:
+                    return _west;
+            }
+
+            return null;
+        }
+
         public void Print()
         {
-            if (_north != null) { ZorkPrinter.Print($"\n -North of me is"); ZorkPrinter.Print($" {_north.Name}", ZorkPrinter.RoomColour); }
-            if (_south != null) { ZorkPrinter.Print($"\n -South of me is"); ZorkPrinter.Print($" {_south.Name}", ZorkPrinter.RoomColour); }
-            if (_east != null) { ZorkPrinter.Print($"\n -East of me is"); ZorkPrinter.Print($" {_east.Name}", ZorkPrinter.RoomColour); }
-            if (_west != null) { ZorkPrinter.Print($"\n -West of me is"); ZorkPrinter.Print($" {_west.Name}", ZorkPrinter.RoomColour); }
-            ZorkPrinter.PrintLine("");
+            if (_north != null) { ZorkPrinter.Print($" -North of me is"); ZorkPrinter.Print($" {_north.Name}\n", ZorkPrinter.RoomColour); }
+            if (_south != null) { ZorkPrinter.Print($" -South of me is"); ZorkPrinter.Print($" {_south.Name}\n", ZorkPrinter.RoomColour); }
+            if (_east != null) { ZorkPrinter.Print($" -East of me is"); ZorkPrinter.Print($" {_east.Name}\n", ZorkPrinter.RoomColour); }
+            if (_west != null) { ZorkPrinter.Print($" -West of me is"); ZorkPrinter.Print($" {_west.Name}\n", ZorkPrinter.RoomColour); }
         }
     }
 }

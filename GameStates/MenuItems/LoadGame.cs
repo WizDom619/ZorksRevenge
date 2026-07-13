@@ -1,13 +1,12 @@
-﻿using ZorksRevenge.StartUp;
-
-namespace ZorksRevenge.GameStates
+﻿namespace ZorksRevenge.GameStates.MenuItems 
 {
-    internal class NewGame : GameState
+    internal class LoadGame : GameState
     {
         public override void Display()
         {
             //TESTING
-            Console.WriteLine("New Game");        }
+            Console.WriteLine("Load Game");
+        }
 
         public override GameState? Update()
         {

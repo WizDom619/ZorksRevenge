@@ -40,21 +40,20 @@
 
         public void Print()
         {
-            ZorkPrinter.Print($"{_name}: ", ZorkPrinter.RoomColour);
-            ZorkPrinter.PrintLine($"{_description}");
+            ZorkPrinter.PrintLine("Items: ");
             foreach (Item item in _items)
             {
                 ZorkPrinter.Print(" -", ZorkPrinter.ItemColour);
                 item.Print();
             }
-            
-           _paths.Print();
-            
 
-            ZorkPrinter.PrintLine("");
-            //ZorkPrinter.Print("");
+            Console.WriteLine("");
+            ZorkPrinter.PrintLine("Pathways: ");
+            _paths.Print();            
         }
         public string Name { get { return _name; } }
         public string Desc { get { return _description; } }
+        public Paths Paths { get { return _paths; } }
+        public List<Item> Items { get { return _items; } }
     }
 }

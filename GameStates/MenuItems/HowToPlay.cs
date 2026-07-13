@@ -1,7 +1,4 @@
-﻿using ZorksRevenge.GameStates;
-using ZorksRevenge.StartUp;
-
-namespace ZorksRevenge.Menu
+﻿namespace ZorksRevenge.GameStates.MenuItems
 {
     /// <summary>
     /// This is the How To Play Menu Class
@@ -42,7 +39,7 @@ namespace ZorksRevenge.Menu
 
         public override GameState Update()
         {
-            return new MainMenu();
+            return this; //new MainMenu();
         }
     }
 }

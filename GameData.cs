@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge.GameObjects
+﻿using ZorksRevenge.GameObjects;
+
+namespace ZorksRevenge
 {
     /// <summary>
     /// Here is where all the Game Data is Instanciated

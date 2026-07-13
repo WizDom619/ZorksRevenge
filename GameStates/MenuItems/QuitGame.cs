@@ -1,6 +1,4 @@
-﻿using ZorksRevenge.StartUp;
-
-namespace ZorksRevenge.GameStates
+﻿namespace ZorksRevenge.GameStates.MenuItems
 {
     /// <summary>
     /// This is the Quit Game Option. 

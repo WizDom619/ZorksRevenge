@@ -131,5 +131,19 @@ namespace ZorksRevenge
             WriteLine("╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚══════╝    ╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝");
             PrintLine($"{"A fan game by Dominic Towns. Version 1.3",106}\n");
         }
+        public static void PrintAllColours()
+        {
+            BackgroundColor = Black;
+            PrintLine("Black", Black);
+            Print("Diamond", White); PrintLine("   DarkGray", DarkGray);
+            Print("Sapphire", Blue); PrintLine("  DarkBlue", DarkBlue);
+            Print("Emerald", Green); PrintLine("   DarkGreen", DarkGreen); // Success
+            Print("Aquamarine", Cyan); PrintLine("DarkCyan", DarkCyan); // Item
+            Print("Ruby", Red); PrintLine("      DarkRed", DarkRed); // Enemy, Dies, Error
+            Print("Amethyst", Magenta); PrintLine("  DarkMagenta", DarkMagenta);
+            Print("Topaz", Yellow); PrintLine("     DarkYellow", DarkYellow); // Warning. Room
+            Print("Gray", Gray);
+            PrintLine("", Black);
+        }
     }
 }
