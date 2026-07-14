@@ -12,7 +12,7 @@
         private Paths _paths;
 
         private List<Item> _items;
-        private List<NPC> _npcs;
+        private NPC _npc;
 
         public Room(string name, string description)
         {
@@ -22,6 +22,7 @@
             _paths = new Paths();
 
             _items = new List<Item>();
+            _npc = null;
         }
 
         // Adds and Item within the room. 
@@ -38,6 +39,12 @@
             return this;
         }
 
+        public Room AddNPC(NPC npc)
+        {
+            _npc = npc;
+            return this;
+        }
+
         public void Print()
         {
             ZorkPrinter.PrintLine("Items: ");
@@ -48,6 +55,12 @@
             }
 
             Console.WriteLine("");
+            if (_npc != null)
+            { 
+                NPC.Print();
+            }
+
+            Console.WriteLine("");
             ZorkPrinter.PrintLine("Pathways: ");
             _paths.Print();            
         }
@@ -55,5 +68,6 @@
         public string Desc { get { return _description; } }
         public Paths Paths { get { return _paths; } }
         public List<Item> Items { get { return _items; } }
+        public NPC NPC { get { return _npc; } }
     }
 }

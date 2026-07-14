@@ -1,4 +1,5 @@
 ﻿using ZorksRevenge.GameObjects;
+using ZorksRevenge.MiniGames;
 
 namespace ZorksRevenge
 {
@@ -11,14 +12,20 @@ namespace ZorksRevenge
         private List<Room> _rooms;
 
         public List<Room> InstanciateWorld()
-        {       
+        {
             // Create All Rooms 
             // And add Items to the Rooms. 
-            _rooms =  new List<Room>
+            _rooms = new List<Room>
             {
                 new Room("Entry", "This is where your journey begins")
                 .AddItem(new Item("Rock", "A small hard rock"))
-                .AddItem(new Item("Skull", "Some poor soul that never escaped")),
+                .AddItem(new Item("Skull", "Some poor soul that never escaped"))
+                .AddNPC(new NPC()
+                    .AddName("Bob")
+                    .AddInstructions("Play my Game for a prize")
+                    .AddMiniGame(new MiniGame())
+                    .AddPrize(new Item("Gold", "shiney and yellow"))
+                    ),
 
                 new Room("Hallway", "You are in a long hallway")
                 .AddItem(new Item("Pile of Dust", "Dirty and gross")),
@@ -26,7 +33,7 @@ namespace ZorksRevenge
                 new Room("Bedroom", "A room where you sleep")
                 .AddItem(new Item("Ruby", "Sparkles in a blood red"))
                 .AddItem(new Item("Pen", "A sharp BIC pen, nothing but the best")),
-            };
+            }; 
 
             // Set all paths between Rooms. 
             ConnectPaths(FindRoom("Entry"), Direction.North, FindRoom("Hallway"));
