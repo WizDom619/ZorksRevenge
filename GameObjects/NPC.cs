@@ -5,28 +5,29 @@ namespace ZorksRevenge.GameObjects
     internal class NPC
     {
         // NPC's name is used to search and identify. 
-        private string _name;
-
-        private string _instructions;
-
+        protected string _name;
+        protected string _instructions;
+        protected bool _isAlive = true;
+        private bool _isHappy = false;
         private MiniGame _miniGame;
-
         private Item _prize;
 
-        public NPC()
-        {
+        private Dictionary<string, bool> _wants = new Dictionary<string, bool>();
 
-        }
-        public void Print()
-        {
-            ZorkPrinter.PrintLine("Sphinx:");
-            ZorkPrinter.PrintLine($" -{_name} ", ZorkPrinter.NPCColour);
-        }
-
-        public NPC AddName(string name)
+        public NPC(string name)
         {
             _name = name;
+        }
+
+        public NPC AddWant(string want)
+        {
+            _wants.Add(want, false);
             return this;
+        }
+
+        public bool Play()
+        {
+            return _miniGame.Play();
         }
         public NPC AddInstructions(string instructions)
         {
@@ -43,21 +44,33 @@ namespace ZorksRevenge.GameObjects
             _prize = prize;
             return this;
         }
+
+        public void Print()
+        {
+            if (_isAlive != true)
+            {
+                return;
+            }
+            ZorkPrinter.PrintLine("Sphinx:");
+            ZorkPrinter.PrintLine($" -{_name} ", ZorkPrinter.NPCColour);
+        }
+
+       
         public string Name
-        {
-            get { return _name; }
-        }
+            { get { return _name; } }
         public string Instructions
-        {
-            get { return _instructions; }
-        }
+            { get { return _instructions; } }
+        public Dictionary<string, bool> Wants
+        { get { return _wants; } }
+        public bool IsAlive
+        { get { return _isAlive; } set { _isAlive = value; } }
+        public bool IsHappy
+        { get { return _isHappy; } set { _isHappy = value; } }
         public MiniGame MiniGame
-        {
-            get { return _miniGame; }
-        }
+        { get { return _miniGame; } }
         public Item Prize
-        {
-            get { return _prize; }
-        }
+        { get { return _prize; } }
+
+
     }
 }

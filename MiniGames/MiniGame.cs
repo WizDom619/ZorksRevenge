@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ZorksRevenge.MiniGames
+﻿namespace ZorksRevenge.MiniGames
 {
-    internal class MiniGame
+    internal abstract class MiniGame
     {
         public MiniGame()
         {
 
         }
+
+        public abstract bool Play();
     }
 }

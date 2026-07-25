@@ -1,4 +1,5 @@
 ﻿using ZorksRevenge.GameStates;
+using ZorksRevenge.MiniGames;
 
 namespace ZorksRevenge.StartUp
 {

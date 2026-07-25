@@ -21,6 +21,10 @@
             ZorkPrinter.Print($"{_name}: ", ZorkPrinter.ItemColour);
             ZorkPrinter.PrintLine($"{_description}");
         }
+        public string Description
+        {
+            get { return _name; }
+        }
         public string Name
         {
             get { return _name; }

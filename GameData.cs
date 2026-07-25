@@ -1,4 +1,5 @@
 ﻿using ZorksRevenge.GameObjects;
+using ZorksRevenge.GameObjects.NPCs;
 using ZorksRevenge.MiniGames;
 
 namespace ZorksRevenge
@@ -20,12 +21,19 @@ namespace ZorksRevenge
                 new Room("Entry", "This is where your journey begins")
                 .AddItem(new Item("Rock", "A small hard rock"))
                 .AddItem(new Item("Skull", "Some poor soul that never escaped"))
-                .AddNPC(new NPC()
-                    .AddName("Bob")
+                .AddItem(new Money("Cash1", "Cold Hard Cash $5", 5))
+                .AddItem(new Money("Cash2", "Cold Hard Cash $10", 10))
+                .AddItem(new Money("Cash3", "Cold Hard Cash $24", 24))
+                .AddItem(new Item("Cake", ""))
+                .AddNPC(new NPC("Bob")
                     .AddInstructions("Play my Game for a prize")
-                    .AddMiniGame(new MiniGame())
+                    .AddWant("Rock")
+                    .AddMiniGame(new MathQuiz())
                     .AddPrize(new Item("Gold", "shiney and yellow"))
-                    ),
+                    )
+                .AddContainer(new Container("Box")
+                    .AddItem(new Item("Fork", "stabby"))),
+
 
                 new Room("Hallway", "You are in a long hallway")
                 .AddItem(new Item("Pile of Dust", "Dirty and gross")),

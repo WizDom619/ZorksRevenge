@@ -32,8 +32,9 @@ namespace ZorksRevenge.GameStates
         public override void Display()
         {
             ZorkPrinter.PrintLine("-------------------------------------------------");
-            ZorkPrinter.PrintLine($"Location: {_playerData.CurrentRoom.Name}", ZorkPrinter.RoomColour);
-            ZorkPrinter.PrintLine($"    {_playerData.CurrentRoom.Desc}");
+            ZorkPrinter.Print($"Location: {_playerData.CurrentRoom.Name}", ZorkPrinter.RoomColour);
+            ZorkPrinter.PrintLine($"{"$: " + _playerData.Money, 27}");
+            ZorkPrinter.PrintLine($"    {_playerData.CurrentRoom.Desc}");   
             ZorkPrinter.PrintLine("-------------------------------------------------");
 
             if (_command.Verb != Verb.Blank)

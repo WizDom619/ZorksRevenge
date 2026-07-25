@@ -1,0 +1,203 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ZorksRevenge.MiniGames
+{
+    internal class Hangman : MiniGame
+    {
+        bool _isPlaying = true;
+
+        int _drawCount = 0;
+
+        List<char> _wrongLetters = new List<char>();
+        Dictionary<char, bool> _rightLetters = new Dictionary<char, bool>();
+
+        public Hangman()
+        {
+            //Wellington 
+            _rightLetters.Add('N', false);
+            _rightLetters.Add('I', false);
+            _rightLetters.Add('C', false);
+            _rightLetters.Add('O', false);
+            _rightLetters.Add('D', false);
+            _rightLetters.Add('E', false);
+            _rightLetters.Add('M', false);
+            _rightLetters.Add('U', false);
+            _rightLetters.Add('S', false);
+        }
+
+        public override bool Play()
+        {
+            while (_isPlaying)
+            {
+                ZorkPrinter.PrintLine("Let's play Hangman");
+                ZorkPrinter.PrintLine("Guess my word...\n");
+
+                foreach (KeyValuePair<char, bool> kvp in _rightLetters)
+                { 
+                    if (kvp.Value == false)
+                    {
+                        ZorkPrinter.Print("_ ");
+                    }
+                    else
+                    {
+                        ZorkPrinter.Print(kvp.Key + " ");
+                    }
+                }
+                ZorkPrinter.PrintLine("");   
+                ZorkPrinter.PrintLine("");   
+                ZorkPrinter.Print("Incorrect Letters: ");     
+                
+                foreach (char c in _wrongLetters)
+                {
+                    ZorkPrinter.Print(c.ToString() + " ");
+                }
+
+                ZorkPrinter.PrintLine("");
+
+                DrawHangman();
+
+                ZorkPrinter.PrintLine("");
+
+                ZorkPrinter.Print(":> ");
+                string input = Console.ReadLine().ToUpper();
+                Console.Clear();
+
+                if (char.TryParse(input, out char playerGuess))
+                {
+                    foreach (KeyValuePair<char, bool> kvp in _rightLetters)
+                    {
+                        if (playerGuess == kvp.Key)
+                        {
+                            _rightLetters[playerGuess] = true;
+                        }
+                        else
+                        {                            
+                            if (!_wrongLetters.Contains(playerGuess))
+                            {
+                                _drawCount++;
+                                _wrongLetters.Add(playerGuess);
+                          
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    ZorkPrinter.PrintLine("Invalid Input");
+                }
+
+                bool gameOver = true; 
+
+                foreach (KeyValuePair<char, bool> kvp in _rightLetters)
+                {
+                    if (kvp.Value == false)
+                    {
+                        gameOver = false; 
+                    }                        
+                }
+
+                if (gameOver == true)
+                {
+                    _isPlaying = false;
+                }
+
+                if (_drawCount == 6)
+                {
+                    gameOver = true;
+                    _isPlaying = false;
+                }
+
+                if (gameOver) 
+                {
+                    Console.Clear();
+                    ZorkPrinter.Print("Play Again!\n");
+                    return new Hangman().Play();
+                }
+            }
+
+            return true;
+        }
+
+        private void DrawHangman()
+        {
+            if (_drawCount == 0)
+            {
+                ZorkPrinter.PrintLine("  _______");
+                ZorkPrinter.PrintLine("  |      |");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine(" _|___");
+            }
+
+            if (_drawCount == 1)
+            {
+                ZorkPrinter.PrintLine("  _______");
+                ZorkPrinter.PrintLine("  |      |");
+                ZorkPrinter.PrintLine("  |      O");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine(" _|___");
+            }
+
+            if (_drawCount == 2)
+            {
+                ZorkPrinter.PrintLine("  _______");
+                ZorkPrinter.PrintLine("  |      |");
+                ZorkPrinter.PrintLine("  |      O");
+                ZorkPrinter.PrintLine("  |      |");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine(" _|___");
+            }
+
+            if (_drawCount == 3)
+            {
+                ZorkPrinter.PrintLine("  _______");
+                ZorkPrinter.PrintLine("  |      |");
+                ZorkPrinter.PrintLine("  |      O");
+                ZorkPrinter.PrintLine("  |     /|");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine(" _|___");
+            }
+
+            if (_drawCount == 4)
+            {
+                ZorkPrinter.PrintLine("  _______");
+                ZorkPrinter.PrintLine("  |      |");
+                ZorkPrinter.PrintLine("  |      O");
+                ZorkPrinter.PrintLine("  |     /|\\");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine(" _|___");
+            }
+
+            if (_drawCount == 5)
+            {
+                ZorkPrinter.PrintLine("  _______");
+                ZorkPrinter.PrintLine("  |      |");
+                ZorkPrinter.PrintLine("  |      O");
+                ZorkPrinter.PrintLine("  |     /|\\");
+                ZorkPrinter.PrintLine("  |     /");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine(" _|___");
+            }
+
+            if (_drawCount == 6)
+            {
+                ZorkPrinter.PrintLine("  _______");
+                ZorkPrinter.PrintLine("  |      |");
+                ZorkPrinter.PrintLine("  |      O");
+                ZorkPrinter.PrintLine("  |     /|\\");
+                ZorkPrinter.PrintLine("  |     / \\");
+                ZorkPrinter.PrintLine("  |");
+                ZorkPrinter.PrintLine(" _|___");
+            }
+        }
+    }
+}

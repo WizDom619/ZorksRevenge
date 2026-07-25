@@ -14,6 +14,9 @@ namespace ZorksRevenge
         Speak,
         Blank,
         Help,
+        Open,
+        Play,
+        Give,
         NULL
     };
     // This enum will be used by the CompassDirection class to know direction it is pointitng. 

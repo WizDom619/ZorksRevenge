@@ -12,7 +12,9 @@
         private Paths _paths;
 
         private List<Item> _items;
+        private List<Container> _containers;
         private NPC _npc;
+
 
         public Room(string name, string description)
         {
@@ -22,6 +24,8 @@
             _paths = new Paths();
 
             _items = new List<Item>();
+            _containers = new List<Container>();
+
             _npc = null;
         }
 
@@ -39,28 +43,62 @@
             return this;
         }
 
-        public Room AddNPC(NPC npc)
+        public Room AddNPC(Sphinx npc)
         {
             _npc = npc;
             return this;
         }
 
+        public Room AddContainer(Container container)
+        {
+            _containers.Add(container);
+            return this;
+        }
+
         public void Print()
         {
-            ZorkPrinter.PrintLine("Items: ");
-            foreach (Item item in _items)
+            if (Items.Count != 0)
             {
-                ZorkPrinter.Print(" -", ZorkPrinter.ItemColour);
-                item.Print();
+                ZorkPrinter.PrintLine("Items: ");
+                foreach (Item item in _items)
+                {
+                    if (item.Name == "Cake")
+                    {
+                        // Do Nothing
+                    }
+                    else 
+                    {
+                        ZorkPrinter.Print(" -", ZorkPrinter.ItemColour);
+                        item.Print();
+                    }
+                    
+                }
+                Console.WriteLine("");
             }
-
-            Console.WriteLine("");
+            
+            if (_containers.Count > 0) 
+            {
+                ZorkPrinter.PrintLine("Containers: ");
+                foreach (Container container in _containers)
+                {
+                    ZorkPrinter.Print($" -{container.Name}");
+                    if (container.Opened == true &&
+                        container.Contents.Count != 0)
+                    {
+                        ZorkPrinter.PrintLine(" Item's: ");
+                        container.Print();
+                    }
+                    Console.WriteLine("");
+                }
+                Console.WriteLine("");
+            }
+            
             if (_npc != null)
             { 
                 NPC.Print();
+                Console.WriteLine("");
             }
 
-            Console.WriteLine("");
             ZorkPrinter.PrintLine("Pathways: ");
             _paths.Print();            
         }
@@ -68,6 +106,7 @@
         public string Desc { get { return _description; } }
         public Paths Paths { get { return _paths; } }
         public List<Item> Items { get { return _items; } }
+        public List<Container> Containers { get { return _containers; } }
         public NPC NPC { get { return _npc; } }
     }
 }

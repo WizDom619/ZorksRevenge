@@ -94,8 +94,24 @@ namespace ZorksRevenge
                         newVerb = Verb.Speak;
                         break;
 
+                    case "OPEN":
+                    case "O":
+                        newVerb = Verb.Open;
+                        break;
+
                     case "HELP":
+                    case "H":
                         newVerb = Verb.Help;
+                        break;
+
+                    case "GIVE":
+                    case "G":
+                        newVerb = Verb.Give;
+                        break;
+    
+                    case "PLAY":
+                    case "P":
+                        newVerb = Verb.Play;
                         break;
                 }
 
