@@ -1,5 +1,4 @@
 ﻿using ZorksRevenge.GameObjects;
-using ZorksRevenge.GameObjects.NPCs;
 using ZorksRevenge.MiniGames;
 
 namespace ZorksRevenge

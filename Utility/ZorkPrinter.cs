@@ -146,5 +146,35 @@ namespace ZorksRevenge
             Print("Gray", Gray);
             PrintLine("", Black);
         }
+
+        public static void PrintEnd()
+        {
+            ZorkPrinter.PrintLine("", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("           ***************           ***************", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("        *****           *****     *****           *****", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("      ****                 *********                 ****", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("     ****                                               ****", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("    ***                                                   ***", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("   ***                                                     ***", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("  ***                                                       ***", ConsoleColor.Red);//
+            ZorkPrinter.PrintLine("  ***                                                       ***", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("  ***                                                       ***", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("  ***                   Thanks for Playing,                 ***", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("  ***                        The End                        ***", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("  ***                                                       ***", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("   ***                                                     ***", ConsoleColor.Red);//
+            ZorkPrinter.PrintLine("    ***                                                   ***", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("     ****                                               ****", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("       ****                                           ****", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("         *****                                     *****", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("           ******                               ******", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("              ******                         ******", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("                 ******                   ******", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("                    ******             ******", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("                       ******       ******", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("                          *************", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("                             *******", ConsoleColor.Red);
+            ZorkPrinter.PrintLine("                                *", ConsoleColor.Red);
+        }
     }
 }

@@ -43,7 +43,7 @@
             return this;
         }
 
-        public Room AddNPC(Sphinx npc)
+        public Room AddNPC(NPC npc)
         {
             _npc = npc;
             return this;

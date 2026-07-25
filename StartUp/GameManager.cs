@@ -12,7 +12,8 @@ namespace ZorksRevenge.StartUp
             //_gameState = new MainMenu();
 
             //TESTING
-            _gameState = new Campaign();
+            MiniGame MG = new FinalBoss();
+            MG.Play();
 
             _gameState.Display();
 

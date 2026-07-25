@@ -30,7 +30,7 @@ namespace ZorksRevenge.Input
             _noun = noun;
             _takenItem = new Item("NULL", "NULL");
             _dropItem = new Item("NULL", "NULL");
-            _talkedNPC = new Sphinx("NULL");
+            _talkedNPC = new NPC("NULL");
             _openedContainer = new Container("NULL");
             _givenItem = new Item("NULL", "NULL");
             _dir = Direction.NULL;
@@ -109,7 +109,7 @@ namespace ZorksRevenge.Input
                     break;
 
                 case Verb.Speak:
-                    _talkedNPC = new Sphinx("NULL");
+                    _talkedNPC = new NPC("NULL");
 
                     if (playerData.CurrentRoom.NPC.Name.ToUpper() == _noun.ToUpper())
                     {
@@ -137,40 +137,55 @@ namespace ZorksRevenge.Input
                 case Verb.Give:
                     _givenItem = new Item("NULL", "NULL");
 
-                    if (playerData.CurrentRoom.NPC.Want.Count == 1)
+                    string key = null;
+
+                    //For each of the NPC's wants
+                    foreach (KeyValuePair<string, bool> kvp in playerData.CurrentRoom.NPC.Wants)
                     {
-                        if (playerData.CurrentRoom.NPC.Want.First().ToUpper() == _noun.ToUpper() &&
-                        playerData.CurrentRoom.NPC.IsAlive)
+                        // If the the want matches the noun
+                        if (kvp.Key.ToUpper() == _noun.ToUpper() &&
+                            playerData.CurrentRoom.NPC.IsAlive)
                         {
-                            foreach (Item item in playerData.Inventory)
-                            {
-                                if (item.Name.ToUpper() == _noun.ToUpper())
-                                {
-                                    _givenItem = item;
-                                    playerData.Inventory.Remove(item);
-                                    playerData.CurrentRoom.NPC.IsHappy = true;
-                                    break;
-                                }
-                            }
+                            key = kvp.Key;
                         }
                     }
-                    else
+
+                    if (key != null)
                     {
-                        foreach(string s in playerData.CurrentRoom.NPC.Want)
+                        playerData.CurrentRoom.NPC.Wants[key] = true;
+                    }
+
+                    // Foreach item in Inventory
+                    foreach (Item item in playerData.Inventory)
+                    {
+                        if (item.Name.ToUpper() == _noun.ToUpper())
                         {
-                            foreach (Item item in playerData.Inventory)
-                            {
-                                if (item.Name.ToUpper() == _noun.ToUpper())
-                                {
-                                    _givenItem = item;
-                                    playerData.Inventory.Remove(item);
-                                    playerData.CurrentRoom.NPC.IsHappy = true;
-                                    break;
-                                }
-                            }
+                            _givenItem = item;                            
                         }
                     }
-                    
+                     
+                    if (_givenItem != null)
+                    {
+                        playerData.Inventory.Remove(_givenItem);
+                    }
+
+                    bool wantsComplete = true; 
+
+                    foreach (KeyValuePair<string, bool> kvp in playerData.CurrentRoom.NPC.Wants)
+                    {
+                        if (playerData.CurrentRoom.NPC.Wants[kvp.Key] == false)
+                        {
+                            Console.WriteLine("Sphinx is Happy");
+                            wantsComplete = false;
+                            break;
+                        }
+                    }
+
+                    if (wantsComplete)
+                    {
+                        playerData.CurrentRoom.NPC.IsHappy = true;
+                        break;
+                    }
                     break;
 
                 case Verb.Play:
@@ -260,9 +275,11 @@ namespace ZorksRevenge.Input
                     break;
 
                 case Verb.Play:
+                    Console.WriteLine("Play Verb Display");
                     if (playerData.CurrentRoom.NPC.IsHappy &&
                         playerData.CurrentRoom.NPC.IsAlive)
                     {
+                        Console.WriteLine("Sphinx is Happy and Alive");
                         if (playerData.CurrentRoom.NPC.Play())
                         {
                             // Beat Game
