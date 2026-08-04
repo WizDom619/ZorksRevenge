@@ -1,8 +1,6 @@
-﻿using ZorksRevenge.GameObjects;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge.Utility
 {
-    internal class Paths
+    public class Paths
     {
         private Room? _north;
         private Room? _south;

@@ -8,7 +8,7 @@ using static System.ConsoleColor;
 /// </summary>
 namespace ZorksRevenge
 {
-    internal static class ZorkPrinter
+    public static class ZorkPrinter
     {
         //TODO Confirm Game Objects spefic colours. 
         public static ConsoleColor ItemColour = DarkCyan;
@@ -130,7 +130,7 @@ namespace ZorksRevenge
             WriteLine(" ███╔╝  ██║   ██║██╔══██╗██╔═██╗  ╚════██║    ██╔══██╗██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║██║   ██║██╔══╝");
             WriteLine("███████╗╚██████╔╝██║  ██║██║  ██╗ ███████║    ██║  ██║███████╗ ╚████╔╝ ███████╗██║ ╚████║╚██████╔╝███████╗");
             WriteLine("╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚══════╝    ╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝");
-            PrintLine($"{"A fan game by Dominic Towns. Version 1.3",106}\n");
+            PrintLine($"{"A fan game by Dominic Towns. Version 1.4",106}\n");
         }
         public static void PrintAllColours()
         {
@@ -149,32 +149,37 @@ namespace ZorksRevenge
 
         public static void PrintEnd()
         {
-            ZorkPrinter.PrintLine("", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("           ***************           ***************", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("        *****           *****     *****           *****", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("      ****                 *********                 ****", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("     ****                                               ****", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("    ***                                                   ***", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("   ***                                                     ***", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("  ***                                                       ***", ConsoleColor.Red);//
-            ZorkPrinter.PrintLine("  ***                                                       ***", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("  ***                                                       ***", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("  ***                   Thanks for Playing,                 ***", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("  ***                        The End                        ***", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("  ***                                                       ***", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("   ***                                                     ***", ConsoleColor.Red);//
-            ZorkPrinter.PrintLine("    ***                                                   ***", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("     ****                                               ****", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("       ****                                           ****", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("         *****                                     *****", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("           ******                               ******", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("              ******                         ******", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("                 ******                   ******", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("                    ******             ******", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("                       ******       ******", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("                          *************", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("                             *******", ConsoleColor.Red);
-            ZorkPrinter.PrintLine("                                *", ConsoleColor.Red);
+            PrintLine("", Red);
+            PrintLine("           ***************           ***************", Red);
+            PrintLine("        *****           *****     *****           *****", Red);
+            PrintLine("      ****                 *********                 ****", Red);
+            PrintLine("     ****                                               ****", Red);
+            PrintLine("    ***                                                   ***", Red);
+            PrintLine("   ***                                                     ***", Red);
+            PrintLine("  ***                                                       ***", Red);//
+            PrintLine("  ***                                                       ***", Red);
+            PrintLine("  ***                                                       ***", Red);
+            PrintLine("  ***                   Thanks for Playing,                 ***", Red);
+            PrintLine("  ***                        The End                        ***", Red);
+            PrintLine("  ***                                                       ***", Red);
+            PrintLine("   ***                                                     ***", Red);//
+            PrintLine("    ***                                                   ***", Red);
+            PrintLine("     ****                                               ****", Red);
+            PrintLine("       ****                                           ****", Red);
+            PrintLine("         *****                                     *****", Red);
+            PrintLine("           ******                               ******", Red);
+            PrintLine("              ******                         ******", Red);
+            PrintLine("                 ******                   ******", Red);
+            PrintLine("                    ******             ******", Red);
+            PrintLine("                       ******       ******", Red);
+            PrintLine("                          *************", Red);
+            PrintLine("                             *******", Red);
+            PrintLine("                                *", Red);
+
+            while (true)
+            {
+                ReadLine();
+            }
         }
     }
 }

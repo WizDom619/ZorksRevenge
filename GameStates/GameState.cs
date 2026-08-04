@@ -1,6 +1,6 @@
-﻿namespace ZorksRevenge.GameStates
+﻿namespace ZorksRevenge
 {
-    internal class GameState
+    public class GameState
     {
         protected string? _response = "";
 

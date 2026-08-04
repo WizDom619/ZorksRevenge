@@ -1,62 +1,60 @@
-﻿using System.Text;
-using ZorksRevenge.GameObjects;
-using ZorksRevenge.Input;
-
-namespace ZorksRevenge.GameStates
+﻿namespace ZorksRevenge
 {
     /// <summary>
     /// Access to Rooms is managed here.  
     /// Here you can Add, Search and Print. 
     /// </summary> 
     /// 
-    internal class Campaign : GameState
+    public class Campaign : GameState
     {
-        private List<Room> _gameWorld;
-        private PlayerData _playerData;
         private InputParser _inputParser;
         private Command _command;
 
+        private CommandEvent _commandEvent;
 
         public Campaign()
         {
-            _gameWorld = new GameData().InstanciateWorld();
-            _playerData = new PlayerData
-            {
-                CurrentRoom = _gameWorld.Find(r => r.Name == "Entry")
-            };
+            GameData.Initialize();
 
             _inputParser = new InputParser();
-            _command = new Command(Verb.Blank, "");
-        }
-
-        public override void Display()
-        {
-            ZorkPrinter.PrintLine("-------------------------------------------------");
-            ZorkPrinter.Print($"Location: {_playerData.CurrentRoom.Name}", ZorkPrinter.RoomColour);
-            ZorkPrinter.PrintLine($"{"$: " + _playerData.Money, 27}");
-            ZorkPrinter.PrintLine($"    {_playerData.CurrentRoom.Desc}");   
-            ZorkPrinter.PrintLine("-------------------------------------------------");
-
-            if (_command.Verb != Verb.Blank)
-            {
-                _command.Display(_playerData);
-            }
-
-
-            ZorkPrinter.PrintLine("");
+            _command = new Command(Verb.Blank, "Game Instructions");
+            _commandEvent = _command.GetEvent();
         }
 
         public override GameState? Update()
         {
             _command = _inputParser.Process(_response);
-            _command.Process(_gameWorld, _playerData);
-            return this;
+
+            _commandEvent = _command.GetEvent();
+
+            _commandEvent.Process();
+
+            if (_commandEvent is QuitEvent)
+            {
+                return new MainMenu();
+            }
+            else
+            {
+                return this;
+            }
+        }
+
+        public override void Display()
+        {
+            ZorkPrinter.Print($"Last Command: ");
+            ZorkPrinter.PrintLine($"{_command.Verb}, {_command.Noun}, {Player.Name}", ZorkPrinter.PlayerColour);
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------\n");
+
+            _commandEvent.Display();
+            ZorkPrinter.PrintLine("");
+            
+            GameData.FindRoomByID(Player.CurrentRoomID).Print();
         }
 
         
         public void Print()
         {
-            foreach (Room room in _gameWorld)
+            foreach (Room room in GameData.Rooms)
             {
                 room.Print();
             }

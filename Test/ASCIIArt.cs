@@ -1,6 +1,6 @@
-﻿namespace ZorksRevenge.Test
+﻿namespace ZorksRevenge
 {
-    internal class ASCIIArt
+    public class ASCIIArt
     {
         public ASCIIArt() 
         {

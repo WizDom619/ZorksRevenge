@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZorksRevenge.Test
 {
-    internal class TestMethods
+    public class TestMethods
     {
         /*
         For ZorkPrinter

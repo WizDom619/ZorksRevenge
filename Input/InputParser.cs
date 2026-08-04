@@ -1,12 +1,10 @@
-﻿using ZorksRevenge.Input;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge
 {
     /// <summary>
     /// This class will take in the Player's Input as a string. 
     /// The input will then be converted and returned into a Command object to be passed on and actioned.  
     /// </summary>
-    internal class InputParser
+    public class InputParser
     {
         /// <summary>
         /// The String will be broken apart into it's Verb and Noun. A
@@ -112,6 +110,14 @@ namespace ZorksRevenge
                     case "PLAY":
                     case "P":
                         newVerb = Verb.Play;
+                        break;
+
+                    case "SAVE":
+                        newVerb = Verb.Save;
+                        break;
+
+                    case "QUIT":
+                        newVerb = Verb.Quit;
                         break;
                 }
 

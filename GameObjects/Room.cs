@@ -1,112 +1,208 @@
-﻿namespace ZorksRevenge.GameObjects
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace ZorksRevenge
 {
     /// <summary>
     /// Room is a GameObject that contains all the data relevant to an Room. 
     /// </summary>
     
-    internal class Room
+    public class Room
     {
+        private string _id;
         private string _name;
         private string _description;
 
-        private Paths _paths;
+        private List<string> _gameObjectsIDs = new List<string>();
+        private Dictionary<Direction, string> _exits = new Dictionary<Direction, string>();
 
-        private List<Item> _items;
-        private List<Container> _containers;
-        private NPC _npc;
-
-
-        public Room(string name, string description)
+        public Room ClearGameObjects()
         {
-            _name = name;
-            _description = description;
-
-            _paths = new Paths();
-
-            _items = new List<Item>();
-            _containers = new List<Container>();
-
-            _npc = null;
+            _gameObjectsIDs.Clear();
+            return this;
         }
 
         // Adds and Item within the room. 
-        public Room AddItem(Item item)
+        public Room AddGameObject(string gameObject)
         {
-            _items.Add(item);
+            _gameObjectsIDs.Add(gameObject);
             return this;
         }
 
         // Connects various rooms together. 
-        public Room AddPath(Room room, Direction dir)
+        public Room AddExit(Direction dir, string exit)
         {
-            _paths.Add(room, dir);
-            return this;
-        }
-
-        public Room AddNPC(NPC npc)
-        {
-            _npc = npc;
-            return this;
-        }
-
-        public Room AddContainer(Container container)
-        {
-            _containers.Add(container);
+            _exits.Add(dir, exit);
             return this;
         }
 
         public void Print()
         {
-            if (Items.Count != 0)
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------");
+            ZorkPrinter.Print($"Location: ");
+            ZorkPrinter.Print($"{GameData.FindRoomByID(Player.CurrentRoomID).Name}   ", ZorkPrinter.RoomColour);
+            ZorkPrinter.PrintLine($"{GameData.FindRoomByID(Player.CurrentRoomID).Desc}");
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------");
+            if (_gameObjectsIDs.Count == 0)
             {
-                ZorkPrinter.PrintLine("Items: ");
-                foreach (Item item in _items)
+                ZorkPrinter.PrintLine("Room is Empty");
+            }
+            else
+            {
+                bool noItems = true;
+
+                ZorkPrinter.PrintLine("Items: ", ZorkPrinter.ItemColour);
+                foreach (string id in GameObjectsIDs)
                 {
-                    if (item.Name == "Cake")
+                    GameObject go = GameData.FindGameObjectByID(id);
+
+                    if (go is Item)
                     {
-                        // Do Nothing
+                        noItems = false;
+                        if (go.ID == "777")
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            ZorkPrinter.Print(" ");
+                            GameData.FindGameObjectByID(id).Print();
+                        }
                     }
-                    else 
-                    {
-                        ZorkPrinter.Print(" -", ZorkPrinter.ItemColour);
-                        item.Print();
-                    }
-                    
+                }
+                if (noItems)
+                {
+                    ZorkPrinter.PrintLine($" -Empty");
                 }
                 Console.WriteLine("");
-            }
-            
-            if (_containers.Count > 0) 
-            {
+
+                bool noContainers = true;
                 ZorkPrinter.PrintLine("Containers: ");
-                foreach (Container container in _containers)
+                foreach (string id in GameObjectsIDs)
                 {
-                    ZorkPrinter.Print($" -{container.Name}");
-                    if (container.Opened == true &&
-                        container.Contents.Count != 0)
+                    GameObject go = GameData.FindGameObjectByID(id);
+
+                    if (go is Container)
                     {
-                        ZorkPrinter.PrintLine(" Item's: ");
-                        container.Print();
+                        ZorkPrinter.Print(" ");
+                        noContainers = false;
+                        go.Print();                        
                     }
-                    Console.WriteLine("");
+                }
+                if (noContainers)
+                {
+                    ZorkPrinter.PrintLine($" -Empty");
+                }
+
+                bool noSphinxs = true;
+
+                ZorkPrinter.PrintLine("Sphinx: ", ZorkPrinter.NPCColour);
+                foreach (string id in GameObjectsIDs)
+                {
+                    GameObject go = GameData.FindGameObjectByID(id);
+
+                    if (go is NPC npc)                  
+                    {
+                        if (npc.IsAlive)
+                        {
+                            noSphinxs = false;
+                            ZorkPrinter.Print(" ");
+                            GameData.FindGameObjectByID(id).Print();
+                        }
+                    }
+                }  
+                if (noSphinxs)
+                {
+                    ZorkPrinter.PrintLine($" -Empty");
                 }
                 Console.WriteLine("");
-            }
-            
-            if (_npc != null)
-            { 
-                NPC.Print();
+
+                ZorkPrinter.PrintLine("Paths: ");
+                foreach (KeyValuePair<Direction, string> kvp in _exits)
+                {
+                    foreach (Room room in GameData.Rooms)
+                    {
+                        if (room.ID == kvp.Value)
+                        {
+                            if (kvp.Key == Direction.North &&
+                                kvp.Value != "NULL")
+                            {
+                                ZorkPrinter.Print($" North: ");
+                                ZorkPrinter.PrintLine($"{room.Name}", ZorkPrinter.RoomColour);
+                            }
+                            if (kvp.Key == Direction.South &&
+                                kvp.Value != "NULL")
+                            {
+                                ZorkPrinter.Print(" South: ");
+                                ZorkPrinter.PrintLine($"{room.Name}", ZorkPrinter.RoomColour);
+                            }
+                            if (kvp.Key == Direction.East &&
+                                kvp.Value != "NULL")
+                            {
+                                ZorkPrinter.Print(" East: ");
+                                ZorkPrinter.PrintLine($"{room.Name}", ZorkPrinter.RoomColour);
+                            }
+                            if (kvp.Key == Direction.West &&
+                                kvp.Value != "NULL")
+                            {
+                                ZorkPrinter.Print(" West: ");
+                                ZorkPrinter.PrintLine($"{room.Name}", ZorkPrinter.RoomColour);
+                            }
+                        }
+                    }
+                }
                 Console.WriteLine("");
+            }          
+        }
+
+        public void PrintTest()
+        {
+            Console.WriteLine("ID " + _id);
+            Console.WriteLine("Name " + _name);
+            Console.WriteLine("Desc " + _description);
+
+            if (_gameObjectsIDs.Count > 0)
+            {
+                Console.WriteLine("GameObject Count = " + _gameObjectsIDs.Count);
+
+                foreach(string GO in _gameObjectsIDs)
+                {
+                    Console.WriteLine("  - " + GameData.FindGameObjectByID(GO).Name);
+                }
+            }
+            else
+            {
+                Console.WriteLine("GameObject Count = 0");
             }
 
-            ZorkPrinter.PrintLine("Pathways: ");
-            _paths.Print();            
+            Console.WriteLine(_exits.Count);
+            Console.WriteLine("-------------------");
         }
-        public string Name { get { return _name; } }
-        public string Desc { get { return _description; } }
-        public Paths Paths { get { return _paths; } }
-        public List<Item> Items { get { return _items; } }
-        public List<Container> Containers { get { return _containers; } }
-        public NPC NPC { get { return _npc; } }
+
+
+        public string ID 
+        { 
+            get { return _id; } 
+            set { _id = value; } 
+        }
+        public string Name 
+        { 
+            get { return _name; } 
+            set { _name = value; } 
+        }
+        public string Desc 
+        { 
+            get { return _description; } 
+            set { _description = value; } 
+        }
+        public List<string> GameObjectsIDs 
+        { 
+            get { return _gameObjectsIDs; } 
+            set { _gameObjectsIDs = value; } 
+        }
+        public Dictionary<Direction, string> Exits 
+        { 
+            get { return _exits; } 
+            set { _exits = value; } 
+        }
     }
 }

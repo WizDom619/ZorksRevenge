@@ -1,47 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ZorksRevenge.GameObjects
+﻿namespace ZorksRevenge
 {
-    internal class Container
+    public class Container : GameObject
     {
-        private bool _opened = false;
-        private string _name;
+        private bool _opened;
 
-        private List<Item> _contents;
+        private List<string> _contents;
 
-        public Container(string name)
+        public Container()
         {
-            _name = name;
-            _contents = new List<Item>();
         }
 
-        public Container AddItem(Item item)
+        public Container AddItem(string id)
         {
-            _contents.Add(item);
-            return this;
-        }
-        public Container AddName(string name)
-        {
-            _name = name;
+            _contents.Add(GameData.FindGameObjectByID(id).ID);
             return this;
         }
 
-        public void Print()
+        public override void Print()
         {
-            foreach (Item item in _contents)
+            ZorkPrinter.PrintLine($"-{_name}");
+            if (!isOpened)
             {
-                ZorkPrinter.Print("  -", ZorkPrinter.ItemColour);
-                item.Print();
+                ZorkPrinter.PrintLine("   Closed", ZorkPrinter.ItemColour);
             }
+            else if (_contents.Count == 0)
+            {
+                ZorkPrinter.PrintLine("   Empty", ZorkPrinter.ItemColour);
+            }
+            else
+            {
+                foreach (string id in _contents)
+                {
+                    ZorkPrinter.Print("   ");
+                    GameData.FindGameObjectByID(id).Print();
+                }
+            }
+            
+            ZorkPrinter.PrintLine("");
         }
 
-
-        public bool Opened { get { return _opened; } set { _opened = value; } }
-
-        public string Name { get { return _name; } }
-
-        public List<Item> Contents { get { return _contents; } }
+        public bool isOpened 
+        { 
+            get { return _opened; } 
+            set { _opened = value; } 
+        }
+        public List<string> ItemIDs 
+        { 
+            get { return _contents; }
+            set { _contents = value; }
+        }
     }
 }

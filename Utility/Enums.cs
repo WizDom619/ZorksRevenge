@@ -17,6 +17,17 @@ namespace ZorksRevenge
         Open,
         Play,
         Give,
+        Save,
+        Quit,
+        NULL
+    };
+    public enum DataDir
+    {
+        Player,
+        Rooms,
+        Items,
+        Containers,
+        NPCS,
         NULL
     };
     // This enum will be used by the CompassDirection class to know direction it is pointitng. 

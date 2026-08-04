@@ -1,6 +1,6 @@
 ﻿namespace ZorksRevenge.MiniGames
 {
-    internal abstract class MiniGame
+    public abstract class MiniGame
     {
         public MiniGame()
         {

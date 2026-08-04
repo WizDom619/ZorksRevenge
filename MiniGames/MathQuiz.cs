@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZorksRevenge.MiniGames
 {
-    internal class MathQuiz : MiniGame
+    public class MathQuiz : MiniGame
     {
         private bool _isPlaying = true;
 
@@ -12,7 +12,11 @@ namespace ZorksRevenge.MiniGames
         {
             // Circumference
             // Answer = 81.68141
-            float answer = 81.68141f;
+            float answer = 81.681f;
+
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------");
+            ZorkPrinter.PrintLine("Minigame #4 Math Quiz");
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------\n");
 
             ZorkPrinter.PrintLine("Please answer the following math questions...\n");
             ZorkPrinter.PrintLine("    -Question 1\n");
@@ -20,8 +24,10 @@ namespace ZorksRevenge.MiniGames
 
             while (_isPlaying)
             {
-                ZorkPrinter.PrintLine("What is the circumfrence of the following circle?");
-                ZorkPrinter.PrintLine("Please give your answer to the 5th degree. \n");
+                ZorkPrinter.Print("What is the ");
+                ZorkPrinter.Print("Circumfrence", ConsoleColor.DarkYellow, PrintEffect.Underline);
+                ZorkPrinter.PrintLine(" of the following Circle?");
+                ZorkPrinter.PrintLine("Please give your answer to the 3rd degree. \n");
 
                 Console.WriteLine("             ****************");
                 Console.WriteLine("         ****                ****");
@@ -44,37 +50,37 @@ namespace ZorksRevenge.MiniGames
 
                 ZorkPrinter.Print(":> ");
                 string input = Console.ReadLine();
-
-                Console.Clear();
+                ZorkPrinter.PrintLine("");
 
                 if (!float.TryParse(input, out float _guess))
                 {
-                    ZorkPrinter.PrintLine("That's not a valid number.");
-                    continue;
-                }
-                
-                if (_guess != answer)
+                    ZorkPrinter.PrintLine("That's not a valid number.\n");
+                }                
+                else if (_guess != answer)
                 {
-                    ZorkPrinter.PrintLine("Incorrect, guess again");
+                    ZorkPrinter.PrintLine("Incorrect, guess again\n");
                 }
                 else
                 {
-                    ZorkPrinter.PrintLine("Correct!", ConsoleColor.Green);
+                    ZorkPrinter.PrintLine("Correct!\n", ConsoleColor.Green);
                     _isPlaying = false;
                 }
+                ZorkPrinter.PrintLine("-----------------------------------------\n");
             }
 
             //Area of a Circle,
             _isPlaying = true;
-            answer = 18626.50284f;
+            answer = 18626.503f;
 
             ZorkPrinter.PrintLine("Please answer the following math questions...\n");
             ZorkPrinter.PrintLine("    -Question 2\n");
 
             while(_isPlaying)
             {
-                ZorkPrinter.PrintLine("What is the area of the following circle?");
-                ZorkPrinter.PrintLine("Please give your answer to the 5th degree. \n");
+                ZorkPrinter.Print("What is the ");
+                ZorkPrinter.Print("Area", ConsoleColor.DarkYellow, PrintEffect.Underline);
+                ZorkPrinter.PrintLine(" of the following circle?");
+                ZorkPrinter.PrintLine("Please give your answer to the 3rd degree. \n");
 
                 Console.WriteLine("             ****************");
                 Console.WriteLine("         ****                ****");
@@ -97,37 +103,38 @@ namespace ZorksRevenge.MiniGames
 
                 ZorkPrinter.Print(":> ");
                 string input = Console.ReadLine();
-
-                Console.Clear();
+                ZorkPrinter.PrintLine("");
 
                 if (!float.TryParse(input, out float _guess))
                 {
-                    ZorkPrinter.PrintLine("That's not a valid number.");
+                    ZorkPrinter.PrintLine("That's not a valid number\n");
                     continue;
                 }
-
-                if (_guess != answer)
+                else if (_guess != answer)
                 {
-                    ZorkPrinter.PrintLine("Incorrect, guess again");
+                    ZorkPrinter.PrintLine("Incorrect, guess again\n");
                 }
                 else
                 {
                     ZorkPrinter.PrintLine("Correct!", ConsoleColor.Green);
                     _isPlaying = false;
                 }
+                ZorkPrinter.PrintLine("-----------------------------------------\n");
             }
 
             //Hypotenuse Calculator
             _isPlaying = true;
-            answer = 602.54009f;
+            answer = 602.540f;
 
             ZorkPrinter.PrintLine("Please answer the following math questions...\n");
             ZorkPrinter.PrintLine("    -Question 3\n");
 
             while (_isPlaying)
             {
-                ZorkPrinter.PrintLine("What is the hypotenuse of the following triangle?");
-                ZorkPrinter.PrintLine("Please give your answer to the 5th degree. \n");
+                ZorkPrinter.Print("What is the ");
+                ZorkPrinter.Print("Hypotenuse", ConsoleColor.DarkYellow, PrintEffect.Underline);
+                ZorkPrinter.PrintLine(" of the following Triangle?");
+                ZorkPrinter.PrintLine("Please give your answer to the 3rd degree. \n");
 
                 Console.WriteLine("         *");
                 Console.WriteLine("         **");
@@ -153,24 +160,23 @@ namespace ZorksRevenge.MiniGames
 
                 ZorkPrinter.Print(":> ");
                 string input = Console.ReadLine();
-
-                Console.Clear();
+                ZorkPrinter.PrintLine("");
 
                 if (!float.TryParse(input, out float _guess))
                 {
-                    ZorkPrinter.PrintLine("That's not a valid number.");
+                    ZorkPrinter.PrintLine("That's not a valid number\n");
                     continue;
                 }
-
-                if (_guess != answer)
+                else if (_guess != answer)
                 {
-                    ZorkPrinter.PrintLine("Incorrect, guess again");
+                    ZorkPrinter.PrintLine("Incorrect, guess again\n");
                 }
                 else
                 {
                     ZorkPrinter.PrintLine("Correct!", ConsoleColor.Green);
                     _isPlaying = false;
                 }
+                ZorkPrinter.PrintLine("-----------------------------------------\n");
             }
 
             return true;

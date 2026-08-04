@@ -5,7 +5,7 @@
     /// Will inherit from Menu Base because it is a type of menu. 
     /// Instruction on how to play will be displayed here. 
     /// </summary>
-    internal class HowToPlay : GameState
+    public class HowToPlay : GameState
     {
 
         public override void Display()
@@ -21,12 +21,12 @@
             ZorkPrinter.PrintLine("    This means there game in entirely played through the input and output of text");
             ZorkPrinter.PrintLine("    There are no fancy video game graphics here");
             ZorkPrinter.PrintLine("    This game runs on good'old fashioned cold hard logic", ConsoleColor.Gray, PrintEffect.Italic);
-            ZorkPrinter.PrintLine("    Play the game through commands such is...");
-            ZorkPrinter.PrintLine("\t-Look,");
-            ZorkPrinter.PrintLine("\t-Grab rock, or ");
-            ZorkPrinter.PrintLine("\t-Move North\n");
+            ZorkPrinter.PrintLine("    You Play the Game through commands such is...");
+            ZorkPrinter.PrintLine("\t-Look [Item Name]");
+            ZorkPrinter.PrintLine("\t-Grab [Item Name], or ");
+            ZorkPrinter.PrintLine("\t-Move [Item Direction]\n");
             ZorkPrinter.PrintLine("    The game revolves around exploring, collecting and solving puzzles in order to escape!");
-            ZorkPrinter.PrintLine("    This is a test your wit and wisdom");
+            ZorkPrinter.PrintLine("    This will be a test your wit and wisdom");
             ZorkPrinter.PrintLine("");
             ZorkPrinter.PrintLine("    But most importantly, Have fun! :)\n\n");
             
@@ -39,7 +39,7 @@
 
         public override GameState Update()
         {
-            return this; //new MainMenu();
+            return new MainMenu();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace ZorksRevenge
     /// Such as... Title, Cursor Visibility, Screen Size or Margin Size. 
     /// Afterwards, instantiate a GameManager and the game actually begins. 
     /// </summary>
-    internal class ZorksRevengeGame
+    public class ZorksRevengeGame
     {
         private GameManager _gameHandler;
 

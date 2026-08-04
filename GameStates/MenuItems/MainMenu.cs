@@ -8,7 +8,7 @@ namespace ZorksRevenge
     /// This will be the first menu state the player will see. 
     /// Here the player can navigate to other menu states and begin playing the game. 
     /// </summary>
-    internal class MainMenu : GameState
+    public class MainMenu : GameState
     {
         //Players options to navigate the main menu
         public override void Display()

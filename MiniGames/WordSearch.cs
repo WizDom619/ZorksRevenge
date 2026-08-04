@@ -4,64 +4,64 @@ using System.Text;
 
 namespace ZorksRevenge.MiniGames
 {
-    internal class WordSearch : MiniGame
+    public class WordSearch : MiniGame
     {
         bool _isFaithFound = false; 
         bool _isBibleFound = false; 
-        bool _isRegenerationFaithFound = false;
+        bool _isRegenerationFound = false;
         bool _isPlaying = true;
 
         public override bool Play()
         {
             while (_isPlaying)
             {
-                ZorkPrinter.PrintLine("Let's do a Word Search");
-                ZorkPrinter.PrintLine("Find the three hidden word...\n");
+                ZorkPrinter.PrintLine("-----------------------------------------------------------------------");
+                ZorkPrinter.PrintLine("Minigame #5 Word Search");
+                ZorkPrinter.PrintLine("-----------------------------------------------------------------------\n");
+                ZorkPrinter.PrintLine("Find the x3 hidden word...\n");
 
-                Console.WriteLine("O R L T G Y V D G C V Q A B F N Q T D G G Y G A F B Y L T O X G V W G J O J N Q G U J D C G J A N K");
-                Console.WriteLine("A H W I F I K U S N O O J O Q P I B J A A M U K S K M A E K G K G L I P R U Q N M C E H E V D D T M");
-                Console.WriteLine("B E L R Y X B I B L E J X B C Z V P F W B W E L D Q H S Z B M S Z E S L U G H I V B M D T A V B V A");
-                Console.WriteLine("N B X Q X L V Z X D H C D Y B E Y E D W M B U B O L E S Q C E M V Z L U W D A Y T A V Q C M I W J P");
-                Console.WriteLine("L R N B I B H G S G W L B X L K G L A U O J H A Q W K N X R P T R B Z Y F F N L M T W Z J I N N E T");
-                Console.WriteLine("G I W W Y F X R I H O F P S O M M Q F X I F Z A H K C I P P A N J X K B G A F L O N J N W P A P Z P");
-                Console.WriteLine("X V V J B O Z K P R U O A P A P F W Z H J T E L X R B R S U O W V T V W A I H Q R Y A T B U Z K Y Y");
-                Console.WriteLine("E R K D I H K L Y Z U J B N Q E P W L C R P K L P S Z D Q O B U K E K B A T N W X G X S L B X M R V");
-                Console.WriteLine("U M W M I M S R Z R N C X G G S O V T J F Z C J P D Z T D E L V F I G X M H R S K F N D Y I O Q Z P");
-                Console.WriteLine("H D P X R F N J O E R E G E N E R A T I O N F M U D N J H Z L S N T Q Z Z M X D R I Y E R F I B O V");
-                Console.WriteLine("R I Q J E Q H K Z R E S Y C T V G Y E R J F I V Z C S B A Q G Z G J K H E Q O Z O Z F G M Z I F H I");
-                Console.WriteLine("L Y X R A A U N P Y W M V W T I H K Z Y W I K G G V D T Z C M Y D U L G I D X X U W P O R A E Z F K");
+                Console.WriteLine("F S Z t i w K e b P g q B c I Q M t k F P B");
+                Console.WriteLine("O p f J B j Y U l F c y N N I m C F q l t j");
+                Console.WriteLine("E k Y r I g Q n p y I A b J B Y f u X J w C");
+                Console.WriteLine("S x d S B G P b i C v R N y F A I T H H A E");
+                Console.WriteLine("a l d x L V C Z N L Q X k Q F E M K o J D a");
+                Console.WriteLine("o o Y N E b B o d D E y o L N V R q z J D r");
+                Console.WriteLine("D C g Q F R V B y j V W x y q r Q T F S B L");
+                Console.WriteLine("a w w Q n q I n m r o v t h f A R S q J A p");
+                Console.WriteLine("k A w T R h q o N c o M J a h M z N B r m R");
+                Console.WriteLine("n q A c R h Y R E G E N E R A T I O N V T i");
+                Console.WriteLine("G v s w w c j A R L z a m y G M u N Y P c q");
+                Console.WriteLine("Z J i F A b A D c C g i W a i T c q s I M U");
 
                 ZorkPrinter.PrintLine("");
 
                 ZorkPrinter.Print(":> ");
                 string playerGuess = Console.ReadLine().ToUpper();
-
-                Console.Clear();
+                ZorkPrinter.PrintLine("");
 
                 if (playerGuess == "FAITH")
                 {
                     _isFaithFound = true;
-                    ZorkPrinter.PrintLine("Correct, Faith is found", ConsoleColor.Green);
+                    ZorkPrinter.PrintLine("Correct, Faith is found\n", ConsoleColor.Green);
                 }
                 else if (playerGuess == "BIBLE")
                 {
                     _isBibleFound = true;
-                    ZorkPrinter.PrintLine("Correct, Bible is found", ConsoleColor.Green);
+                    ZorkPrinter.PrintLine("Correct, Bible is found\n", ConsoleColor.Green);
                 }
                 else if (playerGuess == "REGENERATION")
                 {
-                    _isRegenerationFaithFound = true;
-                    ZorkPrinter.PrintLine("Correct, Regeneration is found", ConsoleColor.Green);
+                    _isRegenerationFound = true;
+                    ZorkPrinter.PrintLine("Correct, Regeneration is found\n", ConsoleColor.Green);
                 }
                 else
                 {
-                    ZorkPrinter.PrintLine("Incorrect");
+                    ZorkPrinter.PrintLine("Incorrect\n", ZorkPrinter.NPCColour);
                 }
-
 
                 if (_isFaithFound &&
                     _isBibleFound &&
-                    _isRegenerationFaithFound)
+                    _isRegenerationFound)
                 {
                     _isPlaying = false;
                 }

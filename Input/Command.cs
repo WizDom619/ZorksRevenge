@@ -1,6 +1,6 @@
-﻿using ZorksRevenge.GameObjects;
+﻿using ZorksRevenge.GameStates.CommandEvents;
 
-namespace ZorksRevenge.Input
+namespace ZorksRevenge
 {
     /// <summary>
     /// A Command will contain a Verb and a Noun.
@@ -12,305 +12,75 @@ namespace ZorksRevenge.Input
     ///     Drop, Rock
     ///     </example>
     /// </summary>
-    internal class Command
+    public class Command
     {
-        public Verb _verb;// {  get; private set; }
-        public string _noun; // { get; private set; }
-
-        private Item _takenItem;
-        private Item _dropItem;
-        private NPC _talkedNPC;
-        private Container _openedContainer;
-        private Item _givenItem;
-        private Direction _dir;
+        public Verb _verb;
+        public string _noun;
 
         public Command(Verb verb, String noun)
         {
             _verb = verb;
-            _noun = noun;
-            _takenItem = new Item("NULL", "NULL");
-            _dropItem = new Item("NULL", "NULL");
-            _talkedNPC = new NPC("NULL");
-            _openedContainer = new Container("NULL");
-            _givenItem = new Item("NULL", "NULL");
-            _dir = Direction.NULL;
-        }
+            _noun = noun;            
+        }        
 
-        public void Process(List<Room> gameWorld, PlayerData playerData)
+        public CommandEvent GetEvent()
         {
-            switch (_verb)
+            CommandEvent commandEvent = new BlankEvent(); 
+
+            switch(_verb)
             {
                 case Verb.Take:
-                    _takenItem = new Item("NULL", "NULL");
-
-                    foreach (Item item in playerData.CurrentRoom.Items)
-                    {
-                        if (item.GetType() == typeof(Money) &&
-                            item.Name.ToUpper() == _noun.ToUpper() &&
-                            item.Name.ToUpper() != "NULL")
-                        {
-                            Money money = (Money)item;
-                            _takenItem = money;
-                            playerData.Money += money.Value;
-                            playerData.CurrentRoom.Items.Remove(money);
-                            break;
-                        }
-                        else if (item.Name.ToUpper() == _noun.ToUpper() &&
-                                 item.Name.ToUpper() != "NULL")
-                        {
-                            _takenItem = item;
-                            playerData.Inventory.Add(_takenItem);
-                            playerData.CurrentRoom.Items.Remove(_takenItem);
-                            break;
-                        }
-                    }
-
-                    foreach (Container container in playerData.CurrentRoom.Containers)
-                    {
-                        if (container.Opened &&
-                            container.Contents.Count != 0)
-                        {
-                            foreach (Item item in container.Contents)
-                            {
-                                if (item.Name.ToUpper() == _noun.ToUpper() &&
-                                    item.Name.ToUpper() != "NULL")
-                                {
-                                    _takenItem = item;
-                                    playerData.Inventory.Add(_takenItem);
-                                    container.Contents.Remove(_takenItem);
-                                    break;
-                                }
-                            }
-                        }
-                    }
+                    commandEvent = new TakeEvent(_noun);
                     break;
-                
-
-                case Verb.Move:                
-                    _dir = ConvertStringToDirection(_noun);
-                    playerData.CurrentRoom = playerData.CurrentRoom.Paths.GetRoom(_dir);
+                case Verb.Move:
+                    commandEvent = new MoveEvent(_noun);
                     break;
-                
-
-                case Verb.Drop:                
-                    _dropItem = new Item("NULL", "NULL");
-
-                    foreach (Item item in playerData.Inventory)
-                    {
-                        if (item.Name.ToUpper() == _noun.ToUpper() &&
-                            item.Name.ToUpper() != "NULL")
-                        {
-                            _dropItem = item;
-                            playerData.Inventory.Remove(_dropItem);
-                            playerData.CurrentRoom.Items.Add(_dropItem);
-                            break;
-                        }
-                    }
-                    break;
-
-                case Verb.Speak:
-                    _talkedNPC = new NPC("NULL");
-
-                    if (playerData.CurrentRoom.NPC.Name.ToUpper() == _noun.ToUpper())
-                    {
-                        _talkedNPC = playerData.CurrentRoom.NPC;
-                    }
-
-                    break;
-
-                
-                case Verb.Open:
-                    _openedContainer = new Container("NULL");
-
-                    foreach (Container container in playerData.CurrentRoom.Containers)
-                    {
-                        if (container.Name.ToUpper() == _noun.ToUpper() &&
-                            container.Name.ToUpper() != "NULL")
-                        {
-                            _openedContainer = container;
-                            _openedContainer.Opened = true;
-                            break;
-                        }
-                    }
-                    break;
-
-                case Verb.Give:
-                    _givenItem = new Item("NULL", "NULL");
-
-                    string key = null;
-
-                    //For each of the NPC's wants
-                    foreach (KeyValuePair<string, bool> kvp in playerData.CurrentRoom.NPC.Wants)
-                    {
-                        // If the the want matches the noun
-                        if (kvp.Key.ToUpper() == _noun.ToUpper() &&
-                            playerData.CurrentRoom.NPC.IsAlive)
-                        {
-                            key = kvp.Key;
-                        }
-                    }
-
-                    if (key != null)
-                    {
-                        playerData.CurrentRoom.NPC.Wants[key] = true;
-                    }
-
-                    // Foreach item in Inventory
-                    foreach (Item item in playerData.Inventory)
-                    {
-                        if (item.Name.ToUpper() == _noun.ToUpper())
-                        {
-                            _givenItem = item;                            
-                        }
-                    }
-                     
-                    if (_givenItem != null)
-                    {
-                        playerData.Inventory.Remove(_givenItem);
-                    }
-
-                    bool wantsComplete = true; 
-
-                    foreach (KeyValuePair<string, bool> kvp in playerData.CurrentRoom.NPC.Wants)
-                    {
-                        if (playerData.CurrentRoom.NPC.Wants[kvp.Key] == false)
-                        {
-                            Console.WriteLine("Sphinx is Happy");
-                            wantsComplete = false;
-                            break;
-                        }
-                    }
-
-                    if (wantsComplete)
-                    {
-                        playerData.CurrentRoom.NPC.IsHappy = true;
-                        break;
-                    }
-                    break;
-
-                case Verb.Play:
-                    
-                    break;
-                    
-            }            
-        }
-
-        public void Display(PlayerData playerData)
-        {
-            ZorkPrinter.PrintLine($"Command: \"{_verb}\", \"{_noun}\"\n", ZorkPrinter.PlayerColour);
-
-            switch (_verb)
-            {
-                case Verb.Take:                
-                    if (_takenItem.Name == "NULL")
-                    {
-                        ZorkPrinter.PrintLine("No Item with that name is in this Room");
-                    }
-                    else
-                    {
-                        ZorkPrinter.Print("You took the ");
-                        ZorkPrinter.PrintLine($"{_takenItem.Name}", ZorkPrinter.ItemColour);
-                    }
-                    break;
-                
-                case Verb.Move:                
-                    ZorkPrinter.Print("You moved ");
-                    ZorkPrinter.PrintLine($"{_dir}");
-                    ZorkPrinter.Print($"You are now in ");
-                    ZorkPrinter.PrintLine($"{playerData.CurrentRoom.Name}", ZorkPrinter.RoomColour);
-                    break;
-                
-                case Verb.Drop:                
-                    if (_dropItem.Name == "NULL")
-                    {
-                        ZorkPrinter.PrintLine("No Item with that name is in your Inventory");
-                    }
-                    else
-                    {
-                        ZorkPrinter.Print("You dropped ");
-                        ZorkPrinter.PrintLine($"{_dropItem.Name}", ZorkPrinter.ItemColour);
-                    }
-                    break;
-                
                 case Verb.Look:
-                    playerData.CurrentRoom.Print();
+                    commandEvent = new LookEvent(_noun);
                     break;
-                
-                case Verb.Inventory:                
-                    playerData.PrintInventory();
+                case Verb.Drop:
+                    commandEvent = new DropEvent(_noun);
                     break;
-                
-                case Verb.Help:                
-                    //TODO
+                case Verb.Inventory:
+                    commandEvent = new InventoryEvent();
                     break;
-                
-                case Verb.NULL:                
-                    ZorkPrinter.PrintLine("Unknown Command");
-                    ZorkPrinter.PrintLine(" -Please type an appropriate command");
-                    ZorkPrinter.PrintLine(" -Type 'help' for a guide on commands");
+                case Verb.Speak:
+                    commandEvent = new SpeakEvent(_noun);
                     break;
-                
-                case Verb.Speak:       
-                    if (_talkedNPC.Name != "NULL")
-                    {
-                        ZorkPrinter.Print("The Great and Mighty Sphinx: ");
-                        ZorkPrinter.Print($"{_talkedNPC.Name} ", ZorkPrinter.NPCColour);
-                        ZorkPrinter.Print("says... ");
-                        ZorkPrinter.PrintLine($"{_talkedNPC.Instructions}");
-                    }
-                    
+                case Verb.Blank:
+                    commandEvent = new BlankEvent();
                     break;
-
+                case Verb.Help:
+                    commandEvent = new HelpEvent();
+                    break;
                 case Verb.Open:
-                    ZorkPrinter.PrintLine($"{_openedContainer.Name} is Opened");                    
-                    playerData.CurrentRoom.Print();
+                    commandEvent = new OpenEvent(_noun);
                     break;
-
-                case Verb.Give:
-                    ZorkPrinter.Print("You gave the ");
-                    ZorkPrinter.Print($"{_givenItem.Name} ", ZorkPrinter.ItemColour);
-                    ZorkPrinter.Print("to ");
-                    ZorkPrinter.PrintLine($"{playerData.CurrentRoom.NPC.Name} ", ZorkPrinter.NPCColour);
-                    ZorkPrinter.PrintLine("You may now play the Sphinx's Game");
-                    break;
-
                 case Verb.Play:
-                    Console.WriteLine("Play Verb Display");
-                    if (playerData.CurrentRoom.NPC.IsHappy &&
-                        playerData.CurrentRoom.NPC.IsAlive)
-                    {
-                        Console.WriteLine("Sphinx is Happy and Alive");
-                        if (playerData.CurrentRoom.NPC.Play())
-                        {
-                            // Beat Game
-                            playerData.AddItem(playerData.CurrentRoom.NPC.Prize);
-                            ZorkPrinter.Print("You recieved the ");
-                            ZorkPrinter.Print($"{playerData.CurrentRoom.NPC.Prize.Name}", ZorkPrinter.ItemColour);
-                            playerData.CurrentRoom.NPC.IsAlive = false;
-                        }
-                        else
-                        {
-                            // Failed Game
-                        }
-                    }
-                    
+                    commandEvent = new PlayEvent();
+                    break;
+                case Verb.Give:
+                    commandEvent = new GiveEvent(_noun);
+                    break;
+                case Verb.Save:
+                    commandEvent = new SaveEvent();
+                    break;
+                case Verb.Quit:
+                    commandEvent = new QuitEvent();
                     break;
             }
+
+            return commandEvent;
         }
 
-        private Direction ConvertStringToDirection(String noun)
-        {
-            Direction dir = Direction.NULL;
-
-            if (noun.ToUpper() == "NORTH") { dir = Direction.North; }
-            if (noun.ToUpper() == "SOUTH") { dir = Direction.South; }
-            if (noun.ToUpper() == "EAST") { dir = Direction.East; }
-            if (noun.ToUpper() == "WEST") { dir = Direction.West; }
-
-            return dir;
+        public Verb Verb
+        { 
+            get { return _verb; } 
+            private set; 
         }
-
-        public Verb Verb{  get; private set; }
-        public string Noun { get; private set; }
+        public string Noun 
+        { 
+            get { return _noun; }
+            private set; }
     }
 }

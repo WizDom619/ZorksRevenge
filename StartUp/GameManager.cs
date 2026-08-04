@@ -1,32 +1,35 @@
-﻿using ZorksRevenge.GameStates;
-using ZorksRevenge.MiniGames;
+﻿using ZorksRevenge.GameStates.MenuItems;
 
-namespace ZorksRevenge.StartUp
+namespace ZorksRevenge
 {
-    internal class GameManager
+    public class GameManager
     {
         private GameState? _gameState = new GameState();
 
         public GameManager()
         {
-            //_gameState = new MainMenu();
+            SaveManager.Initialize();
 
-            //TESTING
-            MiniGame MG = new FinalBoss();
-            MG.Play();
+            _gameState = new MainMenu();
 
             _gameState.Display();
+
 
             while (true)
             {
                 if (_gameState != null)
                 {                    
-                    _gameState.ReadInput();
+                    if (_gameState is not LoadGame)
+                    {
+                        _gameState.ReadInput();
+                    }
 
                     // Clear the screen each time to keep things clean. 
                     Console.Clear();
+                    Console.Write("\x1b[3J\x1b[H");
 
-                    _gameState = _gameState.Update(); 
+                    _gameState = _gameState.Update();
+                                        
                     _gameState.Display();
                 }
                 else

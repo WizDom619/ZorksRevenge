@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ZorksRevenge.MiniGames;
 
-namespace ZorksRevenge.MiniGames
+namespace ZorksRevenge  
 {
-    internal class Hangman : MiniGame
+    public class Hangman : MiniGame
     {
         bool _isPlaying = true;
 
@@ -29,11 +27,32 @@ namespace ZorksRevenge.MiniGames
 
         public override bool Play()
         {
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------");
+            ZorkPrinter.PrintLine("Minigame #3 Hangman");
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------\n");
+            ZorkPrinter.PrintLine("Guess my word...\n");
+
+            _drawCount = 0;
+            _isPlaying = true;
+            _wrongLetters.Clear();
+
+            _rightLetters['N'] = false;
+            _rightLetters['I'] = false;
+            _rightLetters['C'] = false;
+            _rightLetters['O'] = false;
+            _rightLetters['D'] = false;
+            _rightLetters['E'] = false;
+            _rightLetters['M'] = false;
+            _rightLetters['U'] = false;
+            _rightLetters['S'] = false;
+
+            foreach (KeyValuePair<char, bool> kvp in _rightLetters)
+            {
+                _rightLetters[kvp.Key] = false;
+            }
+
             while (_isPlaying)
             {
-                ZorkPrinter.PrintLine("Let's play Hangman");
-                ZorkPrinter.PrintLine("Guess my word...\n");
-
                 foreach (KeyValuePair<char, bool> kvp in _rightLetters)
                 { 
                     if (kvp.Value == false)
@@ -62,30 +81,33 @@ namespace ZorksRevenge.MiniGames
 
                 ZorkPrinter.Print(":> ");
                 string input = Console.ReadLine().ToUpper();
-                Console.Clear();
+                ZorkPrinter.PrintLine("");
 
                 if (char.TryParse(input, out char playerGuess))
                 {
+                    bool isRightLetter = false; 
+
                     foreach (KeyValuePair<char, bool> kvp in _rightLetters)
                     {
                         if (playerGuess == kvp.Key)
                         {
-                            _rightLetters[playerGuess] = true;
+                            _rightLetters[kvp.Key] = true;
+                            isRightLetter = true;
                         }
-                        else
-                        {                            
-                            if (!_wrongLetters.Contains(playerGuess))
-                            {
-                                _drawCount++;
-                                _wrongLetters.Add(playerGuess);
-                          
-                            }
+                    }
+
+                    if (!isRightLetter)
+                    {
+                        if (!_wrongLetters.Contains(playerGuess))
+                        {
+                            _drawCount++;
+                            _wrongLetters.Add(playerGuess);
                         }
                     }
                 }
                 else
                 {
-                    ZorkPrinter.PrintLine("Invalid Input");
+                    ZorkPrinter.PrintLine("Invalid Input\n");
                 }
 
                 bool gameOver = true; 
@@ -105,18 +127,12 @@ namespace ZorksRevenge.MiniGames
 
                 if (_drawCount == 6)
                 {
-                    gameOver = true;
-                    _isPlaying = false;
-                }
-
-                if (gameOver) 
-                {
-                    Console.Clear();
-                    ZorkPrinter.Print("Play Again!\n");
-                    return new Hangman().Play();
+                    DrawHangman();
+                    ZorkPrinter.PrintLine($"You Lose!\n", ZorkPrinter.NPCColour);
+                    return false;
                 }
             }
-
+            ZorkPrinter.PrintLine("Correct!\n", ZorkPrinter.PlayerColour);
             return true;
         }
 
@@ -198,6 +214,8 @@ namespace ZorksRevenge.MiniGames
                 ZorkPrinter.PrintLine("  |");
                 ZorkPrinter.PrintLine(" _|___");
             }
+
+            ZorkPrinter.PrintLine($"-----------------------------\n");
         }
     }
 }

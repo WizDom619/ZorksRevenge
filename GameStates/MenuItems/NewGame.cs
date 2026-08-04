@@ -1,17 +1,16 @@
 ﻿namespace ZorksRevenge.GameStates.MenuItems
 {
-    internal class NewGame : GameState
+    public class NewGame : GameState
     {
-        public override void Display()
-        {
-            //TESTING
-            Console.WriteLine("New Game");       
-        }
-
         public override GameState? Update()
         {
-            //TESTING
+            SaveManager.NewGameData();
+            Player.Name = _response;
             return new Campaign();
+        }
+        public override void Display()
+        {
+            Console.WriteLine("New Game, Press Enter your Name: \n");
         }
     }
 }

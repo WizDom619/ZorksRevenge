@@ -1,6 +1,8 @@
-﻿namespace ZorksRevenge.MiniGames
-{
-    internal class GuessNumber : MiniGame
+﻿using ZorksRevenge.MiniGames;
+
+namespace ZorksRevenge
+{       
+    public class GuessNumber : MiniGame
     {
         private int _number;
         private int _guesses = 7;
@@ -15,13 +17,14 @@
             Random random = new Random();
             _number = random.Next(1, 101); // 1 to 100 inclusive
 
-            ZorkPrinter.PrintLine("Let's play a guess the number game");
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------");
+            ZorkPrinter.PrintLine("Minigame #1 Guess my Number");
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------\n");
+
             ZorkPrinter.PrintLine("I have chosen a random number from 1 to 100");
             ZorkPrinter.PrintLine("Please guess my number");
-            ZorkPrinter.PrintLine($"You have {_guesses} guesses left...\n");
+            ZorkPrinter.PrintLine($"  You have {_guesses} guesses left...{_number}\n");
 
-            // TESTING
-            ZorkPrinter.PrintLine($"Answer is {_number}");
             while (_isPlaying)
             {                
                 ZorkPrinter.Print($":> ");
@@ -41,24 +44,24 @@
 
                     if (guess == _number)
                     {
-                        ZorkPrinter.PrintLine("Correct!");
+                        ZorkPrinter.PrintLine($"Correct! The number was {_number}.\n", ZorkPrinter.PlayerColour);
                         _isPlaying = false;
                         result = true;
                     }
                     else if (_guesses <= 0)
                     {
-                        ZorkPrinter.PrintLine($"Out of guesses! The number was {_number}.");
+                        ZorkPrinter.PrintLine($"Out of guesses! The number was {_number}.\n");
                         _isPlaying = false;
                         result = false;
                     }
                     else if (guess < _number)
                     {
-                        ZorkPrinter.PrintLine("Higher!\n");
+                        ZorkPrinter.Print("Higher!  ");
                         ZorkPrinter.PrintLine($"You have {_guesses} guesses left...\n");
                     }
                     else
                     {
-                        ZorkPrinter.PrintLine("Lower!\n");
+                        ZorkPrinter.Print("Lower!  ");
                         ZorkPrinter.PrintLine($"You have {_guesses} guesses left...\n");
                     }
                 }                

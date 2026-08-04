@@ -6,7 +6,7 @@
     /// Is not, return to main menu. 
     /// is quite then terminate the program. 
     /// </summary>
-    internal class QuitGame : GameState
+    public class QuitGame : GameState
     {
         public override void Display()
         {

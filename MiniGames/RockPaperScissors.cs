@@ -2,7 +2,7 @@
 
 namespace ZorksRevenge.MiniGames
 {
-    internal class RockPaperScissors : MiniGame
+    public class RockPaperScissors : MiniGame
     {
         public override bool Play()
         {
@@ -15,13 +15,20 @@ namespace ZorksRevenge.MiniGames
             Random random = new Random();
             string answer = "";
 
-            ZorkPrinter.PrintLine("Let's play Rock, Paper Scissors");
-            ZorkPrinter.PrintLine("Please win x3 times, I will try to win x5 times\n");
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------");
+            ZorkPrinter.PrintLine("Minigame #2 Rock, Paper Scissors");
+            ZorkPrinter.PrintLine("-----------------------------------------------------------------------\n");
+
+            ZorkPrinter.Print("Please win ");
+            ZorkPrinter.Print("x3 ", ZorkPrinter.PlayerColour);
+            ZorkPrinter.Print("times, I will try to win ");
+            ZorkPrinter.Print("x5 ", ZorkPrinter.NPCColour);
+            ZorkPrinter.PrintLine($"times\n");
 
             while (isPlaying)
             {
-                ZorkPrinter.PrintLine($"Sphinx win's: {cpuWins}");
-                ZorkPrinter.PrintLine($"Player win's: {playerWins}\n");
+                ZorkPrinter.PrintLine($"Sphinx: x{cpuWins}", ZorkPrinter.NPCColour);
+                ZorkPrinter.PrintLine($"Player: x{playerWins}\n", ZorkPrinter.PlayerColour);
                 ZorkPrinter.Print(":> ");
 
                 string guess = Console.ReadLine();
@@ -50,14 +57,17 @@ namespace ZorksRevenge.MiniGames
                             break;
                     }
 
-                    ZorkPrinter.PrintLine($"Player: {guess}    Sphinx: {answer}");
+                    ZorkPrinter.PrintLine($"Player! --- Sphinx! ");
+                    ZorkPrinter.PrintLine($" {guess.ToUpper()}      {answer}");
 
                     switch (guess.ToUpper()) 
                     {
                         case "ROCK":
+                            ZorkPrinter.Print("        ");
                             if (answer == "ROCK")
                             {
                                 ZorkPrinter.PrintLine("It's a draw!");
+                                ZorkPrinter.Print("          ");
                             }
                             else if (answer == "PAPER")
                             {
@@ -73,6 +83,7 @@ namespace ZorksRevenge.MiniGames
                             break;
 
                         case "PAPER":
+                            ZorkPrinter.Print("          ");
                             if (answer == "ROCK")
                             {
                                 ZorkPrinter.PrintLine("+1 to Player");
@@ -87,9 +98,11 @@ namespace ZorksRevenge.MiniGames
                                 ZorkPrinter.PrintLine("+1 to Sphinx!");
                                 cpuWins++;
                             }
+                            ZorkPrinter.PrintLine("");
                             break;
 
                         case "SCISSORS":
+                            ZorkPrinter.Print("          ");
                             if (answer == "ROCK")
                             {
                                 ZorkPrinter.PrintLine("+1 to Sphinx!");
@@ -105,19 +118,20 @@ namespace ZorksRevenge.MiniGames
                                 ZorkPrinter.PrintLine("It's a draw!");
                             }
                             break;
-                    } 
+                    }
+                    ZorkPrinter.PrintLine("-----------------------------\n");
                 }   
                 
                 if (cpuWins == 5)
                 {
                     isPlaying = false;
-                    ZorkPrinter.PrintLine("You lose!");
+                    ZorkPrinter.PrintLine("You lose!\n");
                 }
                 else if (playerWins == 3)
                 {
                     isPlaying = false;
                     result = true;
-                    ZorkPrinter.PrintLine("You win!");
+                    ZorkPrinter.PrintLine("You win!\n");
                 }
             }
 

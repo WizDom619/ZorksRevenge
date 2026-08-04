@@ -1,33 +1,29 @@
-﻿namespace ZorksRevenge.GameObjects
+﻿namespace ZorksRevenge
 {
     /// <summary>
     /// Item is a GameObject that contains all the data relevant to an item. 
     /// </summary>
    
-    internal class Item
-    {
-        // Item's name is used to search and identify. 
-        private string _name;
-        // Used as flavour text for world building. 
-        private string _description;
+    public class Item : GameObject
+    {        
+        public Item()
+        {
 
-        public Item(string name, string description)
-        {
-            _name = name;
-            _description = description;
         }
-        public void Print()
+        public override void Print()
         {
-            ZorkPrinter.Print($"{_name}: ", ZorkPrinter.ItemColour);
-            ZorkPrinter.PrintLine($"{_description}");
+            ZorkPrinter.Print("-", ZorkPrinter.ItemColour);
+            ZorkPrinter.PrintLine(_name, GameData.FindGameObjectByName(_name).Colour);
         }
-        public string Description
+
+        public void PrintTest()
         {
-            get { return _name; }
+            Console.WriteLine("ID " + _id);
+            Console.WriteLine("Location " + GameData.FindRoomByID(_locationID).Name + " (" + _locationID + ")");
+            Console.WriteLine("Name " + _name);
+            Console.WriteLine("Desc " + _description);
+            Console.WriteLine("-------------------");
         }
-        public string Name
-        {
-            get { return _name; }
-        }
+
     }
 }
