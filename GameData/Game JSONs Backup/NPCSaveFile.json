@@ -1,0 +1,104 @@
+[
+  {
+	"ID": "S001",
+    "Name": "Richard",
+    "LocationID": "R005",
+    "PrizeID": "I001",
+    "IsAlive": true,
+    "IsHappy": false,
+    "MiniGame": null,
+    "Wants": {
+	  "I008": false
+	}
+  },
+  {
+	"ID": "S002",
+    "Name": "Dan",
+    "LocationID": "R006",
+    "PrizeID": "I002",
+    "IsAlive": true,
+    "IsHappy": false,
+    "MiniGame": null,
+    "Wants": {
+	  "I009": false
+	}
+  },
+  {
+	"ID": "S003",
+    "Name": "Hannah",
+    "LocationID": "R007",
+    "PrizeID": "I003",
+    "IsAlive": true,
+    "IsHappy": false,
+    "MiniGame": null,
+    "Wants": {
+	  "I010": false
+	}
+  },
+  {
+	"ID": "S004",
+    "Name": "Arestid",
+    "LocationID": "R008",
+    "PrizeID": "I004",
+    "IsAlive": true,
+    "IsHappy": false,
+    "MiniGame": null,
+    "Wants": {
+	  "I011": false
+	}
+  },
+  {
+	"ID": "S005",
+    "Name": "Rodney",
+    "LocationID": "R009",
+    "PrizeID": "I005",
+    "IsAlive": true,
+    "IsHappy": false,
+    "MiniGame": null,
+    "Wants": {
+	  "I012": false
+	}
+  },
+  {
+	"ID": "S006",
+    "Name": "Jarryd",
+    "LocationID": "R010",
+    "PrizeID": "I006",
+    "IsAlive": true,
+    "IsHappy": false,
+    "MiniGame": null,
+    "Wants": {
+	  "I013": false
+	}
+  },
+  {
+	"ID": "S007",
+    "Name": "Nikko",
+    "LocationID": "R011",
+    "PrizeID": "I007",
+    "IsAlive": true,
+    "IsHappy": false,
+    "MiniGame": null,
+    "Wants": {
+	  "I014": false
+	}
+  },
+  {
+	"ID": "S008",
+    "Name": "Zork",
+    "LocationID": "R004",
+    "PrizeID": "",
+    "IsAlive": true,
+    "IsHappy": false,
+    "MiniGame": null,
+    "Wants": {
+	  "I001": false,
+	  "I002": false,
+	  "I003": false,
+	  "I004": false,
+	  "I005": false,
+	  "I006": false,
+	  "I007": false
+	}
+  }
+]

@@ -1,0 +1,431 @@
+[  
+  {
+    "ID": "C001",   
+    "Name": "Crate",  
+    "LocationID": "R012",  
+    "isOpened": false,
+	"Desc": "An old crate that fell overboard a while ago",
+    "ItemIDs":
+    [
+	   "I009"
+    ]    
+  }, 
+  {
+    "ID": "C002",   
+    "Name": "Chest",  
+    "LocationID": "R002",  
+    "isOpened": false,
+	"Desc": "Open me up",
+    "ItemIDs":
+    [
+	   "I016"
+    ]    
+  }, 
+  {
+    "ID": "C003",   
+    "Name": "Chest",  
+    "LocationID": "R013",  
+    "isOpened": false,
+	"Desc": "Open me up",
+    "ItemIDs":
+    [
+	   "I020",
+	   "I021"
+    ]    
+  }, 
+  {
+    "ID": "C004",   
+    "Name": "Grave#1",  
+    "LocationID": "R014",  
+    "isOpened": false,
+	"Desc": "Freshly buried",
+    "ItemIDs":
+    [
+	   "I022"
+    ]    
+  }, 
+  {
+    "ID": "C005",   
+    "Name": "Grave#2",  
+    "LocationID": "R014",  
+    "isOpened": false,
+	"Desc": "Whoever lays here has been long forgotten",
+    "ItemIDs":
+    [
+	   "I023"
+    ]    
+  }, 
+  {
+    "ID": "C006",   
+    "Name": "Grave#3",  
+    "LocationID": "R014",  
+    "isOpened": false,
+	"Desc": "Rest in Pizza",
+    "ItemIDs":
+    [
+	   "I024"
+    ]    
+  },   
+  {
+    "ID": "C007",   
+    "Name": "Geode",  
+    "LocationID": "R006",  
+    "isOpened": false,
+	"Desc": "Break open to find what's inside",
+    "ItemIDs":
+    [	
+    ]    
+  }, 
+  {
+    "ID": "C101",   
+    "Name": "Box#1",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C102",   
+    "Name": "Box#2",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C103",   
+    "Name": "Box#3",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C104",   
+    "Name": "Box#4",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C105",   
+    "Name": "Box#5",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C106",   
+    "Name": "Box#6",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C107",   
+    "Name": "Box#7",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C108",   
+    "Name": "Box#8",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C109",   
+    "Name": "Box#9",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C110",   
+    "Name": "Box#10",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C111",   
+    "Name": "Box#11",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C112",   
+    "Name": "Box#12",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C113",   
+    "Name": "Box#13",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C114",   
+    "Name": "Box#14",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C115",   
+    "Name": "Box#15",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C116",   
+    "Name": "Box#16",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C117",   
+    "Name": "Box#17",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C118",   
+    "Name": "Box#18",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+		"I010"
+    ]    
+  },
+  {
+    "ID": "C119",   
+    "Name": "Box#19",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C120",   
+    "Name": "Box#20",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C121",   
+    "Name": "Box#21",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C1122",   
+    "Name": "Box#22",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C123",   
+    "Name": "Box#23",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C124",   
+    "Name": "Box#24",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C125",   
+    "Name": "Box#25",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C126",   
+    "Name": "Box#26",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C27",   
+    "Name": "Box#27",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+		"I011"
+    ]    
+  },
+  {
+    "ID": "C128",   
+    "Name": "Box#28",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C29",   
+    "Name": "Box#29",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C130",   
+    "Name": "Box#30",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C131",   
+    "Name": "Box#31",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C132",   
+    "Name": "Box#32",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C133",   
+    "Name": "Box#33",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C134",   
+    "Name": "Box#34",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  },
+  {
+    "ID": "C135",   
+    "Name": "Box#35",  
+    "LocationID": "R017",  
+    "isOpened": false,
+	"Desc": "Just a Box",
+    "ItemIDs":
+    [
+    ]    
+  }
+]

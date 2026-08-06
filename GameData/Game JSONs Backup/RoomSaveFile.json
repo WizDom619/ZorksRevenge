@@ -1,0 +1,422 @@
+[  
+{
+  "ID": "R001",	
+  "Name": "Entry",
+  "Desc": "A weathered stone archway marks the beginning of your journey.",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R002",
+	"South": "NULL",
+	"East": "NULL",
+	"West": "NULL"
+  }  	  
+},
+{
+  "ID": "R002",	
+  "Name": "Old Oak Tree",
+  "Desc": "A massive ancient oak stands here",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "NULL",
+	"South": "R001",
+	"East": "R003",
+	"West": "NULL"
+  }		  
+},
+{
+  "ID": "R003",	
+  "Name": "The Great Way",
+  "Desc": "A wide, cobbled road stretches onward, worn smooth by centuries of travelers",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R004",
+	"South": "NULL",
+	"East": "NULL",
+	"West": "R002"
+  }	
+},
+{
+  "ID": "R004",	
+  "Name": "The Hollow",
+  "Desc": "Where it all begins and ends",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "NULL",
+	"South": "NULL",
+	"East": "R005",
+	"West": "R011"  
+  }
+},
+{
+  "ID": "R005",	
+  "Name": "Whispering Woods",
+  "Desc": "Twisted trees lean close together, murmuring secrets in a language you almost understand",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R006",
+	"South": "R014",
+	"East": "R012",
+	"West": "R004"  
+  }
+},
+{
+  "ID": "R006",	
+  "Name": "Crystal Caves",
+  "Desc": "Jagged crystals jut from every wall, refracting light into a thousand fractured colors",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R007",
+	"South": "R005",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R007",	
+  "Name": "Dragon's Domain",
+  "Desc": "Scorched stone and enormous claw marks hint at something far too large to fight",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "NULL",
+	"South": "R006",
+	"East": "R015",
+	"West": "R008"  
+  }
+},
+{
+  "ID": "R008",	
+  "Name": "Mushroom Meadows",
+  "Desc": "Glowing mushrooms carpet the field, pulsing faintly with bioluminescent light",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R017",
+	"South": "NULL",
+	"East": "R007",
+	"West": "R009"  
+  }
+},
+{
+  "ID": "R009",	
+  "Name": "Mystic Mountains",
+  "Desc": "Jagged peaks vanish into swirling mist, humming faintly with old magic",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R019",
+	"South": "R010",
+	"East": "R008",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R010",	
+  "Name": "Clockwork City",
+  "Desc": "Brass gears the size of houses turn endlessly, powering a city that never sleeps",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R009",
+	"South": "R011",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R011",	
+  "Name": "Frozen Fjord",
+  "Desc": "Ice-locked cliffs plunge into black water, silent except for the crack of shifting glaciers",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R010",
+	"South": "NULL",
+	"East": "R004",
+	"West": "R020"  
+  }
+},
+{
+  "ID": "R012",	
+  "Name": "Paradise Shore",
+  "Desc": "White sand meets turquoise water beneath a sky that never seems to storm",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "NULL",
+	"South": "NULL",
+	"East": "R013",
+	"West": "R005"  
+  }
+},
+{
+  "ID": "R013",	
+  "Name": "Pirate's Bay",
+  "Desc": "Wrecked ships litter the harbor, their masts jutting like skeletal fingers from the surf",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "NULL",
+	"South": "NULL",
+	"East": "NULL",
+	"West": "R012"  
+  }
+},
+{
+  "ID": "R014",	
+  "Name": "Haunted Graves",
+  "Desc": "Rows of cracked headstones lean at odd angles under a sky that's always dusk",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R005",
+	"South": "NULL",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R015",	
+  "Name": "Molten Ranges",
+  "Desc": "Rivers of lava carve glowing veins through blackened volcanic rock",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "NULL",
+	"South": "R016",
+	"East": "NULL",
+	"West": "R007"  
+  }
+},
+{
+  "ID": "R016",	
+  "Name": "Abandoned City",
+  "Desc": "Crumbling towers and empty streets echo with the memory of a civilization long gone",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R015",
+	"South": "NULL",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R017",	
+  "Name": "Box Room",
+  "Desc": "Stacks of boxes fill the space, daring you to guess what's inside",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "NULL",
+	"South": "R008",
+	"East": "R018",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R018",	
+  "Name": "Frozen Wasteland",
+  "Desc": "An endless plain of ice stretches to the horizon under a pale, sunless sky",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "NULL",
+	"South": "NULL",
+	"East": "NULL",
+	"West": "R017"  
+  }
+},
+{
+  "ID": "R019",	
+  "Name": "Hidden Room",
+  "Desc": "A secret chamber",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "NULL",
+	"South": "R009",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R020",	
+  "Name": "The Arid Drylands",
+  "Desc": "Cracked earth stretches for miles, baked hard under a merciless sun",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R021",
+	"South": "NULL",
+	"East": "R011",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R021",	
+  "Name": "Desert",
+  "Desc": "Endless dunes ripple outward, shifting slowly with the wind",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R022",
+	"South": "R020",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R022",	
+  "Name": "Desert",
+  "Desc": "Endless dunes ripple outward, shifting slowly with the wind",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R023",
+	"South": "R021",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R023",	
+  "Name": "Desert",
+  "Desc": "Endless dunes ripple outward, shifting slowly with the wind",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R024",
+	"South": "R022",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R024",	
+  "Name": "Desert",
+  "Desc": "Endless dunes ripple outward, shifting slowly with the wind",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R025",
+	"South": "R023",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R025",	
+  "Name": "Desert",
+  "Desc": "Endless dunes ripple outward, shifting slowly with the wind",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R026",
+	"South": "R024",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R026",	
+  "Name": "Desert",
+  "Desc": "Endless dunes ripple outward, shifting slowly with the wind",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R027",
+	"South": "R025",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R027",	
+  "Name": "Desert",
+  "Desc": "Endless dunes ripple outward, shifting slowly with the wind",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "R028",
+	"South": "R026",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+},
+{
+  "ID": "R028",	
+  "Name": "Oasis",
+  "Desc": "Palm trees ring a pool of impossibly clear water, maybe you missed something along the way",
+  "GameObjects":
+  [
+  ],
+  "Exits":
+  {
+	"North": "NULL",
+	"South": "R027",
+	"East": "NULL",
+	"West": "NULL"  
+  }
+}
+]

@@ -1,0 +1,298 @@
+[  
+	{
+	  "ID": "I001",
+	  "Name": "Topaz",
+	  "LocationID": "",
+	  "Desc": "Sunlight seems to pool inside it rather than pass through"
+	},
+	{
+	  "ID": "I002",
+	  "Name": "Sapphire",
+	  "LocationID": "",
+	  "Desc": "A deep blue sapphire, cold to the touch even in warm hands"
+	},
+	{
+	  "ID": "I003",
+	  "Name": "Emerald",
+	  "LocationID": "",
+	  "Desc": "Green so deep and pure it seems to hold a forest at midday sealed inside the stone"
+	},
+	{
+	  "ID": "I004",
+	  "Name": "Aquamarine",
+	  "LocationID": "",
+	  "Desc": "A pale blue-green aquamarine, smooth as river glass"
+	},	
+	{
+	  "ID": "I005",
+	  "Name": "Ruby",
+	  "LocationID": "",
+	  "Desc": "A blood-red ruby, warm despite the surrounding chill. It pulses faintly when held"
+	},
+	{
+	  "ID": "I006",
+	  "Name": "Amethst",
+	  "LocationID": "",
+	  "Desc": "Like a sunset trapped in crystal"
+	},
+	{
+	  "ID": "I007",
+	  "Name": "Diamond",
+	  "Desc": "It refracts torchlight into scattered, mocking rainbows"
+	},
+	{
+	  "ID": "I008",
+	  "Name": "Beer",
+	  "LocationID": "R006",
+	  "Desc": "All things in moderation"
+	},
+	{
+	  "ID": "I009",
+	  "Name": "Bread",
+	  "Desc": "Perfect in any form"
+	},
+	{
+	  "ID": "I010",
+	  "Name": "Bubble Tea",
+	  "Desc": "Extra suger, no ice and skip the pearls"
+	},	
+	{
+	  "ID": "I011",
+	  "Name": "Curry",
+	  "Desc": "Chicken or beef?"
+	},
+	{
+	  "ID": "I012",
+	  "Name": "Dumplings",
+	  "LocationID": "R025",
+	  "Desc": "Have a good dump"
+	},
+	{
+	  "ID": "I013",
+	  "Name": "Racket",
+	  "LocationID": "R016",
+	  "Desc": "Only a baddie and wield this properly"
+	},
+	{
+	  "ID": "I052",
+	  "Name": "Pirate's Treasure",
+	  "LocationID": "R019",
+	  "Desc": "Blood gold is shines the same"
+	},
+	{
+	  "ID": "I014",
+	  "Name": "Macha",
+	  "LocationID": "R019",
+	  "Desc": "Umami, caffeine and focus all in a cup"
+	},	
+	{
+	  "ID": "I015",
+	  "Name": "Rock",
+	  "LocationID": "R001",
+	  "Desc": "A small grey rock"
+	},	
+	{
+	  "ID": "I016",
+	  "Name": "Stick",
+	  "Desc": "Shaped like a sword (pretty cool)"
+	},
+	{
+	  "ID": "I017",
+	  "Name": "Sword",
+	  "LocationID": "R003",
+	  "Desc": "A strong sharp sword, every hero needs"
+	},
+	{
+	  "ID": "I018",
+	  "Name": "Shield",
+	  "LocationID": "R003",
+	  "Desc": "Defend truth, justice and The Great Way"
+	},
+	{
+	  "ID": "I019",
+	  "Name": "Health Potion",
+	  "LocationID": "R003",
+	  "Desc": "Tastes like Yakult"
+	},
+	{
+	  "ID": "I020",
+	  "Name": "Note#1",
+	  "Desc": "What were you expecting? Treasure?"
+	},
+	{
+	  "ID": "I021",
+	  "Name": "Note#2",
+	  "Desc": "Ok, if you really want my treasure, I'll tell you a little secret. I hid all my treasure north of the Mystic Mountains"
+	},	
+	{
+	  "ID": "I022",
+	  "Name": "Skull",
+	  "Desc": "Some poor soul that never escaped Zork's World"
+	},
+	{
+	  "ID": "I023",
+	  "Name": "Dust",
+	  "Desc": "Did you know dust is mainly dead skin cells"
+	},
+	{
+	  "ID": "I024",
+	  "Name": "Note#3",
+	  "Desc": "There's an invisable 'Racket' in the Abandoned City"
+	},
+	{
+	  "ID": "I026",
+	  "Name": "Acorn",
+	  "LocationID": "R005",
+	  "Desc": "Hard on the outisde, still kind of tough on the inside"
+	},
+	{
+	  "ID": "I027",
+	  "Name": "Quartz",
+	  "LocationID": "R006",
+	  "Desc": "Hard on the outisde, still kind of tough on the inside"
+	},
+	{
+	  "ID": "I028",
+	  "Name": "Citrine",
+	  "LocationID": "R006",
+	  "Desc": "Hard on the outisde, still kind of tough on the inside"
+	},
+	{
+	  "ID": "I029",
+	  "Name": "Tourmaline",
+	  "LocationID": "R006",
+	  "Desc": "Hard on the outisde, still kind of tough on the inside"
+	},
+	{
+	  "ID": "I030",
+	  "Name": "Dragon Skull",
+	  "LocationID": "R007",
+	  "Desc": "Don't worry, it's been dead a long time (I think)"
+	},
+	{
+	  "ID": "I031",
+	  "Name": "Dragon Claw",
+	  "LocationID": "R007",
+	  "Desc": "Sharper than any sword, string than any rock"
+	},
+	{
+	  "ID": "I032",
+	  "Name": "Note#4",
+	  "LocationID": "R015",
+	  "Desc": "Look inside Box (6 * 7) - 15"
+	},
+	{
+	  "ID": "I033",
+	  "Name": "Green Mushroom",
+	  "LocationID": "R008",
+	  "Desc": "Tall and thin"
+	},
+	{
+	  "ID": "I034",
+	  "Name": "Red Mushroom",
+	  "LocationID": "R08",
+	  "Desc": "Short and very round"
+	},
+	{
+	  "ID": "I035",
+	  "Name": "Blue Mushroom",
+	  "LocationID": "R008",
+	  "Desc": "Bumpy and drooping over"
+	},
+	{
+	  "ID": "I036",
+	  "Name": "Note#5",
+	  "LocationID": "R018",
+	  "Desc": "Look inside Box 18"
+	},
+	{
+	  "ID": "I037",
+	  "Name": "Cog",
+	  "LocationID": "R010",
+	  "Desc": "Despite it's size, it's quite heavy"
+	},
+	{
+	  "ID": "I038",
+	  "Name": "Spring",
+	  "LocationID": "R010",
+	  "Desc": "BOING!"
+	},
+	{
+	  "ID": "I039",
+	  "Name": "Ice Block",
+	  "LocationID": "R011",
+	  "Desc": "Very cold to touch"
+	},
+	{
+	  "ID": "I040",
+	  "Name": "Snow",
+	  "LocationID": "R011",
+	  "Desc": "Even colder to touch"
+	},
+	{
+	  "ID": "I041",
+	  "Name": "Frozen Grass",
+	  "LocationID": "R011",
+	  "Desc": "Very brittle, breaks apart in your hands"
+	},
+	{
+	  "ID": "I042",
+	  "Name": "Skates",
+	  "LocationID": "R011",
+	  "Desc": "2 sizes too small, can't wear them"
+	},
+	{
+	  "ID": "I043",
+	  "Name": "Sand",
+	  "LocationID": "R020",
+	  "Desc": "It's coarse and rough and irritating and it gets everywhere"
+	},
+	{
+	  "ID": "I044",
+	  "Name": "Sand",
+	  "LocationID": "R021",
+	  "Desc": "It's coarse and rough and irritating and it gets everywhere"
+	},
+	{
+	  "ID": "I045",
+	  "Name": "Sand",
+	  "LocationID": "R022",
+	  "Desc": "It's coarse and rough and irritating and it gets everywhere"
+	},
+	{
+	  "ID": "I046",
+	  "Name": "Sand",
+	  "LocationID": "R023",
+	  "Desc": "It's coarse and rough and irritating and it gets everywhere"
+	},
+	{
+	  "ID": "I047",
+	  "Name": "Sand",
+	  "LocationID": "R024",
+	  "Desc": "It's coarse and rough and irritating and it gets everywhere"
+	},
+	{
+	  "ID": "I048",
+	  "Name": "Sand",
+	  "LocationID": "R025",
+	  "Desc": "It's coarse and rough and irritating and it gets everywhere"
+	},
+	{
+	  "ID": "I049",
+	  "Name": "Sand",
+	  "LocationID": "R026",
+	  "Desc": "It's coarse and rough and irritating and it gets everywhere"
+	},
+	{
+	  "ID": "I050",
+	  "Name": "Sand",
+	  "LocationID": "R027",
+	  "Desc": "It's coarse and rough and irritating and it gets everywhere"
+	},
+	{
+	  "ID": "I051",
+	  "Name": "Note#6",
+	  "LocationID": "R028",
+	  "Desc": "3 rooms back are some 'Dumplings'"
+	}
+]
