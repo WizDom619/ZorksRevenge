@@ -17,7 +17,7 @@
             GameData.Initialize();
 
             _inputParser = new InputParser();
-            _command = new Command(Verb.Blank, "Game Instructions");
+            _command = new Command(Verb.Help, "Game Instructions");
             _commandEvent = _command.GetEvent();
         }
 

@@ -10,7 +10,7 @@ namespace ZorksRevenge
             bool _isPlaying = false;
 
             // Game settings
-            string normalText = "You figured out what a Cipher is, this puzzle dates all the way back to ancient Rome. please type the word pizza";
+            string normalText = "Please type the word 'pizza'";
             string answer = "PIZZA";
             int shiftKey = 2;
             string encryptedText = Encrypt(normalText, shiftKey);

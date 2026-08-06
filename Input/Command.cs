@@ -25,7 +25,7 @@ namespace ZorksRevenge
 
         public CommandEvent GetEvent()
         {
-            CommandEvent commandEvent = new BlankEvent(); 
+            CommandEvent commandEvent = new HelpEvent(); 
 
             switch(_verb)
             {

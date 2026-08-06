@@ -1,4 +1,7 @@
-﻿namespace ZorksRevenge
+﻿using System.Drawing;
+using System.Security.Cryptography;
+
+namespace ZorksRevenge
 {
     internal class SpeakEvent : CommandEvent
     {
@@ -33,8 +36,18 @@
                         }
                         else if (kvp.Value == false)
                         {
-                            //GameData.FindGameObjectByID(kvp.Key)
-                            ZorkPrinter.PrintLine($" -{GameData.FindGameObjectByID(kvp.Key).Name}", GameData.FindGameObjectByID(kvp.Key).Colour);
+                            ConsoleColor CC = ZorkPrinter.ItemColour;
+
+                            if (GameData.FindGameObjectByID(kvp.Key).ID == "I001") { CC = ConsoleColor.Yellow; }
+                            if (GameData.FindGameObjectByID(kvp.Key).ID == "I002") { CC = ConsoleColor.Blue; }
+                            if (GameData.FindGameObjectByID(kvp.Key).ID == "I003") { CC = ConsoleColor.Green; }
+                            if (GameData.FindGameObjectByID(kvp.Key).ID == "I004") { CC = ConsoleColor.Cyan; }
+                            if (GameData.FindGameObjectByID(kvp.Key).ID == "I005") { CC = ConsoleColor.Red; }
+                            if (GameData.FindGameObjectByID(kvp.Key).ID == "I006") { CC = ConsoleColor.Magenta; }
+                            if (GameData.FindGameObjectByID(kvp.Key).ID == "I007") { CC = ConsoleColor.White; }
+
+
+                            ZorkPrinter.PrintLine($" -{GameData.FindGameObjectByID(kvp.Key).Name}", CC);
                         }
                     }
                     return;

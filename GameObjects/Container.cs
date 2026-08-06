@@ -12,20 +12,21 @@
 
         public Container AddItem(string id)
         {
+            Colour = ZorkPrinter.ContainerColour;
             _contents.Add(GameData.FindGameObjectByID(id).ID);
             return this;
         }
 
         public override void Print()
         {
-            ZorkPrinter.PrintLine($"-{_name}");
+            ZorkPrinter.PrintLine($"-{_name}", ZorkPrinter.ContainerColour);
             if (!isOpened)
             {
-                ZorkPrinter.PrintLine("   Closed", ZorkPrinter.ItemColour);
+                ZorkPrinter.PrintLine("   Closed");
             }
             else if (_contents.Count == 0)
             {
-                ZorkPrinter.PrintLine("   Empty", ZorkPrinter.ItemColour);
+                ZorkPrinter.PrintLine("   Empty");
             }
             else
             {

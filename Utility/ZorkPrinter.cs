@@ -15,6 +15,7 @@ namespace ZorksRevenge
         public static ConsoleColor RoomColour = DarkMagenta;
         public static ConsoleColor PlayerColour = DarkGreen;
         public static ConsoleColor NPCColour = DarkRed;
+        public static ConsoleColor ContainerColour = DarkYellow;
 
         // The speed of the printing effect. (25) 
         private static int _printSpeed = 1;        

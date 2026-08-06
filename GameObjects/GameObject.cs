@@ -11,7 +11,6 @@
 
         public GameObject()
         {
-            _colour = ZorkPrinter.ItemColour;
         }
 
         public virtual void Print() { }

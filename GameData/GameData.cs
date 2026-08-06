@@ -26,14 +26,6 @@ namespace ZorksRevenge
                     if (item.LocationID == room.ID)
                     {
                         room.AddGameObject(item.ID);
-
-                        if (item.ID == "I001") { item.Colour = ConsoleColor.Yellow; }
-                        if (item.ID == "I002") { item.Colour = ConsoleColor.Blue; }
-                        if (item.ID == "I003") { item.Colour = ConsoleColor.Green; }
-                        if (item.ID == "I004") { item.Colour = ConsoleColor.Cyan; }
-                        if (item.ID == "I005") { item.Colour = ConsoleColor.Red; }
-                        if (item.ID == "I006") { item.Colour = ConsoleColor.Magenta; }
-                        if (item.ID == "I007") { item.Colour = ConsoleColor.White; }
                     }
                 }
 
@@ -50,11 +42,6 @@ namespace ZorksRevenge
                     if (npc.LocationID == room.ID)
                     {
                         room.AddGameObject(npc.ID);
-
-                        if (npc.ID == "S001")
-                        {
-                            npc.MiniGame = new Quiz();
-                        }
                     }
                 }
             }

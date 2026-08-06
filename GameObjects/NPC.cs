@@ -18,9 +18,20 @@ namespace ZorksRevenge
         {
             _description = "A Great and Mighty Sphinx, Bring it an Offering and Play it's Game.";
             _colour = ZorkPrinter.NPCColour;
+
+            
         }
         public bool Play()
         {
+            if (_id == "S001") { _miniGame = new GuessNumber(); }
+            if (_id == "S002") { _miniGame = new RockPaperScissors(); }
+            if (_id == "S003") { _miniGame = new Hangman(); }
+            if (_id == "S004") { _miniGame = new MathQuiz(); }
+            if (_id == "S005") { _miniGame = new WordSearch(); }
+            if (_id == "S006") { _miniGame = new Cipher(); }
+            if (_id == "S007") { _miniGame = new Quiz(); }
+            if (_id == "S008") { _miniGame = new FinalBoss(); }
+
             return _miniGame.Play();
         }
         public NPC AddPrize(string prize)
