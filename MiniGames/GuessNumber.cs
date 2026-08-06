@@ -23,7 +23,7 @@ namespace ZorksRevenge
 
             ZorkPrinter.PrintLine("I have chosen a random number from 1 to 100");
             ZorkPrinter.PrintLine("Please guess my number");
-            ZorkPrinter.PrintLine($"  You have {_guesses} guesses left...{_number}\n");
+            ZorkPrinter.PrintLine($"  You have {_guesses} guesses left...\n");
 
             while (_isPlaying)
             {                

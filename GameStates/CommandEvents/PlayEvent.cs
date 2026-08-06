@@ -57,6 +57,21 @@ namespace ZorksRevenge.GameStates.CommandEvents
             {
                 if (_isGameComplete)
                 {
+                    foreach (Item item in GameData.Items)
+                    {
+                        if (item.ID == "I001") { item.Colour = ConsoleColor.Yellow; }
+                        if (item.ID == "I002") { item.Colour = ConsoleColor.Blue; }
+                        if (item.ID == "I003") { item.Colour = ConsoleColor.Green; }
+                        if (item.ID == "I004") { item.Colour = ConsoleColor.Cyan; }
+                        if (item.ID == "I005") { item.Colour = ConsoleColor.Red; }
+                        if (item.ID == "I006") { item.Colour = ConsoleColor.Magenta; }
+                        if (item.ID == "I007") { item.Colour = ConsoleColor.White; }
+
+                        if (item.ID == "I033") { item.Colour = ConsoleColor.DarkGreen; }
+                        if (item.ID == "I034") { item.Colour = ConsoleColor.DarkRed; }
+                        if (item.ID == "I035") { item.Colour = ConsoleColor.DarkBlue; }
+                    }
+
                     ZorkPrinter.Print("You recieved the ");
                     ZorkPrinter.PrintLine($"{GameData.FindGameObjectByID(_targetNPC.PrizeID).Name}\n", GameData.FindGameObjectByID(_targetNPC.PrizeID).Colour);
                     ZorkPrinter.Print("The Sphinx ");

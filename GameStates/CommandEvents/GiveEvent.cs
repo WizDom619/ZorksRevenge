@@ -22,7 +22,8 @@
                 {
                     foreach (NPC npc in GameData.NPCS)
                     {
-                        if (npc.IsAlive)
+                        if (npc.IsAlive &&
+                            npc.LocationID == Player.CurrentRoomID)
                         {
                             foreach (KeyValuePair<string, bool> kvp in npc.Wants)
                             {
