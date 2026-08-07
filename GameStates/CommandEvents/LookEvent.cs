@@ -15,47 +15,62 @@
         }
         public override void Display()
         {
-            GameObject gameobject = GameData.FindGameObjectByName(_noun);
+            GameObject gameObject = null;
+            gameObject = GameData.FindGameObjectByName(_noun);
 
-            foreach (Container container in GameData.Containers)
+            if (gameObject != null)
             {
-                if (container.isOpened)
+                if (gameObject.ID == Player.CurrentRoomID)
                 {
-                    foreach (string itemIDs in container.ItemIDs)
+                    foreach (string id in GameData.FindRoomByID(Player.CurrentRoomID).GameObjectsIDs)
                     {
-                        if (itemIDs == gameobject.ID)
+                        if (gameObject is Item item)
                         {
                             ZorkPrinter.Print($"You looking at... ");
-                            ZorkPrinter.Print($"{gameobject.Name}: ", gameobject.Colour);
-                            ZorkPrinter.PrintLine($"{gameobject.Desc}");
+                            ZorkPrinter.Print($"{item.Name}: ", item.Colour);
+                            ZorkPrinter.PrintLine($"{gameObject.Desc}");
                             return;
+                        }
+                        else if (gameObject is NPC npc)
+                        {
+                            ZorkPrinter.Print($"You looking at... ");
+                            ZorkPrinter.Print($"{npc.Name}: ", ZorkPrinter.NPCColour);
+                            ZorkPrinter.PrintLine($"{gameObject.Desc}");
+                            return;
+                        }
+                        else if (gameObject is Container container)
+                        {
+                            ZorkPrinter.Print($"You looking at... ");
+                            ZorkPrinter.Print($"{container.Name}: ", ZorkPrinter.ContainerColour);
+                            ZorkPrinter.PrintLine($"{gameObject.Desc}");
+                            return;
+                        }
+                    }
+                }                
+
+                foreach (Container container in GameData.Containers)
+                {
+                    if (container.isOpened)
+                    {
+                        foreach (string itemIDs in container.ItemIDs)
+                        {
+                            foreach (GameObject GO in GameData.Items)
+                            {
+                                if (itemIDs == gameObject.ID)
+                                {
+                                    ZorkPrinter.Print($"You looking at... ");
+                                    ZorkPrinter.Print($"{GO.Name}: ", ZorkPrinter.ContainerColour);
+                                    ZorkPrinter.PrintLine($"{GO.Desc}");
+                                    return;
+                                }
+                            }
                         }
                     }
                 }
             }
-
-            if (gameobject.LocationID == Player.CurrentRoomID)
-            {
-                ZorkPrinter.Print($"You looking at... ");
-                if (gameobject is Item item)
-                {
-                    ZorkPrinter.Print($"{gameobject.Name}: ", gameobject.Colour);                    
-                }
-                else if (gameobject is NPC npc)
-                {
-                    ZorkPrinter.Print($"{gameobject.Name}: ", gameobject.Colour);
-                }
-                else if (gameobject is Container container)
-                {
-                    ZorkPrinter.Print($"{gameobject.Name}: ");
-                }
-                ZorkPrinter.PrintLine($"{gameobject.Desc}");
-            }
-            else
-            {
-                ZorkPrinter.Print($"Can't Find: ");
-                ZorkPrinter.PrintLine($"{_noun}", gameobject.Colour);
-            }
+                
+            ZorkPrinter.Print($"Can't Find: ");
+            ZorkPrinter.PrintLine($"{_noun}", gameObject.Colour);
             
         }
     }

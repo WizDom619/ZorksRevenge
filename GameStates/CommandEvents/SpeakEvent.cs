@@ -23,10 +23,10 @@ namespace ZorksRevenge
                 if (npc.LocationID == Player.CurrentRoomID &&
                     npc.Name.ToUpper() == _noun.ToUpper())
                 {
-                    ZorkPrinter.Print("The Great and Mighty Sphinx: ");
-                    ZorkPrinter.Print($"{npc.Name} ", ZorkPrinter.NPCColour);
+                    ZorkPrinter.Print("The Great and Mighty Sphinx ");
+                    ZorkPrinter.Print($"{npc.Name}, ", ZorkPrinter.NPCColour);
                     ZorkPrinter.PrintLine("says... ");
-                    ZorkPrinter.PrintLine("Bring me..");
+                    ZorkPrinter.PrintLine(" Bring me..");
 
                     foreach (KeyValuePair<string, bool> kvp in npc.Wants)
                     {
@@ -47,7 +47,7 @@ namespace ZorksRevenge
                             if (GameData.FindGameObjectByID(kvp.Key).ID == "I007") { CC = ConsoleColor.White; }
 
 
-                            ZorkPrinter.PrintLine($" -{GameData.FindGameObjectByID(kvp.Key).Name}", CC);
+                            ZorkPrinter.PrintLine($"  -{GameData.FindGameObjectByID(kvp.Key).Name}", CC);
                         }
                     }
                     return;

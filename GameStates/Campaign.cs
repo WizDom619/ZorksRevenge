@@ -43,7 +43,7 @@
         {
             ZorkPrinter.Print($"Last Command: ");
             ZorkPrinter.PrintLine($"{_command.Verb}, {_command.Noun}, {Player.Name}", ZorkPrinter.PlayerColour);
-            ZorkPrinter.PrintLine("-----------------------------------------------------------------------\n");
+            ZorkPrinter.PrintLine("----------------------------------------------------------------------------------------------------------\n");
 
             _commandEvent.Display();
             ZorkPrinter.PrintLine("");

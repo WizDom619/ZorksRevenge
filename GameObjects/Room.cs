@@ -41,11 +41,11 @@ namespace ZorksRevenge
 
         public void Print()
         {
-            ZorkPrinter.PrintLine("-----------------------------------------------------------------------");
-            ZorkPrinter.Print($"Location: ");
-            ZorkPrinter.Print($"{GameData.FindRoomByID(Player.CurrentRoomID).Name}   ", ZorkPrinter.RoomColour);
+            ZorkPrinter.PrintLine("----------------------------------------------------------------------------------------------------------");
+            ZorkPrinter.Print($"Location: ", ZorkPrinter.RoomColour);
+            ZorkPrinter.Print($"{GameData.FindRoomByID(Player.CurrentRoomID).Name}: ");
             ZorkPrinter.PrintLine($"{GameData.FindRoomByID(Player.CurrentRoomID).Desc}");
-            ZorkPrinter.PrintLine("-----------------------------------------------------------------------");
+            ZorkPrinter.PrintLine("----------------------------------------------------------------------------------------------------------\n");
        
             bool noItems = true;
 
@@ -116,7 +116,7 @@ namespace ZorksRevenge
             }
             ZorkPrinter.PrintLine("");
 
-            ZorkPrinter.PrintLine("Paths: ");
+            ZorkPrinter.PrintLine("Paths: ", ZorkPrinter.RoomColour);
             foreach (KeyValuePair<Direction, string> kvp in _exits)
             {
                 foreach (Room room in GameData.Rooms)
@@ -129,23 +129,23 @@ namespace ZorksRevenge
                     {
                         if (kvp.Key == Direction.North)
                         {
-                            ZorkPrinter.Print($" North: ");
-                            ZorkPrinter.PrintLine($"{room.Name}", ZorkPrinter.RoomColour);
+                            ZorkPrinter.Print($" North: ", ZorkPrinter.RoomColour);
+                            ZorkPrinter.PrintLine($"{room.Name}");
                         }
                         if (kvp.Key == Direction.South)
                         {
-                            ZorkPrinter.Print(" South: ");
-                            ZorkPrinter.PrintLine($"{room.Name}", ZorkPrinter.RoomColour);
+                            ZorkPrinter.Print(" South: ", ZorkPrinter.RoomColour);
+                            ZorkPrinter.PrintLine($"{room.Name}");
                         }
                         if (kvp.Key == Direction.East)
                         {
-                            ZorkPrinter.Print(" East: ");
-                            ZorkPrinter.PrintLine($"{room.Name}", ZorkPrinter.RoomColour);
+                            ZorkPrinter.Print(" East: ", ZorkPrinter.RoomColour);
+                            ZorkPrinter.PrintLine($"{room.Name}");
                         }
                         if (kvp.Key == Direction.West)
                         {
-                            ZorkPrinter.Print(" West: ");
-                            ZorkPrinter.PrintLine($"{room.Name}", ZorkPrinter.RoomColour);
+                            ZorkPrinter.Print(" West: ", ZorkPrinter.RoomColour);
+                            ZorkPrinter.PrintLine($"{room.Name}");
                         }
                     }
                 }
