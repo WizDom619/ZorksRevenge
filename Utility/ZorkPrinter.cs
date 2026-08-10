@@ -131,7 +131,7 @@ namespace ZorksRevenge
             WriteLine(" ███╔╝  ██║   ██║██╔══██╗██╔═██╗  ╚════██║    ██╔══██╗██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║██║   ██║██╔══╝");
             WriteLine("███████╗╚██████╔╝██║  ██║██║  ██╗ ███████║    ██║  ██║███████╗ ╚████╔╝ ███████╗██║ ╚████║╚██████╔╝███████╗");
             WriteLine("╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚══════╝    ╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝");
-            PrintLine($"{"A fan game by Dominic Towns. Version 1.4",106}\n");
+            PrintLine($"{"A fan game by Dominic Towns. Version 1.4.3",106}\n");
         }
         public static void PrintAllColours()
         {
@@ -157,11 +157,11 @@ namespace ZorksRevenge
             PrintLine("     ****                                               ****", Red);
             PrintLine("    ***                                                   ***", Red);
             PrintLine("   ***                                                     ***", Red);
-            PrintLine("  ***                                                       ***", Red);//
-            PrintLine("  ***                                                       ***", Red);
-            PrintLine("  ***                                                       ***", Red);
-            PrintLine("  ***                   Thanks for Playing,                 ***", Red);
+            PrintLine("  ***                  Thanks for Playing,                  ***", Red);//
             PrintLine("  ***                        The End                        ***", Red);
+            PrintLine("  ***                                                       ***", Red);
+            PrintLine("  ***      Secret Message so I know you beat the game:      ***", Red);
+            PrintLine("  ***                  In my eye, Pizza Pie!                ***", Red);
             PrintLine("  ***                                                       ***", Red);
             PrintLine("   ***                                                     ***", Red);//
             PrintLine("    ***                                                   ***", Red);
