@@ -124,7 +124,7 @@ namespace ZorksRevenge.MiniGames
 
             //Hypotenuse Calculator
             _isPlaying = true;
-            answer = 602.540f;
+            answer = 24.547f;
 
             ZorkPrinter.PrintLine("Please answer the following math questions...\n");
             ZorkPrinter.PrintLine("    -Question 3\n");
