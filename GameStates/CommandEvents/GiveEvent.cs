@@ -63,6 +63,7 @@
 
         public override void Display()
         {
+            
             foreach (NPC npc in GameData.NPCS)
             {
                 if (npc.LocationID == Player.CurrentRoomID)
@@ -86,17 +87,14 @@
                         ZorkPrinter.Print($"\n{npc.Name} ", ZorkPrinter.NPCColour);
                         ZorkPrinter.PrintLine("is Pleased with you, you may now Play it's Game");
                         return;
-                    }                    
-                }
-                else
-                {
-                    ZorkPrinter.Print("No ");
-                    ZorkPrinter.Print("Sphinx ", ZorkPrinter.NPCColour);
-                    ZorkPrinter.PrintLine("Here to give anything to");
-                    return;
+                    }
                 }
             }
-            
+
+            ZorkPrinter.Print("No ");
+            ZorkPrinter.Print("Sphinx ", ZorkPrinter.NPCColour);
+            ZorkPrinter.PrintLine("Here to give anything to");
+            return;
         }
     }
 }
