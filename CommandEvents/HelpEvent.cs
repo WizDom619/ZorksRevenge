@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge
+﻿namespace ZorksRevenge.CommandEvents
 {
     internal class HelpEvent : CommandEvent
     {

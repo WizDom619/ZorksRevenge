@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ZorksRevenge.Save;
 
-namespace ZorksRevenge.GameStates.CommandEvents
+namespace ZorksRevenge.CommandEvents
 {
     internal class SaveEvent : CommandEvent
     {

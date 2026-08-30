@@ -1,7 +1,6 @@
-﻿using ZorksRevenge.GameStates;
-using ZorksRevenge.GameStates.MenuItems;
+﻿using ZorksRevenge.GameStates.MenuItems;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.GameStates
 {
     /// <summary>
     /// This is the Main menu 

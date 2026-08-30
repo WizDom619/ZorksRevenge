@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge.GameStates.MenuItems 
+﻿using ZorksRevenge.Save;
+
+namespace ZorksRevenge.GameStates 
 {
     public class LoadGame : GameState
     {

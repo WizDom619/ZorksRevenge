@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ZorksRevenge.GameStates.CommandEvents
+namespace ZorksRevenge.CommandEvents
 {
     internal class BlankEvent : CommandEvent
     {

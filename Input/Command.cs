@@ -1,4 +1,5 @@
-﻿using ZorksRevenge.GameStates.CommandEvents;
+﻿using ZorksRevenge.CommandEvents;
+using ZorksRevenge.GameStates.CommandEvents;
 
 namespace ZorksRevenge
 {

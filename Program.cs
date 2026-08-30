@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge.StartUp
+﻿namespace ZorksRevenge
 {
     /// <summary>
     /// This is the Main of the Program. 

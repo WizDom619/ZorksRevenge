@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge.GameStates.MenuItems
+﻿namespace ZorksRevenge.GameStates
 {
     /// <summary>
     /// This is the How To Play Menu Class

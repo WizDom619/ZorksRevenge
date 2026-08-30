@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge
+﻿namespace ZorksRevenge.CommandEvents
 {
     public class MoveEvent : CommandEvent
     {

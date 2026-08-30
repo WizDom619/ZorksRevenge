@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.CommandEvents;
+
+namespace ZorksRevenge
 {
     /// <summary>
     /// Access to Rooms is managed here.  

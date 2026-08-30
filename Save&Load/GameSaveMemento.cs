@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge
+﻿namespace ZorksRevenge.Save
 {
     public class GameSaveMemento
     {

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.Save
 {
     public static class SaveManager
     {

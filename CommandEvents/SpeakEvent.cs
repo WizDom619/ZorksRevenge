@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Security.Cryptography;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.CommandEvents
 {
     internal class SpeakEvent : CommandEvent
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace ZorksRevenge.GameStates.CommandEvents
+namespace ZorksRevenge.CommandEvents
 {
     internal class PlayEvent : CommandEvent
     {
