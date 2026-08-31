@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ZorksRevenge.MiniGames;
+using ZorksRevenge.Utility;
 
-namespace ZorksRevenge.MiniGames
+
+namespace ZorksRevenge.Test
 {
     internal class TestMiniGame : MiniGame
     {

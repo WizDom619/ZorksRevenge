@@ -1,4 +1,6 @@
 ﻿using ZorksRevenge.MiniGames;
+using ZorksRevenge.Utility;
+
 
 namespace ZorksRevenge
 {

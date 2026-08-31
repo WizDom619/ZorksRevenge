@@ -1,5 +1,5 @@
-﻿using ZorksRevenge.MiniGames;
-using static System.Net.Mime.MediaTypeNames;
+﻿using ZorksRevenge.GameObjects;
+using ZorksRevenge.Utility;
 
 namespace ZorksRevenge
 {

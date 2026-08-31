@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ZorksRevenge.Utility;
 
 namespace ZorksRevenge
 {
@@ -31,8 +29,27 @@ namespace ZorksRevenge
         ConnectPaths(FindRoom("Entry"), Direction.North, FindRoom("Hallway"));
         ConnectPaths(FindRoom("Hallway"), Direction.East, FindRoom("Bedroom"));
 
-        return _rooms;*/
+        return _rooms;
+        
+         [DllImport("kernel32.dll")]
+        static extern IntPtr GetStdHandle(int nStdHandle);
+        [DllImport("kernel32.dll")]
+        static extern bool GetConsoleMode(IntPtr hConsoleHandle, out uint lpMode);
+        [DllImport("kernel32.dll")]
+        static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
 
+        const int STD_OUTPUT_HANDLE = -11;
+        const uint ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004;
+
+        static void EnableAnsiSupport()
+        {
+            var handle = GetStdHandle(STD_OUTPUT_HANDLE);
+            GetConsoleMode(handle, out uint mode);
+            SetConsoleMode(handle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+        }
+        
+        // EnableAnsiSupport();
+        // EnableAnsiSupport();
 
 
         //_rooms 
@@ -47,5 +64,22 @@ namespace ZorksRevenge
             else if (dir == Direction.East) { room2.Exits[Direction.West] = room1.ID; }
             else { room2.Exits[Direction.East] = room1.ID; }
         }
+
+        public static void PrintAllColours()
+        {
+            BackgroundColor = Black;
+            PrintLine("Black", Black);
+            Print("Diamond", White); PrintLine("   DarkGray", DarkGray);
+            Print("Sapphire", Blue); PrintLine("  DarkBlue", DarkBlue);
+            Print("Emerald", Green); PrintLine("   DarkGreen", DarkGreen); // Success
+            Print("Aquamarine", Cyan); PrintLine("DarkCyan", DarkCyan); // Item
+            Print("Ruby", Red); PrintLine("      DarkRed", DarkRed); // Enemy, Dies, Error
+            Print("Amethyst", Magenta); PrintLine("  DarkMagenta", DarkMagenta);
+            Print("Topaz", Yellow); PrintLine("     DarkYellow", DarkYellow); // Warning. Room
+            Print("Gray", Gray);
+            PrintLine("", Black);
+        }
+
+        */
     }
 }

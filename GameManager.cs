@@ -1,44 +1,51 @@
-﻿using ZorksRevenge.GameStates;
-using ZorksRevenge.Save;
+﻿using ZorksRevenge.FileIO;
+using ZorksRevenge.GameStates;
+using ZorksRevenge.Input; 
+using ZorksRevenge.Utility;
 
 namespace ZorksRevenge
 {
     public class GameManager
     {
-        private GameState? _gameState = new GameState();
+        // Holds all the game data (both the player and world data)
+        private GameData _gameData = new GameData();
+
+        //private InputParser
 
         public GameManager()
         {
-            SaveManager.Initialize();
+            // Initialise all Managers
+            FileManager.Init();
 
-            _gameState = new MainMenu();
+            // ZorkPrinter
+            // InputManager
 
-            _gameState.Display();
-
+            // 
+            _gameData.State = new MainMenu();
 
             while (true)
             {
-                if (_gameState != null)
-                {                    
-                    if (_gameState is not LoadGame)
-                    {
-                        _gameState.ReadInput();
-                    }
-
-                    // Clear the screen each time to keep things clean. 
-                    Console.Clear();
-                    Console.Write("\x1b[3J\x1b[H");
-
-                    _gameState = _gameState.Update();
-                                        
-                    _gameState.Display();
-                }
-                else
-                {
-                    Console.WriteLine("Null");
-                }
-
+                Display();
+                ReadInput();
+                Process();
             }
         }
+        private void Display()
+        {
+            ZorkPrinter.ClearScreen();
+            _gameData.Display();
+        }
+
+        private void ReadInput()
+        {
+            string? input = Console.ReadLine();
+            InputManager.ParseInput(_gameData, input);
+        }
+
+        private void Process()
+        {
+            _gameData.Update(_gameData);
+        }
+
     }
 }

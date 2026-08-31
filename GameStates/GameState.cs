@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.Utility;
+
+namespace ZorksRevenge
 {
     public class GameState
     {

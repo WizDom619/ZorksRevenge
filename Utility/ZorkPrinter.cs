@@ -1,5 +1,6 @@
 ﻿using static System.Console;
 using static System.ConsoleColor;
+using System.Runtime.InteropServices;
 
 /// <summary>
 /// The Zork Printer is a static printer class that handels all Print()'s to Console. 
@@ -10,6 +11,9 @@ namespace ZorksRevenge.Utility
 {
     public static class ZorkPrinter
     {
+        const int STD_OUTPUT_HANDLE = -11;
+        const uint ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004;
+
         //TODO Confirm Game Objects spefic colours. 
         public static ConsoleColor ItemColour = DarkCyan;
         public static ConsoleColor RoomColour = DarkMagenta;
@@ -18,7 +22,7 @@ namespace ZorksRevenge.Utility
         public static ConsoleColor ContainerColour = DarkYellow;
 
         // The speed of the printing effect. (25) 
-        private static int _printSpeed = 1;        
+        private static int _printSpeed = 1;
 
         // This Method is the main Print method. 
         private static void Print(string text, ConsoleColor color, PrintEffect parEffect, bool isNewLine)
@@ -38,7 +42,7 @@ namespace ZorksRevenge.Utility
             // This give the ouput a typing effect, letter by letter.
             // Easier on the eyes than a wall of text instantly appearing. 
             // Print by letter
-                //char[] textBrokenUP = text.ToCharArray();
+            //char[] textBrokenUP = text.ToCharArray();
             // Print by word. 
             string[] textBrokenUP = text.Split(" ");
             Write("");
@@ -56,7 +60,7 @@ namespace ZorksRevenge.Utility
                 {
                     Write($"{effect}{c} ");
                 }
-                
+
                 Thread.Sleep(_printSpeed);
             }
             Write("\u001b[0m");
@@ -96,12 +100,12 @@ namespace ZorksRevenge.Utility
         {
             Print(text, color, parEffect, true);
         }
-        
+
         // This method turns the PrintEffect Enum into the appropriate ASCII Escape character.
         // Returns the string to be placed in the interpolated string.  
         private static string SetEffect(PrintEffect effect)
         {
-            switch(effect)
+            switch (effect)
             {
                 case PrintEffect.Italic:
                     return "[3m";
@@ -133,21 +137,6 @@ namespace ZorksRevenge.Utility
             WriteLine("╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚══════╝    ╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝");
             PrintLine($"{"A fan game by Dominic Towns. Version 1.4.4",106}\n");
         }
-        public static void PrintAllColours()
-        {
-            BackgroundColor = Black;
-            PrintLine("Black", Black);
-            Print("Diamond", White); PrintLine("   DarkGray", DarkGray);
-            Print("Sapphire", Blue); PrintLine("  DarkBlue", DarkBlue);
-            Print("Emerald", Green); PrintLine("   DarkGreen", DarkGreen); // Success
-            Print("Aquamarine", Cyan); PrintLine("DarkCyan", DarkCyan); // Item
-            Print("Ruby", Red); PrintLine("      DarkRed", DarkRed); // Enemy, Dies, Error
-            Print("Amethyst", Magenta); PrintLine("  DarkMagenta", DarkMagenta);
-            Print("Topaz", Yellow); PrintLine("     DarkYellow", DarkYellow); // Warning. Room
-            Print("Gray", Gray);
-            PrintLine("", Black);
-        }
-
         public static void PrintEnd()
         {
             PrintLine("", Red);
@@ -182,5 +171,35 @@ namespace ZorksRevenge.Utility
                 ReadLine();
             }
         }
-    }
+
+
+        [DllImport("kernel32.dll")]
+        static extern IntPtr GetStdHandle(int nStdHandle);
+        [DllImport("kernel32.dll")]
+        static extern bool GetConsoleMode(IntPtr hConsoleHandle, out uint lpMode);
+
+        [DllImport("kernel32.dll")]
+        static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
+
+        public static void EnableAnsiOnWindows()
+        {
+            var handle = GetStdHandle(STD_OUTPUT_HANDLE);
+            GetConsoleMode(handle, out uint mode);
+            SetConsoleMode(handle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+        }
+
+        /// <summary>
+        ///  This method clears the screen.
+        ///  Is designed to clear the screen on macOS/Linux terminals too
+        ///  Therefore this method is more robust than Console.Clear()
+        ///  What exactly this method is doing...
+        ///     \x1b[3J clears the scrollback buffer
+        ///     \x1b[2J clears the visible screen
+        ///     \x1b[H  moves the cursor to the home position (top-left, row 1 col 1). 
+        /// </summary>
+        public static void ClearScreen()
+        {
+            Write("\x1b[3J\x1b[2J\x1b[H");
+        }
+    }    
 }

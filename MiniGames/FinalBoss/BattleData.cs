@@ -1,5 +1,6 @@
 ﻿using ZorksRevenge.MiniGames.FinalBoss;
 using ZorksRevenge.MiniGames.FinalBoss.Attributes;
+using ZorksRevenge.Utility;
 
 namespace ZorksRevenge
 {

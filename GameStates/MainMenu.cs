@@ -1,4 +1,4 @@
-﻿using ZorksRevenge.GameStates.MenuItems;
+﻿using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.GameStates
 {

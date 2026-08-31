@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.MiniGames
 {

@@ -1,4 +1,7 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.GameObjects;
+using ZorksRevenge.Utility;
+
+namespace ZorksRevenge
 {
     public static class Player
     {

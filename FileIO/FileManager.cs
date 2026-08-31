@@ -1,8 +1,11 @@
 ﻿using System.Text.Json;
+using ZorksRevenge.GameObjects;
+using ZorksRevenge.Utility;
 
-namespace ZorksRevenge.Save
+
+namespace ZorksRevenge.FileIO
 {
-    public static class SaveManager
+    public static class FileManager
     {
         private static readonly string _saveDir = "SavedGame";
         private static readonly string _newGameDir = "NewGame";

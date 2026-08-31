@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Security.Cryptography;
-using System.Xml.Linq;
-using ZorksRevenge.MiniGames;
+﻿using ZorksRevenge.GameObjects;
 
 namespace ZorksRevenge
 {
@@ -9,14 +6,18 @@ namespace ZorksRevenge
     /// Here is where all the Game Data is Instanciated
     /// Including Rooms, Items, Room Connections. 
     /// </summary>
-    public static class GameData
+    public class GameData
     {
-        private static List<Room> _rooms { get; set; } 
-        private static List<Item> _items { get; set; }
-        private static List<Container> _containers { get; set; }
-        private static List<NPC> _npcs { get; set; }
+        public GameState? State { get; set; }
+        public Command? Command{ get; set; }
 
-        public static void Initialize()
+
+        private List<Room>? _rooms;
+        private List<Item>? _items;
+        private List<Container>? _containers;
+        private List<NPC>? _npcs;
+
+        public void Initialize()
         {
             foreach (Room room in _rooms) 
             {
@@ -39,7 +40,7 @@ namespace ZorksRevenge
                         if (item.ID == "I035") { item.Colour = ConsoleColor.DarkBlue; }
 
                         room.AddGameObject(item.ID);
-
+                        
                     }
                 }
 
@@ -62,7 +63,7 @@ namespace ZorksRevenge
         }
 
         // Since rooms are chained linked you need a searching method to find things. 
-        public static Room FindRoomByID(string id)
+        public Room FindRoomByID(string id)
         { 
             foreach (Room room in _rooms)
             {
@@ -74,7 +75,7 @@ namespace ZorksRevenge
 
             return new Room();
         }
-        public static Room FindRoomByName(string name)
+        public Room FindRoomByName(string name)
         {
             foreach (Room room in _rooms)
             {
@@ -86,7 +87,7 @@ namespace ZorksRevenge
 
             return new Room();
         }
-        public static GameObject? FindGameObjectByID(string id)
+        public GameObject? FindGameObjectByID(string id)
         {
             foreach (Item item in _items)
             {
@@ -114,7 +115,7 @@ namespace ZorksRevenge
 
             return new GameObject();
         }
-        public static GameObject? FindGameObjectByName(string name)
+        public GameObject? FindGameObjectByName(string name)
         {
             foreach (Item item in _items)
             {
@@ -142,9 +143,9 @@ namespace ZorksRevenge
 
             return new GameObject();
         }
-        public static List<Room> Rooms { get { return _rooms; } set { _rooms = value; } }
-        public static List<Item> Items { get { return _items; } set { _items = value; } }
-        public static List<Container> Containers { get { return _containers; } set { _containers = value; } }
-        public static List<NPC> NPCS { get { return _npcs; } set { _npcs = value; } }
+        public List<Room> Rooms { get { return _rooms; } set { _rooms = value; } }
+        public List<Item> Items { get { return _items; } set { _items = value; } }
+        public List<Container> Containers { get { return _containers; } set { _containers = value; } }
+        public List<NPC> NPCS { get { return _npcs; } set { _npcs = value; } }
     }
 }

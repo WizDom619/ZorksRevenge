@@ -1,4 +1,7 @@
-﻿namespace ZorksRevenge.CommandEvents
+﻿using ZorksRevenge.GameObjects;
+using ZorksRevenge.Utility;
+
+namespace ZorksRevenge.CommandEvents
 {
     internal class LookEvent : CommandEvent
     {

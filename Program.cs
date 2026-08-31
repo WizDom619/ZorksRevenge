@@ -1,16 +1,15 @@
 ﻿namespace ZorksRevenge
 {
     /// <summary>
-    /// This is the Main of the Program. 
-    /// To keep things clean I just created the game's actual Main.
-    /// So all the program has to do it 'Start'
+    /// This is the Main of the while program. 
+    /// Keeping things clean, all the Main has to do is start
     /// </summary>
     class Program
-    {
-        private static ZorksRevengeGame game;
+    {   
         static void Main(string[] args)
         {
-            game = new ZorksRevengeGame();
+            // Instantiate the game 
+            ZorksRevengeGame _game = new ZorksRevengeGame();
         }
     }
 }

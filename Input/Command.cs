@@ -1,87 +1,81 @@
 ﻿using ZorksRevenge.CommandEvents;
-using ZorksRevenge.GameStates.CommandEvents;
+using ZorksRevenge.Utility;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.Input
 {
     /// <summary>
     /// A Command will contain a Verb and a Noun.
-    /// This object's properities will then be used affect the game world.
+    /// This holds the player's input in a form that the game can understand. 
     ///     <example>
     ///     Take, Ruby
     ///     Move, North
-    ///     Look, 'current room'
     ///     Drop, Rock
     ///     </example>
     /// </summary>
     public class Command
     {
-        public Verb _verb;
-        public string _noun;
+        private Verb Verb {  get; init; }
+        private string Noun { get; init; }
 
         public Command(Verb verb, String noun)
         {
-            _verb = verb;
-            _noun = noun;            
+            Verb = verb;
+            Noun = noun;            
         }        
 
+        // The Command knows what kind of Command Event it's verb creates. 
         public CommandEvent GetEvent()
         {
-            CommandEvent commandEvent = new HelpEvent(); 
+            CommandEvent commandEvent;
 
-            switch(_verb)
+            switch(Verb)
             {
-                case Verb.Take:
-                    commandEvent = new TakeEvent(_noun);
-                    break;
-                case Verb.Move:
-                    commandEvent = new MoveEvent(_noun);
-                    break;
-                case Verb.Look:
-                    commandEvent = new LookEvent(_noun);
-                    break;
                 case Verb.Drop:
-                    commandEvent = new DropEvent(_noun);
+                    commandEvent = new DropEvent(Noun);
+                    break;
+                case Verb.Give:
+                    commandEvent = new GiveEvent(Noun);
+                    break;
+                // Although the case isn't necessary, for readability it's included 
+                case Verb.Help:
+                    commandEvent = new HelpEvent();
                     break;
                 case Verb.Inventory:
                     commandEvent = new InventoryEvent();
                     break;
-                case Verb.Speak:
-                    commandEvent = new SpeakEvent(_noun);
+                case Verb.Look:
+                    commandEvent = new LookEvent(Noun);
                     break;
-                case Verb.Blank:
-                    commandEvent = new BlankEvent();
-                    break;
-                case Verb.Help:
-                    commandEvent = new HelpEvent();
+                case Verb.Move:
+                    commandEvent = new MoveEvent(Noun);
                     break;
                 case Verb.Open:
-                    commandEvent = new OpenEvent(_noun);
+                    commandEvent = new OpenEvent(Noun);
                     break;
                 case Verb.Play:
                     commandEvent = new PlayEvent();
                     break;
-                case Verb.Give:
-                    commandEvent = new GiveEvent(_noun);
-                    break;
                 case Verb.Save:
                     commandEvent = new SaveEvent();
                     break;
+                case Verb.Speak:
+                    commandEvent = new SpeakEvent(Noun);
+                    break;
                 case Verb.Quit:
                     commandEvent = new QuitEvent();
+                    break;
+                case Verb.Take:
+                    commandEvent = new TakeEvent(Noun);
+                    break;
+                // By default the Command Event will be Help
+                // This is because either the Verb is NULL or there's a spelling mistake. 
+                // Either way the Help Event will show the player all available commands to the player to choose. 
+                default:                    
+                    commandEvent = new HelpEvent();
                     break;
             }
 
             return commandEvent;
         }
-
-        public Verb Verb
-        { 
-            get { return _verb; } 
-            private set; 
-        }
-        public string Noun 
-        { 
-            get { return _noun; }
-            private set; }
     }
 }

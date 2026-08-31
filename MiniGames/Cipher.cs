@@ -1,6 +1,7 @@
-﻿using ZorksRevenge.MiniGames;
+﻿using ZorksRevenge.Utility;
 
-namespace ZorksRevenge
+
+namespace ZorksRevenge.MiniGames
 {
     public class Cipher : MiniGame
     {

@@ -3,31 +3,30 @@
 /// </summary>
 namespace ZorksRevenge.Utility
 {
-    // This will be used by the InputParser and Command classes to ditermine what action the command is. 
+    // This will be used by the InputParser and Command classes to determine what Verb the command is. 
     public enum Verb
     {
-        Take,
-        Move,
-        Look,
         Drop,
-        Inventory,
-        Speak,
-        Blank,
+        Give,
         Help,
+        Inventory,
+        Look,
+        Move,
         Open,
         Play,
-        Give,
         Save,
+        Speak,
         Quit,
+        Take, 
         NULL
     };
     public enum DataDir
     {
+        Containers,
+        Items,
+        NPCS,
         Player,
         Rooms,
-        Items,
-        Containers,
-        NPCS,
         NULL
     };
     // This enum will be used by the CompassDirection class to know direction it is pointitng. 

@@ -1,50 +1,39 @@
-﻿using System.Runtime.InteropServices;
+﻿using ZorksRevenge.Utility;
 
 namespace ZorksRevenge
 {
     /// <summary>
-    /// The begginning of the Zork's Revenge Game
-    /// Before the game actually starts, this is a good place to set all the console window configurations.  
-    /// Such as... Title, Cursor Visibility, Screen Size or Margin Size. 
-    /// Afterwards, instantiate a GameManager and the game actually begins. 
+    /// The beginning of Zork's Revenge
+    /// This is a good place to set all the console window configurations.  
+    /// Configurations included
+    ///     Title, 
+    ///     Cursor Visibility, 
+    ///     Enabling the use of ANCI codes 
+    ///     Performing the initial clearing of the screen
+    ///            
+    /// Afterwards, instantiate GameManager()
     /// </summary>
     public class ZorksRevengeGame
     {
-        private GameManager _gameHandler;
-        [DllImport("kernel32.dll")]
-        static extern IntPtr GetStdHandle(int nStdHandle);
-        [DllImport("kernel32.dll")]
-        static extern bool GetConsoleMode(IntPtr hConsoleHandle, out uint lpMode);
-        [DllImport("kernel32.dll")]
-        static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
-
-        const int STD_OUTPUT_HANDLE = -11;
-        const uint ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004;
-
-        static void EnableAnsiSupport()
-        {
-            var handle = GetStdHandle(STD_OUTPUT_HANDLE);
-            GetConsoleMode(handle, out uint mode);
-            SetConsoleMode(handle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
-        }
-
         public ZorksRevengeGame()
         {
-            //Set the window title. 
+            // Set the window's title. 
             Console.Title = "Zork's Revenge";
 
-            //Set cursor visibility
-            //TODO Unsure if I want this true of false... 
+            // Set cursor visibility
+            // Looks more professional this way
             Console.CursorVisible = false;
 
-            //Clears to screen incase of any initial loading output. 
-            //Guarantee a clean slate to begin the game. 
-            Console.Clear();
+            // Enables Ansi codes to be used such as, in ZorkPrinter.ClearScreen()
+            // This allows for a more robust way to clear the screen across different operating systems
+            ZorkPrinter.EnableAnsiOnWindows();
 
-            EnableAnsiSupport();
+            // Clears to screen of any initial system loading output. 
+            // This guarantees a clean slate to begin the game. 
+            ZorkPrinter.ClearScreen();
 
-            //Begin the game with the Game Manager
-            _gameHandler = new GameManager();
+            // Instantiate the GameManager to begin the game loop
+            GameManager _gameManager = new GameManager();
         }
     }
 }

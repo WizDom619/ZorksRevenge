@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge.Save
+﻿using ZorksRevenge.GameObjects;
+
+namespace ZorksRevenge.SaveLoad
 {
     public class GameSaveMemento
     {

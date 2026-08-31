@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge.Test
+﻿using ZorksRevenge.GameObjects;
+
+namespace ZorksRevenge.Test
 {
     public class Money : Item
     {

@@ -1,4 +1,6 @@
-﻿namespace ZorksRevenge
+﻿using ZorksRevenge.Utility;
+
+namespace ZorksRevenge.GameObjects
 {
     /// <summary>
     /// Item is a GameObject that contains all the data relevant to an item. 
