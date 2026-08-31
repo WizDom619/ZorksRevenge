@@ -1,7 +1,9 @@
-﻿using ZorksRevenge.GameObjects;
+﻿using ZorksRevenge.FileIO;
+using ZorksRevenge.GameObjects;
+using ZorksRevenge.GameStates;
 using ZorksRevenge.Input;
 
-namespace ZorksRevenge.GameData
+namespace ZorksRevenge.Data
 {
     /// <summary>
     /// Here is where all the Game Data is Instantiated.
@@ -9,28 +11,26 @@ namespace ZorksRevenge.GameData
     /// </summary>
     public class GameData
     {
-        public GameState? State { get; set; }
-        public Command? Command{ get; set; }
+        // Set properties and default values. 
+        public GameState? State { get; set; } = new MainMenu();
+        public Command? Command { get; set; } = null;
+        public Player? Player { get; set; } = new Player();
 
-        public Player? Player { get; init; }
-
-        private List<Room>? _rooms;
-        private List<Item>? _items;
-        private List<Container>? _containers;
-        private List<NPC>? _npcs;
-
-        public GameData()
-        {
-            Player = new Player();
-        }
+        // Game World data
+        public List<Room>? Rooms { get; set; } = new List<Room>();
+        public List<Item>? Items { get; set; } = new List<Item>();
+        public List<Container>? Containers { get; set; } = new List<Container>();
+        public List<NPC>? Npcs { get; set; } = new List<NPC>();
 
         public void Init()
         {
-            foreach (Room room in _rooms) 
+            FileManager.LoadGameData();
+
+            foreach (Room room in Rooms)
             {
                 room.ClearGameObjects();
 
-                foreach (Item item in _items) 
+                foreach (Item item in Items) 
                 {
                     if (item.LocationID == room.ID)
                     {
@@ -51,7 +51,7 @@ namespace ZorksRevenge.GameData
                     }
                 }
 
-                foreach (Container container in _containers)
+                foreach (Container container in Containers)
                 {
                     if (container.LocationID == room.ID)
                     {
@@ -59,7 +59,7 @@ namespace ZorksRevenge.GameData
                     }
                 }
 
-                foreach (NPC npc in _npcs)
+                foreach (NPC npc in Npcs)
                 {
                     if (npc.LocationID == room.ID)
                     {
@@ -72,7 +72,7 @@ namespace ZorksRevenge.GameData
         // Since rooms are chained linked you need a searching method to find things. 
         public Room FindRoomByID(string id)
         { 
-            foreach (Room room in _rooms)
+            foreach (Room room in Rooms)
             {
                 if (room.ID == id)
                 {
@@ -84,7 +84,7 @@ namespace ZorksRevenge.GameData
         }
         public Room FindRoomByName(string name)
         {
-            foreach (Room room in _rooms)
+            foreach (Room room in Rooms)
             {
                 if (room.Name.ToUpper() == name.ToUpper())
                 {
@@ -96,7 +96,7 @@ namespace ZorksRevenge.GameData
         }
         public GameObject? FindGameObjectByID(string id)
         {
-            foreach (Item item in _items)
+            foreach (Item item in Items)
             {
                 if (item.ID == id)
                 {
@@ -104,7 +104,7 @@ namespace ZorksRevenge.GameData
                 }
             }
 
-            foreach (Container container in _containers)
+            foreach (Container container in Containers)
             {
                 if (container.ID == id)
                 {
@@ -112,7 +112,7 @@ namespace ZorksRevenge.GameData
                 }
             }
 
-            foreach (NPC npc in _npcs)
+            foreach (NPC npc in Npcs)
             {
                 if (npc.ID == id)
                 {
@@ -124,7 +124,7 @@ namespace ZorksRevenge.GameData
         }
         public GameObject? FindGameObjectByName(string name)
         {
-            foreach (Item item in _items)
+            foreach (Item item in Items)
             {
                 if (item.Name.ToUpper() == name.ToUpper())
                 {
@@ -132,7 +132,7 @@ namespace ZorksRevenge.GameData
                 }
             }
 
-            foreach (Container container in _containers)
+            foreach (Container container in Containers)
             {
                 if (container.Name.ToUpper() == name.ToUpper())
                 {
@@ -140,7 +140,7 @@ namespace ZorksRevenge.GameData
                 }
             }
 
-            foreach (NPC npc in _npcs)
+            foreach (NPC npc in Npcs)
             {
                 if (npc.Name.ToUpper() == name.ToUpper())
                 {
@@ -150,9 +150,5 @@ namespace ZorksRevenge.GameData
 
             return new GameObject();
         }
-        public List<Room> Rooms { get { return _rooms; } set { _rooms = value; } }
-        public List<Item> Items { get { return _items; } set { _items = value; } }
-        public List<Container> Containers { get { return _containers; } set { _containers = value; } }
-        public List<NPC> NPCS { get { return _npcs; } set { _npcs = value; } }
     }
 }

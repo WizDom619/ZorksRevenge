@@ -1,6 +1,5 @@
 ﻿using ZorksRevenge.FileIO;
-using ZorksRevenge.GameData;
-using ZorksRevenge.GameStates;
+using ZorksRevenge.Data;
 using ZorksRevenge.Input; 
 using ZorksRevenge.Utility;
 
@@ -16,13 +15,11 @@ namespace ZorksRevenge
         public GameManager()
         {
             // Initialise all Managers
-            FileManager.Init();
+            FileManager.Init(_gameData);
 
+            /// Static Classes 
             // ZorkPrinter
             // InputManager
-
-            // 
-            _gameData.State = new MainMenu();
 
             while (true)
             {

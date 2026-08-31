@@ -54,7 +54,7 @@
   "Exits":
   {
 	"North": "NULL",
-	"South": "NULL",
+	"South": "R003",
 	"East": "R005",
 	"West": "R011"  
   }
@@ -152,7 +152,7 @@
 {
   "ID": "R011",	
   "Name": "Frozen Fjord",
-  "Desc": "Ice-locked cliffs plunge into black water, silent except for the crack of shifting glaciers",
+  "Desc": "If you're reading this, look inside Box#(6 * 7) - 15",
   "GameObjects":
   [
   ],

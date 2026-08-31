@@ -77,6 +77,28 @@
     ]    
   }, 
   {
+    "ID": "C008",   
+    "Name": "Chest",  
+    "LocationID": "R011",  
+    "isOpened": false,
+	"Desc": "Open me up",
+    "ItemIDs":
+    [	
+	   "I032"
+    ]    
+  },
+  {
+    "ID": "C009",   
+    "Name": "Crate",  
+    "LocationID": "R028",  
+    "isOpened": false,
+	"Desc": "Wood's all bleached from the hot sun",
+    "ItemIDs":
+    [	
+	   "I051"
+    ]    
+  },
+  {
     "ID": "C101",   
     "Name": "Box#1",  
     "LocationID": "R017",  

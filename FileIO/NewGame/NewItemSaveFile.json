@@ -77,7 +77,7 @@
 	  "ID": "I052",
 	  "Name": "Pirate's Treasure",
 	  "LocationID": "R019",
-	  "Desc": "Blood gold is shines the same"
+	  "Desc": "Blood gold still shines the same"
 	},
 	{
 	  "ID": "I014",
@@ -149,19 +149,19 @@
 	  "ID": "I027",
 	  "Name": "Quartz",
 	  "LocationID": "R006",
-	  "Desc": "Hard on the outisde, still kind of tough on the inside"
+	  "Desc": "A clear, glassy crystal that catches the light with an otherworldly sparkle"
 	},
 	{
 	  "ID": "I028",
 	  "Name": "Citrine",
 	  "LocationID": "R006",
-	  "Desc": "Hard on the outisde, still kind of tough on the inside"
+	  "Desc": "A golden-yellow gemstone that glows warmly in the light"
 	},
 	{
 	  "ID": "I029",
 	  "Name": "Tourmaline",
 	  "LocationID": "R006",
-	  "Desc": "Hard on the outisde, still kind of tough on the inside"
+	  "Desc": "A dark, mysterious crystal with deep colours shifting beneath its surface"
 	},
 	{
 	  "ID": "I030",
@@ -177,9 +177,8 @@
 	},
 	{
 	  "ID": "I032",
-	  "Name": "Note#4",
-	  "LocationID": "R015",
-	  "Desc": "Look inside Box (6 * 7) - 15"
+	  "Name": "Jacket",
+	  "Desc": ""
 	},
 	{
 	  "ID": "I033",
@@ -190,7 +189,7 @@
 	{
 	  "ID": "I034",
 	  "Name": "Red Mushroom",
-	  "LocationID": "R08",
+	  "LocationID": "R008",
 	  "Desc": "Short and very round"
 	},
 	{
@@ -201,7 +200,7 @@
 	},
 	{
 	  "ID": "I036",
-	  "Name": "Note#5",
+	  "Name": "Note#4",
 	  "LocationID": "R018",
 	  "Desc": "Look inside Box 18"
 	},
@@ -291,8 +290,7 @@
 	},
 	{
 	  "ID": "I051",
-	  "Name": "Note#6",
-	  "LocationID": "R028",
-	  "Desc": "3 rooms back are some 'Dumplings'"
+	  "Name": "Note#5",
+	  "Desc": "3 rooms back are some invisable 'Dumplings'"
 	}
 ]

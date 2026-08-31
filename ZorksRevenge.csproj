@@ -15,4 +15,9 @@
     <None Include="Test\TestRandomTemp.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="FileIO\NewGame\" />
+    <Folder Include="FileIO\SavedGame\" />
+  </ItemGroup>
+
 </Project>
