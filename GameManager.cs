@@ -1,4 +1,5 @@
 ﻿using ZorksRevenge.FileIO;
+using ZorksRevenge.GameData;
 using ZorksRevenge.GameStates;
 using ZorksRevenge.Input; 
 using ZorksRevenge.Utility;

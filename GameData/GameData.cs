@@ -1,9 +1,10 @@
 ﻿using ZorksRevenge.GameObjects;
+using ZorksRevenge.Input;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.GameData
 {
     /// <summary>
-    /// Here is where all the Game Data is Instanciated
+    /// Here is where all the Game Data is Instantiated.
     /// Including Rooms, Items, Room Connections. 
     /// </summary>
     public class GameData
@@ -11,13 +12,19 @@ namespace ZorksRevenge
         public GameState? State { get; set; }
         public Command? Command{ get; set; }
 
+        public Player? Player { get; init; }
 
         private List<Room>? _rooms;
         private List<Item>? _items;
         private List<Container>? _containers;
         private List<NPC>? _npcs;
 
-        public void Initialize()
+        public GameData()
+        {
+            Player = new Player();
+        }
+
+        public void Init()
         {
             foreach (Room room in _rooms) 
             {

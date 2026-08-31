@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge
+﻿namespace ZorksRevenge.Test
 {
     public class PlayerData
     {
