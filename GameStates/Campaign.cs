@@ -1,70 +1,63 @@
 ﻿using ZorksRevenge.CommandEvents;
 using ZorksRevenge.Data;
-using ZorksRevenge.GameStates;
 using ZorksRevenge.Input;
 using ZorksRevenge.Utility;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.GameStates
 {
     /// <summary>
-    /// Access to Rooms is managed here.  
-    /// Here you can Add, Search and Print. 
+    /// Here is the Campaign, there is where the majority of the game will be played. 
     /// </summary> 
     /// 
     public class Campaign : GameState
     {
-        private InputParser _inputParser;
-        private Command _command;
-
         private CommandEvent _commandEvent;
 
         public Campaign()
         {
-            GameData.Initialize();
-
-            _inputParser = new InputParser();
-            _command = new Command(Verb.Help, "Game Instructions");
-            _commandEvent = _command.GetEvent();
+            // When loaded a session of playing. 
+            // The user will always be greeted with the game instructions. 
+            _commandEvent = new Command(Verb.Help, "Game Instructions").GetEvent();
         }
 
-        public override void Display()
+        public override void Display(GameData gameData)
         {
+            // Caching the references. 
+            string verb = gameData.Command.Verb.ToString();
+            string noun = gameData.Command.Noun;
+            string name = gameData.Player.Name;
+            Room currentRoom = gameData.FindRoomByID(gameData.Player.CurrentRoomID);
+
+            // Print the last enter command. 
+            // So the player knows what the computer thinks. 
+            // Incase of mistakes / confusion 
             ZorkPrinter.Print($"Last Command: ");
-            ZorkPrinter.PrintLine($"{_command.Verb}, {_command.Noun}, {Player.Name}", ZorkPrinter.PlayerColour);
-            ZorkPrinter.PrintLine("----------------------------------------------------------------------------------------------------------\n");
+            ZorkPrinter.PrintLine($"{verb}, {noun}, {name}", ZorkPrinter.PlayerColour);            
 
-            _commandEvent.Display();
+            // Print current rooms artwork. 
+            currentRoom.PrintArt();
+
+            // Display what action the player commanded to happen. 
+            _commandEvent.Display(gameData);
             ZorkPrinter.PrintLine("");
-            
-            GameData.FindRoomByID(Player.CurrentRoomID).Print();
+
+            // Print current room's information. 
+            currentRoom.PrintInfo();
         }
 
-        public override void ReadInput()
+        public override void ReadInput(GameData gameData)
         {
+            // Read player input and parse into a command. 
             string? input = Console.ReadLine();
-
-            if (gameData.State == new Campaign())
-            {
-                InputManager.ParseInput(gameData, input);
-            }
+            InputManager.ParseInput(gameData, input);            
         }
 
-        public override GameState? Update()
+        public override void Process(GameData gameData)
         {
-            _command = _inputParser.Process(_response);
+            // What kind of GetEvent() Object is it?
+            _commandEvent = gameData.Command.GetEvent();
 
-            _commandEvent = _command.GetEvent();
-
-            _commandEvent.Process();
-
-            if (_commandEvent is QuitEvent)
-            {
-                return new MainMenu();
-            }
-            else
-            {
-                return this;
-            }
+            _commandEvent.Process(gameData);
         }
     }
 }

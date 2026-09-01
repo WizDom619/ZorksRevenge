@@ -1,7 +1,7 @@
 ﻿using ZorksRevenge.Data;
 using ZorksRevenge.Utility;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.GameStates
 {
     /// <summary>
     /// Game games will be broken down into different states. 

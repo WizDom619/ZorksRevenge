@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ZorksRevenge.MiniGames.FinalBoss.Attributes
+﻿namespace ZorksRevenge.MiniGames.FinalBoss.Attributes
 {
     public class Heal : mAttribute
     {

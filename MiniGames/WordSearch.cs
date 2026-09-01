@@ -1,10 +1,20 @@
 ﻿using ZorksRevenge.Utility;
 
-
 namespace ZorksRevenge.MiniGames
 {
+    /// <summary>
+    /// Although not a traditional word search
+    /// This task should provide a moderate challenge. 
+    /// Player must identify the 3 hidden words in the scramble. 
+    /// One all 3 have been identified the Minigame will end. 
+    /// </summary>
     public class WordSearch : MiniGame
     {
+        // The 3 hidden words. 
+        const string FAITH = "FAITH";
+        const string BIBLE = "BIBLE";
+        const string REGENERATION = "REGENERATION";
+
         bool _isFaithFound = false; 
         bool _isBibleFound = false; 
         bool _isRegenerationFound = false;
@@ -38,17 +48,17 @@ namespace ZorksRevenge.MiniGames
                 string playerGuess = Console.ReadLine().ToUpper();
                 ZorkPrinter.PrintLine("");
 
-                if (playerGuess == "FAITH")
+                if (playerGuess == FAITH)
                 {
                     _isFaithFound = true;
                     ZorkPrinter.PrintLine("Correct, Faith is found\n", ConsoleColor.Green);
                 }
-                else if (playerGuess == "BIBLE")
+                else if (playerGuess == BIBLE)
                 {
                     _isBibleFound = true;
                     ZorkPrinter.PrintLine("Correct, Bible is found\n", ConsoleColor.Green);
                 }
-                else if (playerGuess == "REGENERATION")
+                else if (playerGuess == REGENERATION)
                 {
                     _isRegenerationFound = true;
                     ZorkPrinter.PrintLine("Correct, Regeneration is found\n", ConsoleColor.Green);

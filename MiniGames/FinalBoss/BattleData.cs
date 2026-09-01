@@ -1,27 +1,27 @@
-﻿using ZorksRevenge.MiniGames.FinalBoss;
-using ZorksRevenge.MiniGames.FinalBoss.Attributes;
+﻿using ZorksRevenge.MiniGames.FinalBoss.Attributes;
 using ZorksRevenge.Utility;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.MiniGames.FinalBoss
 {
     public static class BattleData
     {
-        private static List<Trainer> _trainers = new List<Trainer>();
+        // There will only be two trainers in this Pokemon battle. 
+        public static List<Trainer> Trainers = new List<Trainer>();
+        public static Trainer CurTrainer { get; private set; }
+        public static Pokemon CurPokemon { get; private set; }
 
-        private static Trainer _curTrainer;
+        // Both players will start with 100hp
+        public static int PlayerHP { get; private set; } = 100;
+        public static int EnemyHP { get; private set; } = 100;
 
-        private static int _playerHP = 100;
-        private static int _enemyHP = 100;
+        // And Zork will have not status effect.
+        private static Status _enemyStatus = Status.NULL; 
 
-        private static string _enemyStatus = "null";
-
-        public static void Initialize()
+        public static void Init()
         {
-            _playerHP = 100;
-            _enemyHP = 100;
-            _enemyStatus = "null";
-
-            _trainers.Add(new Trainer("Jono")
+            // The First Trainer will be Jono
+            // Jono has a Umbreon, Gengar and a Flygon. 
+            Trainers.Add(new Trainer("Jono")
                 .AddPokemon(new Pokemon("Umbreon")
                     .AddMove(new Move("Wish", "to heal player by 15pts")
                     .AddAttributes(new Heal(15)))
@@ -56,7 +56,9 @@ namespace ZorksRevenge
 
                 );
 
-            _trainers.Add(new Trainer("Beastcilla")
+            // The second trainer will be Beastcilla
+            // Beastcilla will have a Tinkatink, Lickitung and a Psyduck
+            Trainers.Add(new Trainer("Beastcilla")
                 .AddPokemon(new Pokemon("Tinkatink")
                     .AddMove(new Move("Play Rough", "to hit for 20pts")
                         .AddAttributes(new Hit(-20)))
@@ -87,67 +89,62 @@ namespace ZorksRevenge
                         .AddAttributes(new Stun()))
                     .AddMove(new Move("Surf", "to hit for 20pts")
                         .AddAttributes(new Hit(-20))))
-
-                
-
                 ); 
 
-            _curTrainer = _trainers.Find(t => t.Name == "Jono");
+            CurTrainer = Trainers.Find(t => t.Name == "Jono");
         }
 
+        // The method processess the Zork's turn. 
         public static void EnemyTurn()
         {
-            if (_enemyStatus == "Stun")
+            // If the status is Stun then Zork skips a turn. 
+            if (_enemyStatus == Status.Stun)
             {
-                _enemyStatus = "null";
-                ZorkPrinter.PrintLine($"Zork was stunned by {_curTrainer.CurPokemon.Name}");
+                _enemyStatus = Status.NULL;
+                ZorkPrinter.PrintLine($"Zork was stunned by {CurTrainer.CurPokemon.Name}");
             }
+            // Otherwise Zork will hit for 10 dmg. 
             else
             {
-                _playerHP -= 10;
+                PlayerHP -= 10;
                 ZorkPrinter.PrintLine("Zork attacks for 10pts");
             }
         }
 
-        public static void UpdateEnemyStatus(string status)
+        public static void UpdateEnemyStatus(Status status)
         {
             _enemyStatus = status;
         }
 
         public static void UpdatePlayerHP(int hp)
         {
-            _playerHP += hp;
+            PlayerHP += hp;
         }
 
         public static void UpdateEnemyHP(int hp)
         {
-            _enemyHP += hp;
-        }
+            EnemyHP += hp;
+        }        
 
-        
-
+        // If trainer is Jono then swap to Beastcilla, otherwise swap back to Jono. 
+        // We will keep alternating trainers and rotating through each Pokemon. 
         public static void UpdateTrainer()
         {
-            if (_curTrainer.Name == "Jono")
+            if (CurTrainer.Name == "Jono")
             {
-                _curTrainer = _trainers.Find(t => t.Name == "Beastcilla");
+                CurTrainer = Trainers.Find(t => t.Name == "Beastcilla");
             }
-            else if (_curTrainer.Name == "Beastcilla")
+            else if (CurTrainer.Name == "Beastcilla")
             {
-                _curTrainer = _trainers.Find(t => t.Name == "Jono");
+                CurTrainer = Trainers.Find(t => t.Name == "Jono");
             }
             else
             {
-                ZorkPrinter.PrintLine("Trainer NULL");
+                // An errors has occured and can't find a trainer's name. 
+                ZorkPrinter.PrintLine("ERROR: Trainer NULL");
             }
-            _curTrainer.GetNextPokemon();
-        }
-
-        public static Trainer CurTrainer { get { return _curTrainer; } }
-        public static Pokemon CurPokemon { get { return _curTrainer.CurPokemon; } }
-        public static int PlayerHP {  get { return _playerHP; } }
-        public static int EnemyHP {  get { return _enemyHP; } }
-
-        
+            // Get the next of 3 Pokemon of each trainer. 
+            CurTrainer.GetNextPokemon();
+        }        
     }
 }

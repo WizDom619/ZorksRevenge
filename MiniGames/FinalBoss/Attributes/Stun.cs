@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.MiniGames.FinalBoss.Attributes
 {
@@ -8,7 +6,7 @@ namespace ZorksRevenge.MiniGames.FinalBoss.Attributes
     {
         public override void Action()
         {
-            BattleData.UpdateEnemyStatus("Stun");
+            BattleData.UpdateEnemyStatus(Status.Stun);
         }
     }
 }

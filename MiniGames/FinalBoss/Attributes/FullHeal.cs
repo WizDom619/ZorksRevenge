@@ -1,6 +1,4 @@
-﻿using ZorksRevenge.MiniGames.FinalBoss.Attributes;
-
-namespace ZorksRevenge
+﻿namespace ZorksRevenge.MiniGames.FinalBoss.Attributes
 {
     public class FullHeal : mAttribute
     {

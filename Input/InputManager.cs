@@ -66,7 +66,7 @@ namespace ZorksRevenge.Input
             string[] splitInput = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
             // To avoid confusion around capitalisation, all words will be in uppercase
-            splitInput = splitInput.Select(s => s.ToUpper()).ToArray();
+            splitInput = splitInput.Select(s => s.ToUpperInvariant()).ToArray();
 
             // Remove useless words.
             splitInput = splitInput.Where(word => !_uselessWords.Contains(word)).ToArray();

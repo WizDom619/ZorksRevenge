@@ -59,4 +59,10 @@ namespace ZorksRevenge.Utility
         Strike, // [9m
         NULL
     };
+
+    public enum Status
+    {
+        Stun,
+        NULL
+    };
 }

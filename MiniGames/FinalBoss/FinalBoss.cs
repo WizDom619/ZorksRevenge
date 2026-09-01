@@ -1,17 +1,24 @@
-﻿using ZorksRevenge.MiniGames;
+﻿using ZorksRevenge.Data;
 using ZorksRevenge.Utility;
 
-
-namespace ZorksRevenge
+namespace ZorksRevenge.MiniGames.FinalBoss
 {
+    /// <summary>
+    /// Final Boss the the last MiniGame the player will play. 
+    /// The idea is a mock Pokemon battle with the final boss Zork. 
+    /// Player will rotate between six Pokemons with unique moves to damage Zork. 
+    /// The battle is pretty easy, figured I'd finish of a dopamine high. 
+    /// </summary>
     public class FinalBoss : MiniGame
     {
-        public override bool Play()
+        public override bool Play(GameData gameData)
         {
-            Console.Clear();
+            ZorkPrinter.ClearScreen();
 
-            BattleData.Initialize();
+            // Reset all values. 
+            BattleData.Init();
 
+            // Some flavour text to preempt the battle. 
             ZorkPrinter.Print("\"Hehe, thank you for all the 7 gems\" says ");
             ZorkPrinter.PrintLine("Zork", ZorkPrinter.NPCColour);
             ZorkPrinter.PrintLine("\"Thanks to you and the power of the 7 games my plan for world domination is at hand\"");
@@ -26,18 +33,19 @@ namespace ZorksRevenge
             ZorkPrinter.PrintLine("Minigame #8 Final Battle");
             ZorkPrinter.PrintLine("-----------------------------------------------------------------------\n");
 
-            BeginBattle();
+            BeginBattle(gameData);
 
             return false;
         }
 
-        private void BeginBattle()
+        private void BeginBattle(GameData gameData)
         {
+            // The battle will keep going until isLooping is false. 
             bool isLooping = true; 
             
             ZorkPrinter.PrintLine("");
 
-            ZorkPrinter.PrintLine($"{Player.Name}'s HP: {BattleData.PlayerHP} / 100", ZorkPrinter.PlayerColour);
+            ZorkPrinter.PrintLine($"{gameData.Player.Name}'s HP: {BattleData.PlayerHP} / 100", ZorkPrinter.PlayerColour);
             ZorkPrinter.PrintLine($"Zork's HP: {BattleData.EnemyHP} / 100\n", ZorkPrinter.NPCColour);
 
             while (isLooping)
@@ -71,12 +79,12 @@ namespace ZorksRevenge
 
                         ZorkPrinter.PrintLine("");
 
-                        ZorkPrinter.PrintLine($"{Player.Name}'s HP: {BattleData.PlayerHP} / 100", ZorkPrinter.PlayerColour);
+                        ZorkPrinter.PrintLine($"{gameData.Player.Name}'s HP: {BattleData.PlayerHP} / 100", ZorkPrinter.PlayerColour);
                         ZorkPrinter.PrintLine($"Zork's HP: {BattleData.EnemyHP} / 100\n", ZorkPrinter.NPCColour);
 
                         if (BattleData.EnemyHP <= 0)
                         {
-                            Player.DidBeatGame = true;
+                            gameData.Player.DidBeatGame = true;
                             ZorkPrinter.PrintEnd();
                         }
                         else if (BattleData.PlayerHP <= 0)

@@ -1,23 +1,24 @@
 ﻿using ZorksRevenge.MiniGames.FinalBoss.Attributes;
 using ZorksRevenge.Utility;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.MiniGames.FinalBoss
 {
     public class Move
     {
-        private string _name;
-        private string _description;
-        private List<mAttribute> _attributes = new List<mAttribute>();
+        public string Name { get; init; }
+        public string _description;
+
+        public List<mAttribute> _attributes = new List<mAttribute>();
 
         public Move (string name, string description)
         {
-            _name = name;
+            Name = name;
             _description = description;
         }
 
         public void Action()
         {
-            ZorkPrinter.PrintLine($"{_name} {_description}");
+            ZorkPrinter.PrintLine($"{Name} {_description}");
 
             foreach(mAttribute mA in _attributes)
             {
@@ -29,11 +30,6 @@ namespace ZorksRevenge
         {
             _attributes.Add(mA);
             return this;
-        }
-
-        public string Name
-        {
-            get { return _name; }
         }
     }
 }

@@ -14,8 +14,8 @@ namespace ZorksRevenge.Input
     /// </summary>
     public class Command
     {
-        private Verb Verb {  get; init; }
-        private string Noun { get; init; }
+        public Verb Verb {  get; init; }
+        public string Noun { get; init; }
 
         public Command(Verb verb, String noun)
         {

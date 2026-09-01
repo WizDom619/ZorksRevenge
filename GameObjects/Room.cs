@@ -39,7 +39,7 @@ namespace ZorksRevenge
             return this;
         }
 
-        public void Print()
+        public void PrintInfo()
         {
             ZorkPrinter.PrintLine("----------------------------------------------------------------------------------------------------------");
             ZorkPrinter.Print($"Location: ", ZorkPrinter.RoomColour);
