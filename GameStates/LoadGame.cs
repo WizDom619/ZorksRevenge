@@ -1,18 +1,34 @@
-﻿using ZorksRevenge.Save;
+﻿using ZorksRevenge.Data;
+using ZorksRevenge.FileIO;
+using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.GameStates 
 {
+    // This class will load the the previous save file
+    // And begin a Campaign, (from where the player last saved). 
     public class LoadGame : GameState
     {
-        public override GameState? Update()
+        public override void Display(GameData gameData)
         {
-            SaveManager.LoadGameData();
-            return new Campaign();
+            // Caching the reference. 
+            string text = gameData.Player.Name;
+
+            ZorkPrinter.PrintLine("Load Game");
+            ZorkPrinter.PrintLine($"Welcome back {text}");
         }
-        public override void Display()
+
+        public override void ReadInput(GameData gameData)
         {
-            //TESTING
-            Console.WriteLine("Load Game");
+            PressAnyKey();
+        }
+
+        public override void Process(GameData gameData)
+        {
+            // TODO
+            // FileManager.LoadGameData();
+
+            // Begin the Campaign with the previous saves data loaded. 
+            gameData.State = new Campaign();
         }
     }
 }

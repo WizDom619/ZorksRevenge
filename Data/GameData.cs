@@ -13,7 +13,11 @@ namespace ZorksRevenge.Data
     {
         // Set properties and default values. 
         public GameState? State { get; set; } = new MainMenu();
+        // Command holds the input when in the games campaign
         public Command? Command { get; set; } = null;
+        // Input holds the input for all other game states (mainly menu states) 
+        public string Input { get; set; } = "-1";
+        // Holds all the player's data in a single object
         public Player? Player { get; set; } = new Player();
 
         // Game World data

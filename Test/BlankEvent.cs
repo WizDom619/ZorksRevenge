@@ -1,7 +1,8 @@
 ﻿using ZorksRevenge.Utility;
 
-namespace ZorksRevenge.CommandEvents
+namespace ZorksRevenge.Test
 {
+    /*
     internal class BlankEvent : CommandEvent
     {
         public override void Process()
@@ -16,4 +17,5 @@ namespace ZorksRevenge.CommandEvents
             ZorkPrinter.PrintLine(" -Type 'help' for a guide on commands");
         }
     }
+    */
 }

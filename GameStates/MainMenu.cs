@@ -1,16 +1,17 @@
-﻿using ZorksRevenge.Utility;
+﻿using ZorksRevenge.Data;
+using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.GameStates
 {
     /// <summary>
     /// This is the Main menu 
     /// This will be the first menu state the player will see. 
-    /// Here the player can navigate to other menu states and begin playing the game. 
+    /// Here the player will need to navigate to other menu states before playing. 
     /// </summary>
     public class MainMenu : GameState
     {
         //Players options to navigate the main menu
-        public override void Display()
+        public override void Display(GameData gameData)
         {
             ZorkPrinter.PrintTitle();
             ZorkPrinter.PrintLine("Please Select a Number:\n");
@@ -20,27 +21,30 @@ namespace ZorksRevenge.GameStates
             ZorkPrinter.PrintLine("  (4): Quit Game\n");
         }
 
-        public override GameState? Update()
+        // User will enter a number to navigate the Main Menu
+        public override void Process(GameData gameData)
         {
-            switch (_response)
+            switch (gameData.Input)
             {
                 case "1":
-                    return new NewGame();
+                    gameData.State = new NewGame();
+                    return;
 
                 case "2":
-                    return new LoadGame();
+                    gameData.State = new LoadGame();
+                    return;
 
                 case "3":
-                    return new HowToPlay();
+                    gameData.State = new HowToPlay();
+                    return;
 
                 case "4":
-                    return  new QuitGame();
+                    gameData.State = new QuitGame();
+                    return;
 
                 default:
-                    break;
+                    return;
             }
-
-            return null;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ZorksRevenge.Utility;
+﻿using ZorksRevenge.Data;
+using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.Input
 {

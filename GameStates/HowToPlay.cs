@@ -1,16 +1,17 @@
-﻿using ZorksRevenge.Utility;
+﻿using ZorksRevenge.Data;
+using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.GameStates
 {
     /// <summary>
-    /// This is the How To Play Menu Class
-    /// Will inherit from Menu Base because it is a type of menu. 
-    /// Instruction on how to play will be displayed here. 
+    /// This is the How To Play Menu State
+    /// Instructions on how how text-based adventures work will go here. 
+    /// Once instructions have been read player can press any key to return to the Main Menu. 
     /// </summary>
     public class HowToPlay : GameState
     {
-
-        public override void Display()
+        // Instructions on how how text-based adventures work
+        public override void Display(GameData gameData)
         {
             ZorkPrinter.PrintLine("----------------------------------------------------------------------------------------------");
             Console.Write("                                      ");
@@ -34,14 +35,15 @@ namespace ZorksRevenge.GameStates
             
         }
 
-        public override void ReadInput()
+        public override void ReadInput(GameData gameData)
         {
             PressAnyKey();
         }
 
-        public override GameState Update()
+        // Once instructions have been read player can press any key to return to the Main Menu.
+        public override void Process(GameData gameData)
         {
-            return new MainMenu();
+            gameData.State = new MainMenu();
         }
     }
 }

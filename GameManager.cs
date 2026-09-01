@@ -23,26 +23,25 @@ namespace ZorksRevenge
 
             while (true)
             {
-                Display();
+                DisplayOutput();
                 ReadInput();
-                Process();
+                ProcessData();
             }
         }
-        private void Display()
+        private void DisplayOutput()
         {
             ZorkPrinter.ClearScreen();
-            _gameData.Display();
+            _gameData.State.Display(_gameData);
         }
 
         private void ReadInput()
         {
-            string? input = Console.ReadLine();
-            InputManager.ParseInput(_gameData, input);
+            _gameData.State.ReadInput(_gameData);
         }
 
-        private void Process()
+        private void ProcessData()
         {
-            _gameData.Update(_gameData);
+            _gameData.State.Process(_gameData);
         }
 
     }

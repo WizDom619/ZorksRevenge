@@ -1,5 +1,7 @@
 ﻿using ZorksRevenge.CommandEvents;
+using ZorksRevenge.Data;
 using ZorksRevenge.GameStates;
+using ZorksRevenge.Input;
 using ZorksRevenge.Utility;
 
 namespace ZorksRevenge
@@ -25,6 +27,28 @@ namespace ZorksRevenge
             _commandEvent = _command.GetEvent();
         }
 
+        public override void Display()
+        {
+            ZorkPrinter.Print($"Last Command: ");
+            ZorkPrinter.PrintLine($"{_command.Verb}, {_command.Noun}, {Player.Name}", ZorkPrinter.PlayerColour);
+            ZorkPrinter.PrintLine("----------------------------------------------------------------------------------------------------------\n");
+
+            _commandEvent.Display();
+            ZorkPrinter.PrintLine("");
+            
+            GameData.FindRoomByID(Player.CurrentRoomID).Print();
+        }
+
+        public override void ReadInput()
+        {
+            string? input = Console.ReadLine();
+
+            if (gameData.State == new Campaign())
+            {
+                InputManager.ParseInput(gameData, input);
+            }
+        }
+
         public override GameState? Update()
         {
             _command = _inputParser.Process(_response);
@@ -40,27 +64,6 @@ namespace ZorksRevenge
             else
             {
                 return this;
-            }
-        }
-
-        public override void Display()
-        {
-            ZorkPrinter.Print($"Last Command: ");
-            ZorkPrinter.PrintLine($"{_command.Verb}, {_command.Noun}, {Player.Name}", ZorkPrinter.PlayerColour);
-            ZorkPrinter.PrintLine("----------------------------------------------------------------------------------------------------------\n");
-
-            _commandEvent.Display();
-            ZorkPrinter.PrintLine("");
-            
-            GameData.FindRoomByID(Player.CurrentRoomID).Print();
-        }
-
-        
-        public void Print()
-        {
-            foreach (Room room in GameData.Rooms)
-            {
-                room.Print();
             }
         }
     }
