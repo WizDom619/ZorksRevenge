@@ -1,9 +1,7 @@
 ﻿namespace ZorksRevenge.Utility
 {
     /// <summary>
-    /// Global constants for Zork's Revenge.
-    /// Centralizing these here keeps them easy to find and update,
-    /// and avoids magic strings/values scattered across the codebase.
+    /// The global constants for Zork's Revenge.
     /// </summary>
     public static class GameConstants
     {
