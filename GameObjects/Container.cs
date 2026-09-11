@@ -1,21 +1,17 @@
-﻿using ZorksRevenge.Utility;
+﻿using ZorksRevenge.Data;
+using ZorksRevenge.Utility;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.GameObjects
 {
     public class Container : GameObject
     {
-        private bool _opened;
-
-        private List<string> _contents;
-
-        public Container()
-        {
-        }
+        private bool isOpened { get; set; } 
+        private List<string> ItemIDs { get; set; }
 
         public Container AddItem(string id)
         {
             Colour = ZorkPrinter.ContainerColour;
-            _contents.Add(GameData.FindGameObjectByID(id).ID);
+            ItemIDs.Add(id);
             return this;
         }
 
@@ -40,17 +36,6 @@ namespace ZorksRevenge
             }
             
             ZorkPrinter.PrintLine("");
-        }
-
-        public bool isOpened 
-        { 
-            get { return _opened; } 
-            set { _opened = value; } 
-        }
-        public List<string> ItemIDs 
-        { 
-            get { return _contents; }
-            set { _contents = value; }
         }
     }
 }
