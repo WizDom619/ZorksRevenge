@@ -135,7 +135,7 @@ namespace ZorksRevenge.Utility
             WriteLine(" ███╔╝  ██║   ██║██╔══██╗██╔═██╗  ╚════██║    ██╔══██╗██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║██║   ██║██╔══╝");
             WriteLine("███████╗╚██████╔╝██║  ██║██║  ██╗ ███████║    ██║  ██║███████╗ ╚████╔╝ ███████╗██║ ╚████║╚██████╔╝███████╗");
             WriteLine("╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚══════╝    ╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝");
-            PrintLine($"{"A fan game by Dominic Towns. Version 1.4.4",106}\n");
+            PrintLine($"{"A fan game by " + GameConstants.GameCreator + " " + GameConstants.Version,106}\n");
         }
         public static void PrintEnd()
         {

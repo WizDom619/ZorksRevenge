@@ -18,7 +18,7 @@ namespace ZorksRevenge
         public ZorksRevengeGame()
         {
             // Set the window's title. 
-            Console.Title = "Zork's Revenge";
+            Console.Title = GameConstants.GameTitle;
 
             // Set cursor visibility
             // Looks more professional this way
