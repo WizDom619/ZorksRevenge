@@ -1,48 +1,48 @@
 ﻿using ZorksRevenge.FileIO;
-using ZorksRevenge.Data;
-using ZorksRevenge.Input; 
+using ZorksRevenge.Input;
 using ZorksRevenge.Utility;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.Main
 {
+    /// <summary>
+    /// This is the Game Manager
+    /// Here all Manager Classes will be instantiated or initialised.
+    /// Additionally this class will also Run the main Game Loop 
+    /// </summary>
     public class GameManager
     {
         // Holds all the game data (both the player and world data)
-        private GameData _gameData = new GameData();
+        private GameData _gameData;
+        private DisplayManager _displayManager;
+        private InputManager _inputManager;
+        private ProcessManager _processManager;
 
         //private InputParser
 
         public GameManager()
         {
-            // Initialise all Managers
-            FileManager.Init(_gameData);
+            _gameData = new GameData();
+            _displayManager = new DisplayManager(_gameData);
+            _inputManager = new InputManager(_gameData);
+            _processManager = new ProcessManager(_gameData);
+
+            // Initialise all other Managers
+            //FileManager.Init(_gameData);
 
             /// Static Classes 
             // ZorkPrinter
-            // InputManager
+            // InputManager            
+        }
 
+        public void Run()
+        {
+            // The Game Loop
             while (true)
             {
-                DisplayOutput();
-                ReadInput();
-                ProcessData();
+                _displayManager.Display();
+                _inputManager.Input();
+                _processManager.Process();
             }
         }
-        private void DisplayOutput()
-        {
-            ZorkPrinter.ClearScreen();
-            _gameData.State.Display(_gameData);
-        }
-
-        private void ReadInput()
-        {
-            _gameData.State.ReadInput(_gameData);
-        }
-
-        private void ProcessData()
-        {
-            _gameData.State.Process(_gameData);
-        }
-
     }
 }

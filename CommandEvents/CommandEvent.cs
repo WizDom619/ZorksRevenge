@@ -1,5 +1,5 @@
-﻿using ZorksRevenge.Data;
-using ZorksRevenge.Input;
+﻿using ZorksRevenge.Input;
+using ZorksRevenge.Main;
 
 namespace ZorksRevenge.CommandEvents
 {

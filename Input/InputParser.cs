@@ -1,4 +1,4 @@
-﻿using ZorksRevenge.Data;
+﻿using ZorksRevenge.Main;
 using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.Input
@@ -8,7 +8,7 @@ namespace ZorksRevenge.Input
     /// The input will then be converted into a Command object to be stored in GameData
     /// Then the Command is passed onto be used in Process() and Display()
     /// </summary>
-    public static class InputManager
+    public static class InputParser
     {
         // An array of useless words
         // These words are used naturally in English but are unimportant to the parser

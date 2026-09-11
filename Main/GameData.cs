@@ -2,8 +2,9 @@
 using ZorksRevenge.GameObjects;
 using ZorksRevenge.GameStates;
 using ZorksRevenge.Input;
+using ZorksRevenge.Test;
 
-namespace ZorksRevenge.Data
+namespace ZorksRevenge.Main
 {
     /// <summary>
     /// Here is where all the Game Data is Instantiated.

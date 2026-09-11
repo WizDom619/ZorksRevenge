@@ -1,20 +1,22 @@
 ﻿using ZorksRevenge.Utility;
 
-namespace ZorksRevenge
+namespace ZorksRevenge.Main
 {
     /// <summary>
     /// The beginning of Zork's Revenge
+    /// This is a bootstrapper class
     /// This is a good place to set all the console window configurations.  
     /// Configurations included
     ///     Title, 
     ///     Cursor Visibility, 
     ///     Enabling the use of ANCI codes 
     ///     Performing the initial clearing of the screen
-    ///            
-    /// Afterwards, instantiate GameManager()
+    ///     Afterwards, instantiate GameManager()
     /// </summary>
     public class ZorksRevengeGame
     {
+        private GameManager _gameManager;
+
         public ZorksRevengeGame()
         {
             // Set the window's title. 
@@ -32,8 +34,14 @@ namespace ZorksRevenge
             // This guarantees a clean slate to begin the game. 
             ZorkPrinter.ClearScreen();
 
-            // Instantiate the GameManager to begin the game loop
-            GameManager _gameManager = new GameManager();
+            // Instantiate the GameManager
+            _gameManager = new GameManager();
+        }
+
+        public void Run()
+        {
+            // Begin the game loop.
+            _gameManager.Run();
         }
     }
 }

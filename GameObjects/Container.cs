@@ -1,4 +1,4 @@
-﻿using ZorksRevenge.Data;
+﻿using ZorksRevenge.Main;
 using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.GameObjects

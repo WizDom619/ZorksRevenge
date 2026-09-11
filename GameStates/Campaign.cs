@@ -1,6 +1,6 @@
 ﻿using ZorksRevenge.CommandEvents;
-using ZorksRevenge.Data;
 using ZorksRevenge.Input;
+using ZorksRevenge.Main;
 using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.GameStates

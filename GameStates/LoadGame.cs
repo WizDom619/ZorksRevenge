@@ -1,5 +1,5 @@
-﻿using ZorksRevenge.Data;
-using ZorksRevenge.FileIO;
+﻿using ZorksRevenge.FileIO;
+using ZorksRevenge.Main;
 using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.GameStates 
