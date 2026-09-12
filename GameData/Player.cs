@@ -1,4 +1,4 @@
-﻿namespace ZorksRevenge.Test
+﻿namespace ZorksRevenge.GameData
 {
     /// <summary>
     /// This class hold all relevant information about the player

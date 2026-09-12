@@ -32,6 +32,7 @@ namespace ZorksRevenge.Main
 
             // Clears to screen of any initial system loading output. 
             // This guarantees a clean slate to begin the game. 
+            // Even if the Display Manager will do it later anyway. 
             ZorkPrinter.ClearScreen();
 
             // Instantiate the GameManager

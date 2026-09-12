@@ -1,6 +1,7 @@
 ﻿using ZorksRevenge.FileIO;
 using ZorksRevenge.Input;
 using ZorksRevenge.Utility;
+using ZorksRevenge.GameData;
 
 namespace ZorksRevenge.Main
 {
