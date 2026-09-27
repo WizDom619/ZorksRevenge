@@ -1,7 +1,5 @@
-﻿using ZorksRevenge.FileIO;
-using ZorksRevenge.Input;
-using ZorksRevenge.Utility;
-using ZorksRevenge.GameData;
+﻿using ZorksRevenge.Data;
+using ZorksRevenge.GameStates;
 
 namespace ZorksRevenge.Main
 {
@@ -14,25 +12,22 @@ namespace ZorksRevenge.Main
     {
         // Holds all the game data (both the player and world data)
         private GameData _gameData;
-        private DisplayManager _displayManager;
-        private InputManager _inputManager;
-        private ProcessManager _processManager;
 
         //private InputParser
 
         public GameManager()
         {
             _gameData = new GameData();
-            _displayManager = new DisplayManager(_gameData);
-            _inputManager = new InputManager(_gameData);
-            _processManager = new ProcessManager(_gameData);
 
             // Initialise all other Managers
             //FileManager.Init(_gameData);
 
             /// Static Classes 
             // ZorkPrinter
-            // InputManager            
+            // InputManager
+            // 
+
+            _gameData.GameState = new MainMenu();
         }
 
         public void Run()
@@ -40,9 +35,9 @@ namespace ZorksRevenge.Main
             // The Game Loop
             while (true)
             {
-                _displayManager.Display();
-                _inputManager.Input();
-                _processManager.Process();
+                _gameData.GameState.Display(_gameData);
+                _gameData.GameState.Input(_gameData);
+                _gameData.GameState.Process(_gameData);
             }
         }
     }

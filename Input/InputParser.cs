@@ -1,4 +1,4 @@
-﻿using ZorksRevenge.Main;
+﻿using ZorksRevenge.Data;
 using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.Input
@@ -50,8 +50,11 @@ namespace ZorksRevenge.Input
         /// Once input is broken apart the Verb and Noun will be encapsulated into a Command and stored in GameData 
         /// </summary>
         
-        public static void ParseInput(GameData gameData, string? input)
+        public static void ParseInput(GameData gameData)
         {
+            // Caching the references
+            string input = gameData.Input;
+
             // Validate that input is not null. 
             if (input == null)
             {

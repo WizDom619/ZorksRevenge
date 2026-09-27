@@ -1,4 +1,4 @@
-﻿using ZorksRevenge.Main;
+﻿using ZorksRevenge.Data;
 using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.GameStates
@@ -24,17 +24,23 @@ namespace ZorksRevenge.GameStates
             ZorkPrinter.PrintLine("  (2): Yes\n");
         }
 
+        public override void Input(GameData gameData)
+        {
+            defaultInput(gameData);
+        }
+
         public override void Process(GameData gameData)
         {             
             if (gameData.Input != "2")
             {
                 // False alarm, return to Main Menu
-                gameData.State = new MainMenu();
+                gameData.GameState = new MainMenu();
             }
             else
             {
                 // Game has Ended, display a Goodbye Message. 
                 ZorkPrinter.Print("\nThanks for Playing!\n\n");
+
                 // Terminate program. 
                 Environment.Exit(0);
             }            

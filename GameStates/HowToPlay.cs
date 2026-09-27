@@ -1,4 +1,4 @@
-﻿using ZorksRevenge.Main;
+﻿using ZorksRevenge.Data;
 using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.GameStates
@@ -35,15 +35,15 @@ namespace ZorksRevenge.GameStates
             
         }
 
-        public override void ReadInput(GameData gameData)
+        public override void Input(GameData gameData)
         {
             PressAnyKey();
         }
 
-        // Once instructions have been read player can press any key to return to the Main Menu.
+        // Once instructions have been read player will automatically be returned to the Main Menu
         public override void Process(GameData gameData)
         {
-            gameData.State = new MainMenu();
+            gameData.GameState = new MainMenu();
         }
     }
 }

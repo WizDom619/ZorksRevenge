@@ -8,16 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Test.Random.Temp.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Test\TestRandomTemp.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="FileIO\NewGame\" />
     <Folder Include="FileIO\SavedGame\" />
+    <Folder Include="Test\" />
   </ItemGroup>
 
 </Project>

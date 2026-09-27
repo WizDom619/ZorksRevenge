@@ -2,6 +2,7 @@
 {
     public class Paths
     {
+        /*
         private Room? _north;
         private Room? _south;
         private Room? _east;
@@ -64,5 +65,6 @@
             if (_east != null) { ZorkPrinter.Print($" -East of me is"); ZorkPrinter.Print($" {_east.Name}\n", ZorkPrinter.RoomColour); }
             if (_west != null) { ZorkPrinter.Print($" -West of me is"); ZorkPrinter.Print($" {_west.Name}\n", ZorkPrinter.RoomColour); }
         }
+        */
     }
 }

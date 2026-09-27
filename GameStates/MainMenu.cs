@@ -1,4 +1,4 @@
-﻿using ZorksRevenge.Main;
+﻿using ZorksRevenge.Data;
 using ZorksRevenge.Utility;
 
 namespace ZorksRevenge.GameStates
@@ -6,40 +6,45 @@ namespace ZorksRevenge.GameStates
     /// <summary>
     /// This is the Main menu 
     /// This will be the first menu state the player will see. 
-    /// Here the player will need to navigate to other menu states before playing. 
+    /// Here the player will need to navigate to other menu states before beginning the game. 
     /// </summary>
     public class MainMenu : GameState
     {
-        //Players options to navigate the main menu
+        // Players options to navigate the main menu
         public override void Display(GameData gameData)
         {
-            ZorkPrinter.PrintTitle();
-            ZorkPrinter.PrintLine("Please Select a Number:\n");
+            ZorkArt.PrintTitle();
+            ZorkPrinter.PrintLine("Please Type a Number to Select an Option:\n");
             ZorkPrinter.PrintLine("  (1): New Game");
             ZorkPrinter.PrintLine("  (2): Load Game");
             ZorkPrinter.PrintLine("  (3): How to Play");
             ZorkPrinter.PrintLine("  (4): Quit Game\n");
         }
 
-        // User will enter a number to navigate the Main Menu
+        public override void Input(GameData gameData)
+        {
+            defaultInput(gameData);
+        }
+
+        // A single digit will be used to navigate the menu.
         public override void Process(GameData gameData)
         {
             switch (gameData.Input)
             {
                 case "1":
-                    gameData.State = new NewGame();
+                    gameData.GameState = new NewGame();
                     return;
 
                 case "2":
-                    gameData.State = new LoadGame();
+                    gameData.GameState = new LoadGame();
                     return;
 
                 case "3":
-                    gameData.State = new HowToPlay();
+                    gameData.GameState = new HowToPlay();
                     return;
 
                 case "4":
-                    gameData.State = new QuitGame();
+                    gameData.GameState = new QuitGame();
                     return;
 
                 default:
